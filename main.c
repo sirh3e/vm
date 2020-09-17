@@ -59,6 +59,11 @@ int instruction_mul(Vm*);
 
 int instruction_inc(Vm*);
 
+int instruction_push(Vm*);
+int instruction_pop(Vm*);
+
+int instruction_load(Vm*);
+
 int instruction_log(Vm*);
 
 enum Instruction{
@@ -69,6 +74,11 @@ enum Instruction{
     INSTRUCTION_MUL,        //register c = register a * register b; and store it on the stack
 
     INSTRUCTION_INC,        //
+
+    INSTRUCTION_PUSH,
+    INSTRUCTION_POP,
+
+    INSTRUCTION_LOAD,
 
     INSTRUCTION_LOG,        //
 
@@ -83,6 +93,11 @@ int (*instructions[])(Vm*) ={
         [INSTRUCTION_MUL] = instruction_mul,
 
         [INSTRUCTION_INC] = instruction_inc,
+
+        [INSTRUCTION_PUSH] = instruction_push,
+        [INSTRUCTION_POP] = instruction_pop,
+
+        [INSTRUCTION_LOAD] = instruction_load,
 
         [INSTRUCTION_LOG] = instruction_log,
 };
@@ -117,6 +132,12 @@ int main(){
             INSTRUCTION_INC, B, 128,
             INSTRUCTION_INC, B, 128,
             INSTRUCTION_LOG, B,
+
+            INSTRUCTION_PUSH, 1289,
+            INSTRUCTION_POP,
+
+            INSTRUCTION_LOAD, A,
+            INSTRUCTION_LOG, A,
 
             INSTRUCTION_HALT
     };
@@ -203,6 +224,34 @@ int instruction_inc(Vm* vm){
 
     vm->registers[vm->instructions[vm->instruction_index]] += vm->instructions[vm->instruction_index++];
     vm->instruction_index++;
+
+    return 0;
+}
+
+int instruction_push(Vm* vm){
+
+    assert(vm != NULL);
+
+    VM_STACK_SET_BY_INDEX(vm, vm->stack_index++, VM_INSTRUCTION_GET_BY_INDEX(vm, vm->instruction_index++));
+
+    return 0;
+}
+
+int instruction_pop(Vm* vm){
+
+    assert(vm != NULL);
+
+    vm->stack_index--;
+
+    return 0;
+}
+
+int instruction_load(Vm* vm){
+
+    assert(vm != NULL);
+    assert(vm->instructions[vm->instruction_index] < REGISTERS_LENGTH);
+
+    vm->registers[vm->instructions[vm->instruction_index++]] = vm->stack[vm->stack_index];
 
     return 0;
 }
