@@ -62,6 +62,7 @@ int instruction_inc(Vm*);
 int instruction_push(Vm*);
 int instruction_pop(Vm*);
 
+int instruction_save(Vm*);
 int instruction_load(Vm*);
 
 int instruction_log(Vm*);
@@ -78,6 +79,7 @@ enum Instruction{
     INSTRUCTION_PUSH,
     INSTRUCTION_POP,
 
+    INSTRUCTION_SAVE,
     INSTRUCTION_LOAD,
 
     INSTRUCTION_LOG,        //
@@ -97,6 +99,7 @@ int (*instructions[])(Vm*) ={
         [INSTRUCTION_PUSH] = instruction_push,
         [INSTRUCTION_POP] = instruction_pop,
 
+        [INSTRUCTION_SAVE] = instruction_save,
         [INSTRUCTION_LOAD] = instruction_load,
 
         [INSTRUCTION_LOG] = instruction_log,
@@ -136,8 +139,13 @@ int main(){
             INSTRUCTION_PUSH, 1289,
             INSTRUCTION_POP,
 
-            INSTRUCTION_LOAD, A,
-            INSTRUCTION_LOG, A,
+            INSTRUCTION_LOAD, B,
+            INSTRUCTION_SAVE, B,
+
+            INSTRUCTION_POP,
+            INSTRUCTION_LOAD, C,
+
+            INSTRUCTION_LOG, C,
 
             INSTRUCTION_HALT
     };
@@ -242,6 +250,16 @@ int instruction_pop(Vm* vm){
     assert(vm != NULL);
 
     vm->stack_index--;
+
+    return 0;
+}
+
+int instruction_save(Vm* vm){
+
+    assert(vm != NULL);
+    assert(vm->instructions[vm->instruction_index] < REGISTERS_LENGTH);
+
+    vm->stack[vm->stack_index++] = vm->registers[vm->instructions[vm->instruction_index++]];
 
     return 0;
 }
