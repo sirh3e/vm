@@ -13,6 +13,24 @@ int vm_instruction_fetch(Vm*);
 
 int instruction_evaluate(Vm*, int instruction);
 
+//ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
+//ToDo labels:
+//  label
+
+//ToDo simple:
+//  not,
+
+//ToDo flow:
+//  je <label> (jump when equal)
+//  jne <label> (jump when not equal)
+//  jz <label> (jump when last result was zero)
+//  jg <label> (jump when greater than)
+//  jge <label> (jump when greater than or equal to)
+//  jl <label> (jump when less than)
+//  jle <label> (jump when less than or equal to)
+//  cmp
+//  call, ret | functions
+
 int instruction_halt(Vm*);
 
 int instruction_add(Vm*);
