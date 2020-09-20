@@ -57,6 +57,7 @@ int instruction_add(Vm*);
 int instruction_sub(Vm*);
 int instruction_mul(Vm*);
 
+int instruction_dec(Vm*);
 int instruction_inc(Vm*);
 
 int instruction_push(Vm*);
@@ -67,6 +68,29 @@ int instruction_load(Vm*);
 
 int instruction_log(Vm*);
 
+//ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
+//ToDo labels:
+//  label
+
+//ToDo simple:
+//  inc, dec
+//  and, or xor,
+//  not,
+//  neg,
+//  shl, shr | left, right shift
+
+//ToDo flow:
+//  je <label> (jump when equal)
+//  jne <label> (jump when not equal)
+//  jz <label> (jump when last result was zero)
+//  jg <label> (jump when greater than)
+//  jge <label> (jump when greater than or equal to)
+//  jl <label> (jump when less than)
+//  jle <label> (jump when less than or equal to)
+//  cmp
+//  call, ret | functions
+
+
 enum Instruction{
     INSTRUCTION_HALT = 0,   //ToDo
 
@@ -74,6 +98,7 @@ enum Instruction{
     INSTRUCTION_SUB,        //register c = register a - register b; and store it on the stack
     INSTRUCTION_MUL,        //register c = register a * register b; and store it on the stack
 
+    INSTRUCTION_DEC,
     INSTRUCTION_INC,        //
 
     INSTRUCTION_PUSH,
@@ -94,6 +119,7 @@ int (*instructions[])(Vm*) ={
         [INSTRUCTION_SUB] = instruction_sub,
         [INSTRUCTION_MUL] = instruction_mul,
 
+        [INSTRUCTION_DEC] = instruction_dec,
         [INSTRUCTION_INC] = instruction_inc,
 
         [INSTRUCTION_PUSH] = instruction_push,
@@ -183,6 +209,8 @@ int instruction_halt(Vm* vm){
 
     assert(vm != NULL);
 
+    //ToDo clear memory enforce to stop
+
     return 0;
 }
 
@@ -221,6 +249,17 @@ int instruction_mul(Vm* vm){
 
     vm->registers[C] = vm->registers[A] * vm->registers[B];
     vm->stack[vm->stack_index++] = vm->registers[C];
+
+    return 0;
+}
+
+int instruction_dec(Vm* vm){
+
+    assert(vm != NULL);
+    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH); //a tmp variable would be cheating
+
+    vm->registers[vm->instructions[vm->instruction_index]] -= vm->instructions[vm->instruction_index++];
+    vm->instruction_index++;
 
     return 0;
 }
