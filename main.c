@@ -104,7 +104,7 @@ enum Instruction{
     INSTRUCTION_DIV,        //register c = register a / register b; and store it on the stack
 
     INSTRUCTION_DEC,
-    INSTRUCTION_INC,        //
+    INSTRUCTION_INC,
     INSTRUCTION_NEG,
 
     INSTRUCTION_AND,
@@ -119,7 +119,7 @@ enum Instruction{
     INSTRUCTION_SAVE,
     INSTRUCTION_LOAD,
 
-    INSTRUCTION_LOG,        //
+    INSTRUCTION_LOG,
 
     INSTRUCTION_LENGTH
 };
