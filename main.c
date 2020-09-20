@@ -82,7 +82,6 @@ int instruction_log(Vm*);
 
 //ToDo simple:
 //  not,
-//  shl | left shift
 
 //ToDo flow:
 //  je <label> (jump when equal)
@@ -374,7 +373,7 @@ int instruction_shr(Vm* vm){ //right
     return 0;
 }
 
-int instruction_shl(Vm* vm){ //right
+int instruction_shl(Vm* vm){
 
     assert(vm != NULL);
     assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH);
