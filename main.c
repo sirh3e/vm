@@ -60,6 +60,8 @@ int instruction_mul(Vm*);
 int instruction_dec(Vm*);
 int instruction_inc(Vm*);
 
+int instruction_and(Vm*);
+
 int instruction_push(Vm*);
 int instruction_pop(Vm*);
 
@@ -100,6 +102,8 @@ enum Instruction{
     INSTRUCTION_DEC,
     INSTRUCTION_INC,        //
 
+    INSTRUCTION_AND,
+
     INSTRUCTION_PUSH,
     INSTRUCTION_POP,
 
@@ -121,11 +125,16 @@ int (*instructions[])(Vm*) ={
         [INSTRUCTION_DEC] = instruction_dec,
         [INSTRUCTION_INC] = instruction_inc,
 
+
+        [INSTRUCTION_AND] = instruction_and,
+
+
         [INSTRUCTION_PUSH] = instruction_push,
         [INSTRUCTION_POP] = instruction_pop,
 
         [INSTRUCTION_SAVE] = instruction_save,
         [INSTRUCTION_LOAD] = instruction_load,
+
 
         [INSTRUCTION_LOG] = instruction_log,
 };
@@ -270,6 +279,19 @@ int instruction_inc(Vm* vm){
 
     vm->registers[vm->instructions[vm->instruction_index]] += vm->instructions[vm->instruction_index++];
     vm->instruction_index++;
+
+    return 0;
+}
+
+int instruction_and(Vm* vm){
+
+    assert(vm != NULL);
+    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH);
+
+    vm->registers[A] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
+    vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
+
+    vm->registers[C] = vm->registers[A] & vm->registers[B];
 
     return 0;
 }
