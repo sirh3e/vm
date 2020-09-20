@@ -60,6 +60,7 @@ int instruction_div(Vm*);
 
 int instruction_dec(Vm*);
 int instruction_inc(Vm*);
+int instruction_neg(Vm*);
 
 int instruction_and(Vm*);
 int instruction_or(Vm*);
@@ -104,6 +105,7 @@ enum Instruction{
 
     INSTRUCTION_DEC,
     INSTRUCTION_INC,        //
+    INSTRUCTION_NEG,
 
     INSTRUCTION_AND,
     INSTRUCTION_OR,
@@ -130,6 +132,7 @@ int (*instructions[])(Vm*) ={
 
         [INSTRUCTION_DEC] = instruction_dec,
         [INSTRUCTION_INC] = instruction_inc,
+        [INSTRUCTION_NEG] = instruction_neg,
 
 
         [INSTRUCTION_AND] = instruction_and,
@@ -300,6 +303,17 @@ int instruction_inc(Vm* vm){
     assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH); //a tmp variable would be cheating
 
     vm->registers[vm->instructions[vm->instruction_index]] += vm->instructions[vm->instruction_index++];
+    vm->instruction_index++;
+
+    return 0;
+}
+
+int instruction_neg(Vm* vm){
+
+    assert(vm != NULL);
+    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH);
+
+    vm->registers[vm->instructions[vm->instruction_index]] *= -1;
     vm->instruction_index++;
 
     return 0;
