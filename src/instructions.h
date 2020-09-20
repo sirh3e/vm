@@ -7,13 +7,13 @@
 
 #include "vm.h"
 
-#include "./instruction/add.h"
 #include "./instruction/halt.h"
 
 int vm_instruction_fetch(Vm*);
 
 int instruction_evaluate(Vm*, int instruction);
 
+int instruction_add(Vm*);
 int instruction_sub(Vm*);
 int instruction_mul(Vm*);
 int instruction_div(Vm*);
