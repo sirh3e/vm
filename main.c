@@ -66,6 +66,7 @@ int instruction_and(Vm*);
 int instruction_or(Vm*);
 int instruction_xor(Vm*);
 int instruction_shr(Vm*);
+int instruction_shl(Vm*);
 
 int instruction_push(Vm*);
 int instruction_pop(Vm*);
@@ -111,6 +112,7 @@ enum Instruction{
     INSTRUCTION_OR,
     INSTRUCTION_XOR,
     INSTRUCTION_SHR,
+    INSTRUCTION_SHL,
 
     INSTRUCTION_PUSH,
     INSTRUCTION_POP,
@@ -140,6 +142,7 @@ int (*instructions[])(Vm*) ={
         [INSTRUCTION_OR] = instruction_or,
         [INSTRUCTION_XOR] = instruction_xor,
         [INSTRUCTION_SHR] = instruction_shr,
+        [INSTRUCTION_SHL] = instruction_shl,
 
 
         [INSTRUCTION_PUSH] = instruction_push,
@@ -366,6 +369,17 @@ int instruction_shr(Vm* vm){ //right
     assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH);
 
     vm->registers[vm->instructions[vm->instruction_index]] >>= vm->instructions[vm->instruction_index++];
+    vm->instruction_index++;
+
+    return 0;
+}
+
+int instruction_shl(Vm* vm){ //right
+
+    assert(vm != NULL);
+    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH);
+
+    vm->registers[vm->instructions[vm->instruction_index]] <<= vm->instructions[vm->instruction_index++];
     vm->instruction_index++;
 
     return 0;
