@@ -13,6 +13,8 @@ int vm_instruction_fetch(Vm*);
 
 int instruction_evaluate(Vm*, int instruction);
 
+int instruction_halt(Vm*);
+
 int instruction_add(Vm*);
 int instruction_sub(Vm*);
 int instruction_mul(Vm*);

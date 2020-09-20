@@ -3,7 +3,8 @@
 //
 
 #include <assert.h>
-#include "halt.h"
+
+#include "../instructions.h"
 
 int instruction_halt(Vm* vm){
 
