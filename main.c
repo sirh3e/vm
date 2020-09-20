@@ -56,6 +56,7 @@ int instruction_halt(Vm*);
 int instruction_add(Vm*);
 int instruction_sub(Vm*);
 int instruction_mul(Vm*);
+int instruction_div(Vm*);
 
 int instruction_dec(Vm*);
 int instruction_inc(Vm*);
@@ -100,6 +101,7 @@ enum Instruction{
     INSTRUCTION_ADD,        //register c = register a + register b; and store it on the stack
     INSTRUCTION_SUB,        //register c = register a - register b; and store it on the stack
     INSTRUCTION_MUL,        //register c = register a * register b; and store it on the stack
+    INSTRUCTION_DIV,        //register c = register a / register b; and store it on the stack
 
     INSTRUCTION_DEC,
     INSTRUCTION_INC,        //
@@ -125,6 +127,7 @@ int (*instructions[])(Vm*) ={
         [INSTRUCTION_ADD] = instruction_add,
         [INSTRUCTION_SUB] = instruction_sub,
         [INSTRUCTION_MUL] = instruction_mul,
+        [INSTRUCTION_DIV] = instruction_div,
 
         [INSTRUCTION_DEC] = instruction_dec,
         [INSTRUCTION_INC] = instruction_inc,
@@ -262,6 +265,20 @@ int instruction_mul(Vm* vm){
     vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
 
     vm->registers[C] = vm->registers[A] * vm->registers[B];
+    vm->stack[vm->stack_index++] = vm->registers[C];
+
+    return 0;
+}
+
+int instruction_div(Vm* vm){
+
+    assert(vm != NULL);
+    assert(VM_INSTRUCTION_GET_BY_INDEX(vm, vm->instruction_index + 1) == 0);
+
+    vm->registers[A] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
+    vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
+
+    vm->registers[C] = vm->registers[A] / vm->registers[B];
     vm->stack[vm->stack_index++] = vm->registers[C];
 
     return 0;
