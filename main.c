@@ -80,7 +80,6 @@ int instruction_log(Vm*);
 
 //ToDo simple:
 //  not,
-//  neg,
 //  shl, shr | left, right shift
 
 //ToDo flow:
