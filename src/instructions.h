@@ -7,12 +7,6 @@
 
 #include "vm.h"
 
-#include "./instruction/halt.h"
-
-int vm_instruction_fetch(Vm*);
-
-int instruction_evaluate(Vm*, int instruction);
-
 //ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
 //ToDo labels:
 //  label
@@ -84,7 +78,6 @@ enum Instruction{
 
     INSTRUCTION_LENGTH
 };
-
 
 int (*instructions[])(Vm*) ={
         [INSTRUCTION_HALT] = instruction_halt, //ToDo
