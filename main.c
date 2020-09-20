@@ -78,7 +78,6 @@ int instruction_log(Vm*);
 //  label
 
 //ToDo simple:
-//  div
 //  not,
 //  neg,
 //  shl, shr | left, right shift
