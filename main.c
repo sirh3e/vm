@@ -73,7 +73,6 @@ int instruction_log(Vm*);
 //  label
 
 //ToDo simple:
-//  inc, dec
 //  and, or xor,
 //  not,
 //  neg,
