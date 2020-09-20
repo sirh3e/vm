@@ -23,4 +23,7 @@ typedef struct{
     u32 instruction_index;
 }Vm;
 
+int vm_instruction_evaluate(Vm*, int instruction);
+int vm_instruction_fetch(Vm*);
+
 #endif //VM_VM_H
