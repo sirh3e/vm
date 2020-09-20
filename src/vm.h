@@ -5,9 +5,7 @@
 #ifndef VM_VM_H
 #define VM_VM_H
 
-#ifndef VM_TYPES_H
-    #include "types.h"
-#endif
+#include "types.h"
 
 typedef struct{
     i32* registers;

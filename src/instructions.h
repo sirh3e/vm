@@ -79,7 +79,7 @@ enum Instruction{
     INSTRUCTION_LENGTH
 };
 
-int (*instructions[])(Vm*) ={
+static int (*instructions[])(Vm*) = {
         [INSTRUCTION_HALT] = instruction_halt, //ToDo
 
         [INSTRUCTION_ADD] = instruction_add,
