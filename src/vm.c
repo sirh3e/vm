@@ -41,7 +41,7 @@ int vm_init(Vm* vm){
     vm->instruction_index = 0;
     vm->instruction_length = 0;
     vm->instructions = (i32*) malloc(sizeof(i32) * vm->instruction_allocated);
-    if(vm->stack == NULL)
+    if(vm->instructions == NULL)
         exit(0); //ToDo find the right error message
 
     return 0;
