@@ -81,7 +81,7 @@ int instruction_log(Vm*);
 
 //ToDo simple:
 //  not,
-//  shl, shr | left, right shift
+//  shl | left shift
 
 //ToDo flow:
 //  je <label> (jump when equal)
