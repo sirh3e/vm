@@ -4,10 +4,9 @@
 
 #include <assert.h>
 
+#include "../instructions.h"
 #include "../registers.h"
 #include "../macros.h"
-
-#include "add.h"
 
 int instruction_add(Vm* vm){
 
