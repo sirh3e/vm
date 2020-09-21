@@ -14,6 +14,7 @@ int main(){
 
     test_result |= test_instruction_add();
     test_result |= test_instruction_and();
+    test_result |= test_instruction_dec();
 
     return test_result;
 }

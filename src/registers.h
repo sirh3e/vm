@@ -7,10 +7,10 @@
 #define VM_REGISTERS_H
 
 enum Register{
-    A,
-    B,
-    C,
-    REGISTERS_LENGTH
-};
+    A = 0,
+    B = 1,
+    C = 2,
+    REGISTERS_LENGTH = 3
+} Register;
 
 #endif //VM_REGISTERS_H

@@ -7,5 +7,6 @@
 
 int test_instruction_add();
 int test_instruction_and();
+int test_instruction_dec();
 
 #endif //VM_TEST_INSTRUCTIONS_H
