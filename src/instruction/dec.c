@@ -9,7 +9,7 @@
 int instruction_dec(Vm* vm){
 
     assert(vm != NULL);
-    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH); //a tmp variable would be cheating
+    assert(vm->instruction_index < INSTRUCTION_LENGTH); //a tmp variable would be cheating
 
     vm->registers[vm->instructions[vm->instruction_index]] -= vm->instructions[vm->instruction_index++];
     vm->instruction_index++;
