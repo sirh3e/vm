@@ -1,3 +1,0 @@
-/mnt/c/Users/sirh3e/CLionProjects/vm/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/sirh3e/CLionProjects/vm/CMakeFiles/edit_cache.dir
-/mnt/c/Users/sirh3e/CLionProjects/vm/CMakeFiles/vm.dir
