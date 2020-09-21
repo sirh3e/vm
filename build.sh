@@ -1,3 +1,4 @@
 #!/bin/sh
 
-cmake CMakeLists.txt
+cmake CMakeLists.txt \
+	&& make
