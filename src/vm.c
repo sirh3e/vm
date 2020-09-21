@@ -49,9 +49,9 @@ int vm_init(Vm* vm){
 
 void vm_free(Vm* vm){
 
-    free(vm->registers);
-    free(vm->stack);
-    free(vm->instructions);
+    //free(vm->registers);
+    //free(vm->stack);
+    //free(vm->instructions);
 
     free(vm);
 }
@@ -62,6 +62,19 @@ int vm_program_set(Vm* vm, i32* program, u32 program_length){
 
     vm->instruction_length = program_length;
     memcpy(vm->instructions, program, sizeof(i32) * vm->instruction_length);
+
+    return 0;
+}
+
+int vm_program_run(Vm* vm){ //ToDo create a result handler
+
+    assert(vm != NULL);
+
+    int instruction = INSTRUCTION_HALT, instruction_result = 0;
+
+    while ((instruction = vm_instruction_fetch(vm)) != INSTRUCTION_HALT){
+        instruction_result = vm_instruction_evaluate(vm, instruction);
+    }
 
     return 0;
 }

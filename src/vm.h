@@ -26,6 +26,7 @@ int vm_init(Vm*);
 void vm_free(Vm*);
 
 int vm_program_set(Vm*, i32*, u32);
+int vm_program_run(Vm*);
 
 int vm_instruction_evaluate(Vm*, int instruction);
 int vm_instruction_fetch(Vm*);

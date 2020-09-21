@@ -5,6 +5,9 @@
 #ifndef VM_INSTRUCTIONS_H
 #define VM_INSTRUCTIONS_H
 
+#include <assert.h>
+#include <stdio.h>
+
 #include "vm.h"
 
 //ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html

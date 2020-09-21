@@ -8,11 +8,12 @@
 #include "test_instructions.h"
 #include "../src/types.h"
 
-int test(){
+int main(){
 
     i32 test_result = 0;
 
     test_result |= test_instruction_add();
+    test_result |= test_instruction_and();
 
     return test_result;
 }
@@ -27,5 +28,5 @@ int test_assert(int expression, const char* message){
 
     printf("[ %s%s%s ] %s\n", color, status , COLOR_REST, message);
 
-    return expression;
+    return expression == 1 ? 0 : 1;
 }

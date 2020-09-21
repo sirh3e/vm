@@ -6,5 +6,6 @@
 #define VM_TEST_INSTRUCTIONS_H
 
 int test_instruction_add();
+int test_instruction_and();
 
 #endif //VM_TEST_INSTRUCTIONS_H
