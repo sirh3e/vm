@@ -54,7 +54,7 @@ int instruction_load(Vm*);
 int instruction_log(Vm*);
 
 enum Instruction{
-    INSTRUCTION_HALT = 0,   //ToDo
+    INSTRUCTION_HALT,   //ToDo
 
     INSTRUCTION_ADD,        //register c = register a + register b; and store it on the stack
     INSTRUCTION_SUB,        //register c = register a - register b; and store it on the stack

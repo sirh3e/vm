@@ -47,7 +47,7 @@ int vm_init(Vm* vm){
     return 0;
 }
 
-void vm_free(Vm* vm){
+void vm_free(Vm* vm){ //ToDo
 
     //free(vm->registers);
     //free(vm->stack);
