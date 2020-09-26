@@ -11,9 +11,9 @@
 int instruction_load(Vm* vm){
 
     assert(vm != NULL);
-    VM_ASSERT(vm, 0);
+    VM_ASSERT(vm, 1);
 
-    vm->registers[vm->instructions[vm->instruction_index++]] = vm->stack[vm->stack_index];
+    vm->registers[vm->instructions[vm->instruction_index++]] = vm->stack[--vm->stack_index];
 
     return 0;
 }
