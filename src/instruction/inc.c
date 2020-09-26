@@ -10,7 +10,7 @@
 int instruction_inc(Vm* vm){
 
     assert(vm != NULL);
-    VM_ASSERT(vm, 2);
+    VM_INSTRUCTION_INDEX_ASSERT(vm, 2);
 
     vm->registers[vm->instructions[vm->instruction_index]] += vm->instructions[vm->instruction_index + 1];
     vm->instruction_index += 2;

@@ -12,7 +12,7 @@ int instruction_save(Vm* vm) {
 
     assert(vm != NULL);
     assert(vm->instructions[vm->instruction_index + 1] < REGISTERS_LENGTH);
-    VM_ASSERT(vm, 1);
+    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
 
     vm->stack[vm->stack_index++] = vm->registers[vm->instructions[vm->instruction_index++]];
 

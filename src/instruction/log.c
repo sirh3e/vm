@@ -11,7 +11,7 @@
 int instruction_log(Vm* vm){
 
     assert(vm != NULL);
-    VM_ASSERT(vm, 1);
+    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
 
     printf("%d\n", vm->registers[vm->instructions[vm->instruction_index++]]);
 
