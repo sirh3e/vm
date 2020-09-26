@@ -57,5 +57,5 @@ int test_instruction_dec_0(){
 
     vm_free(vm);
 
-    return 0;
+    return test_results;
 }

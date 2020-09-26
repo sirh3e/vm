@@ -71,5 +71,5 @@ int test_instruction_and_1(){
 
     vm_free(vm);
 
-    return 0;
+    return test_results;
 }
