@@ -16,7 +16,7 @@
             printf("[ END    ] %s\n", __func__)
 
 #define TEST_ASSERT(expression, message) \
-            printf("[ %s%s%s ] %s %s %d \n", expression ? COLOR_GREEN : COLOR_RED, expression ? "PASSED" : "FAILED", COLOR_REST, message, __FILE__, __LINE__); \
+            printf("[ %s%s%s ] %s file: [%s] function: [%s] line: [%d] \n", expression ? COLOR_GREEN : COLOR_RED, expression ? "PASSED" : "FAILED", COLOR_REST, message, __FILE__, __func__, __LINE__); \
             test_results |= expression ? 0 : 1
 
 int test();

@@ -51,7 +51,7 @@ int test_instruction_dec_0(){
 
     instruction = vm_instruction_fetch(vm);
     vm_instruction_evaluate(vm, instruction);
-    TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 000");
+    TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0000");
 
     TEST_END();
 
