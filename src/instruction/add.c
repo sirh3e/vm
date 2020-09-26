@@ -11,7 +11,7 @@
 int instruction_add(Vm* vm){
 
     assert(vm != NULL);
-    VM_ASSERT(vm, 3);
+    VM_ASSERT(vm, 2);
 
     vm->registers[A] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
     vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
