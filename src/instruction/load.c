@@ -6,11 +6,12 @@
 
 #include "../instructions.h"
 #include "../registers.h"
+#include "../macros.h"
 
 int instruction_load(Vm* vm){
 
     assert(vm != NULL);
-    assert(vm->instructions[vm->instruction_index] < REGISTERS_LENGTH);
+    VM_ASSERT(vm, 0);
 
     vm->registers[vm->instructions[vm->instruction_index++]] = vm->stack[vm->stack_index];
 
