@@ -6,6 +6,7 @@
 
 #include "../instructions.h"
 #include "../registers.h"
+#include "../macros.h"
 
 int instruction_dec(Vm* vm){
 
