@@ -27,7 +27,10 @@ int test_instruction_inc_0(){
             INSTRUCTION_INC, A, 2,
             INSTRUCTION_INC, A, 2,
             INSTRUCTION_INC, B, 128,
+            INSTRUCTION_INC, B, 128,
             INSTRUCTION_INC, C, 0,
+            INSTRUCTION_INC, C, 369,
+            INSTRUCTION_INC, C, 369,
     };
 
     Vm* vm = vm_new();
