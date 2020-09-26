@@ -12,5 +12,6 @@ int test_instruction_div();
 int test_instruction_halt();
 int test_instruction_inc();
 int test_instruction_load();
+int test_instruction_log();
 
 #endif //VM_TEST_INSTRUCTIONS_H

@@ -19,6 +19,7 @@ int main(){
     test_result |= test_instruction_halt();
     test_result |= test_instruction_inc();
     test_result |= test_instruction_load();
+    test_result |= test_instruction_log();
 
     return test_result;
 }
