@@ -11,7 +11,7 @@
 int instruction_div(Vm* vm){
 
     assert(vm != NULL);
-    assert(VM_INSTRUCTION_GET_BY_INDEX(vm, vm->instruction_index + 1) == 0);
+    VM_ASSERT(vm, 2);
 
     vm->registers[A] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
     vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;

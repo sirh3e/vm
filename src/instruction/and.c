@@ -11,7 +11,7 @@
 int instruction_and(Vm* vm){
 
     assert(vm != NULL);
-    assert(vm->instruction_index < INSTRUCTION_LENGTH);
+    VM_ASSERT(vm, 0);
 
     vm->registers[A] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
     vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;

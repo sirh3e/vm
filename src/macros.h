@@ -7,6 +7,8 @@
 
 #define ARRAY_LENGTH(array) (sizeof(array) / sizeof(array[0]))
 
+#define VM_ASSERT(vm, amount) assert(vm->instruction_index + amount <= vm->instruction_length)
+
 #define STACK_DEFAULT_ALLOCATED_SIZE 4096
 #define INSTRUCTION_DEFAULT_ALLOCATED_SIZE 4096
 
