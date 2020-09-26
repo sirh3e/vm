@@ -6,11 +6,12 @@
 #include <stdio.h>
 
 #include "../instructions.h"
+#include "../macros.h"
 
 int instruction_log(Vm* vm){
 
     assert(vm != NULL);
-    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH); //a tmp variable would be cheating
+    VM_ASSERT(vm, 1);
 
     printf("%d\n", vm->registers[vm->instructions[vm->instruction_index++]]);
 
