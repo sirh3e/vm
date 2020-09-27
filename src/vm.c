@@ -61,6 +61,7 @@ int vm_program_set(Vm* vm, i32* program, u32 program_length){
 
     assert(vm != NULL);
 
+    //ToDo check if the length is larger or smaller then the allocated size
     vm->instruction_length = program_length;
     memcpy(vm->instructions, program, sizeof(i32) * vm->instruction_length);
 
@@ -83,6 +84,7 @@ int vm_program_run(Vm* vm){ //ToDo create a result handler
 int vm_instruction_evaluate(Vm* vm, int instruction){
 
     assert(vm != NULL);
+    assert(instruction < INSTRUCTION_LENGTH);
     assert(instruction > 0);
 
     return instructions[instruction](vm);
@@ -91,6 +93,7 @@ int vm_instruction_evaluate(Vm* vm, int instruction){
 int vm_instruction_fetch(Vm* vm){
 
     assert(vm != NULL);
+    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
 
     return vm->instructions[vm->instruction_index++];
 }
