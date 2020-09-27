@@ -93,7 +93,7 @@ int vm_instruction_evaluate(Vm* vm, int instruction){
 int vm_instruction_fetch(Vm* vm){
 
     assert(vm != NULL);
-    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
+    //VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
 
     return vm->instructions[vm->instruction_index++];
 }

@@ -17,5 +17,6 @@ int test_instruction_mul();
 int test_instruction_neg();
 int test_instruction_or();
 int test_instruction_pop();
+int test_instruction_push();
 
 #endif //VM_TEST_INSTRUCTIONS_H

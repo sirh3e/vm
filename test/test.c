@@ -24,6 +24,7 @@ int main(){
     test_result |= test_instruction_neg();
     test_result |= test_instruction_or();
     test_result |= test_instruction_pop();
+    test_result |= test_instruction_push();
 
     return test_result;
 }
