@@ -15,7 +15,9 @@ int instruction_save(Vm* vm) {
     VM_REGISTER_ASSERT(vm->instructions[vm->instruction_index + 1]);
     VM_STACK_INDEX_ASSERT(vm, 1);
 
-    vm->stack[vm->stack_index++] = vm->registers[vm->instructions[vm->instruction_index++]];
+    vm->stack[vm->stack_index] = vm->registers[vm->instructions[vm->instruction_index]];
+    vm->instruction_index += 1;
+    vm->stack_index += 1;
 
     return 0;
 }
