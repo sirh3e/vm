@@ -22,5 +22,5 @@ int test_instruction_halt(){
 }
 
 int test_instruction_halt_0(){
-    return 1; //ToDo
+    return 0; //ToDo
 }
