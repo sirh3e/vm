@@ -7,24 +7,33 @@
 #include "test.h"
 #include "test_instructions.h"
 #include "../src/types.h"
+#include "../src/macros.h"
 
 int main(){
 
     i32 test_result = 0;
 
-    test_result |= test_instruction_add();
-    test_result |= test_instruction_and();
-    test_result |= test_instruction_dec();
-    test_result |= test_instruction_div();
-    test_result |= test_instruction_halt();
-    test_result |= test_instruction_inc();
-    test_result |= test_instruction_load();
-    test_result |= test_instruction_log();
-    test_result |= test_instruction_mul();
-    test_result |= test_instruction_neg();
-    test_result |= test_instruction_or();
-    test_result |= test_instruction_pop();
-    test_result |= test_instruction_push();
+    int (*tests[])() = {
+            test_instruction_add,
+            test_instruction_and,
+            test_instruction_dec,
+            test_instruction_div,
+            test_instruction_halt,
+            test_instruction_inc,
+            test_instruction_load,
+            test_instruction_log,
+            test_instruction_mul,
+            test_instruction_neg,
+            test_instruction_or,
+            test_instruction_pop,
+            test_instruction_push,
+            test_instruction_save,
+            test_instruction_shl,
+    };
+
+    for(int i = 0; i < ARRAY_LENGTH(tests); i++){
+        test_result |= tests[i]();
+    }
 
     return test_result;
 }
@@ -37,7 +46,7 @@ int test_assert(int expression, const char* message){
     color = expression ? COLOR_GREEN : COLOR_RED;
     status = expression ? "PASSED" : "FAILED";
 
-    printf("[ %s%s%s ] %s\n", color, status , COLOR_REST, message);
+    printf("[ %s%s%s ] %s\n", color, status, COLOR_REST, message);
 
     return expression == 1 ? 0 : 1;
 }
