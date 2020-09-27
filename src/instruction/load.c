@@ -10,6 +10,8 @@
 
 int instruction_load(Vm* vm){
 
+    printf("stack index: %d\n", vm->stack_index -1 >= 0 && vm->stack_index -1 <= vm->stack_length);
+
     assert(vm != NULL);
     VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
     VM_STACK_INDEX_ASSERT(vm, -1);
