@@ -17,7 +17,6 @@ int instruction_add(Vm* vm){
     vm->registers[B] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;
 
     vm->registers[C] = vm->registers[A] + vm->registers[B];
-    vm->stack[vm->stack_index++] = vm->registers[C];
 
     return 0;
 }
