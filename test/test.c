@@ -22,6 +22,7 @@ int main(){
     test_result |= test_instruction_log();
     test_result |= test_instruction_mul();
     test_result |= test_instruction_neg();
+    test_result |= test_instruction_or();
 
     return test_result;
 }

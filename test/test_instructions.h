@@ -15,5 +15,6 @@ int test_instruction_load();
 int test_instruction_log();
 int test_instruction_mul();
 int test_instruction_neg();
+int test_instruction_or();
 
 #endif //VM_TEST_INSTRUCTIONS_H
