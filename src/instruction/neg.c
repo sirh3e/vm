@@ -11,6 +11,7 @@ int instruction_neg(Vm* vm){
 
     assert(vm != NULL);
     VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
+    VM_REGISTER_ASSERT(vm->instructions[vm->instruction_index]);
 
     vm->registers[vm->instructions[vm->instruction_index++]] *= -1;
 
