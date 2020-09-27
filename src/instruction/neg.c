@@ -13,7 +13,8 @@ int instruction_neg(Vm* vm){
     VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
     VM_REGISTER_ASSERT(vm->instructions[vm->instruction_index]);
 
-    vm->registers[vm->instructions[vm->instruction_index++]] *= -1;
+    vm->registers[vm->instructions[vm->instruction_index]] *= -1;
+    vm->instruction_index += 1;
 
     return 0;
 }
