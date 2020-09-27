@@ -57,7 +57,6 @@ int test_instruction_push_0(){
     TEST_ASSERT(vm->stack[vm->stack_index - 1] == 3, "vm->stack[vm->stack_index - 1] == 003");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;

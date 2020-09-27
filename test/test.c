@@ -30,6 +30,7 @@ int main(){
             test_instruction_save,
             test_instruction_shl,
             test_instruction_shr,
+            test_instruction_sub,
     };
 
     for(int i = 0; i < ARRAY_LENGTH(tests); i++){

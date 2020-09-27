@@ -54,7 +54,6 @@ int test_instruction_dec_0(){
     TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0000");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;

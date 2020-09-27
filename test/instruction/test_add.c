@@ -68,7 +68,6 @@ int test_instruction_add_1(){
     TEST_ASSERT(vm->registers[C] == 28, "vm.registers[C] == 028");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;

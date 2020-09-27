@@ -114,7 +114,6 @@ int test_instruction_and_1(){
     TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;

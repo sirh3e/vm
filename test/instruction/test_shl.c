@@ -86,6 +86,7 @@ int test_instruction_shl_0() {
     TEST_ASSERT(vm->registers[C] == 16, "vm->registers[A] == 016");
 
     TEST_END();
+    vm_free(vm);
 
     return test_results;
 }

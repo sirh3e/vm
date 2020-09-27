@@ -80,7 +80,6 @@ int test_instruction_pop_0(){
     TEST_ASSERT(vm->registers[C] == 3, "vm.registers[C] == 003");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;

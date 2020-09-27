@@ -86,7 +86,6 @@ int test_instruction_or_0(){
     TEST_ASSERT(vm->registers[C] == 511, "vm.registers[C] == 511");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;

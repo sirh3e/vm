@@ -81,7 +81,6 @@ int test_instruction_load_0() {
     TEST_ASSERT(vm->registers[C] == 1024, "vm.registers[C] == 1024");
 
     TEST_END();
-
     vm_free(vm);
 
     return test_results;
