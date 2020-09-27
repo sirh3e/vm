@@ -13,7 +13,7 @@ int instruction_pop(Vm* vm){
     VM_STACK_INDEX_ASSERT(vm, -1);
     VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
 
-    vm->registers[vm->instructions[vm->instruction_index++]] = vm->stack[vm->stack_index--];
+    vm->registers[vm->instructions[vm->instruction_index++]] = vm->stack[--vm->stack_index];
 
     return 0;
 }
