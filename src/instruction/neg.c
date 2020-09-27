@@ -5,14 +5,14 @@
 #include <assert.h>
 
 #include "../instructions.h"
+#include "../macros.h"
 
 int instruction_neg(Vm* vm){
 
     assert(vm != NULL);
-    assert(vm->instructions[vm->instruction_index] < INSTRUCTION_LENGTH);
+    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
 
-    vm->registers[vm->instructions[vm->instruction_index]] *= -1;
-    vm->instruction_index++;
+    vm->registers[vm->instructions[vm->instruction_index++]] *= -1;
 
     return 0;
 }
