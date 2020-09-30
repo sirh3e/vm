@@ -89,8 +89,7 @@ int test_instruction_mul_0(){
     TEST_ASSERT(vm->registers[B] == 1000, "vm.registers[B] == 1000");
     TEST_ASSERT(vm->registers[C] == 1000000, "vm.registers[C] == 10000000");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

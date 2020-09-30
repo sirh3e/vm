@@ -64,8 +64,7 @@ int test_instruction_save_0(){
     TEST_ASSERT(vm->stack_index == 3, "vm.stack_index == 0003");
     TEST_ASSERT(vm->stack[vm->stack_index - 1] == 3, "vm->stack[vm->stack_index - 1] == 3");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

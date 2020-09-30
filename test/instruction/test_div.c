@@ -65,8 +65,7 @@ int test_instruction_div_0(){
     TEST_ASSERT(vm->registers[B] == 3, "vm->registers[B] == 03");
     TEST_ASSERT(vm->registers[C] == 5, "vm->registers[C] == 05");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

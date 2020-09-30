@@ -54,8 +54,7 @@ int test_instruction_xor_0(){
  TEST_ASSERT(vm->registers[B] == 9, "vm.register[B] == 09");
  TEST_ASSERT(vm->registers[C] == 13, "vm.register[C] == 13");
  
- TEST_END();
- vm_free(vm);
+ TEST_END(vm);
  
  return test_results;
 }

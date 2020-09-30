@@ -85,8 +85,7 @@ int test_instruction_shl_0() {
     TEST_ASSERT(vm->instruction_index == 35, "vm.instruction_index == 035");
     TEST_ASSERT(vm->registers[C] == 16, "vm->registers[A] == 016");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

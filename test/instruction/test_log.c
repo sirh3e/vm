@@ -66,8 +66,7 @@ int test_instruction_log_0(){
     fread(buffer, strlen(text) + 1, 0, stdout);
     TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '128\\n'");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

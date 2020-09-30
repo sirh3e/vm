@@ -68,8 +68,7 @@ int test_instruction_sub_0(){
     TEST_ASSERT(vm->registers[B] == 826156, "vm.registers[B] == 826156");
     TEST_ASSERT(vm->registers[C] == -675955, "vm.registers[C] == -675955");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

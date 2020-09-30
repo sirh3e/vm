@@ -79,8 +79,7 @@ int test_instruction_pop_0(){
     TEST_ASSERT(vm->registers[B] == 2, "vm.registers[B] == 002");
     TEST_ASSERT(vm->registers[C] == 3, "vm.registers[C] == 003");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }

@@ -41,9 +41,7 @@ int test_instruction_and_0(){
     TEST_ASSERT(vm->registers[B] == 2, "vm.registers[B] == 2");
     TEST_ASSERT(vm->registers[C] == 2, "vm.registers[C] == 2");
 
-    TEST_END();
-
-    vm_free(vm);
+    TEST_END(vm);
 
     return 0;
 }
@@ -113,8 +111,7 @@ int test_instruction_and_1(){
     TEST_ASSERT(vm->registers[B] == 256, "vm.registers[B] == 256");
     TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0");
 
-    TEST_END();
-    vm_free(vm);
+    TEST_END(vm);
 
     return test_results;
 }
