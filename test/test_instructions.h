@@ -22,5 +22,6 @@ int test_instruction_save();
 int test_instruction_shl();
 int test_instruction_shr();
 int test_instruction_sub();
+int test_instruction_xor();
 
 #endif //VM_TEST_INSTRUCTIONS_H

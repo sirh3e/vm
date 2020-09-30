@@ -31,6 +31,7 @@ int main(){
             test_instruction_shl,
             test_instruction_shr,
             test_instruction_sub,
+            test_instruction_xor,
     };
 
     for(int i = 0; i < ARRAY_LENGTH(tests); i++){
