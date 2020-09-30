@@ -21,14 +21,15 @@ int test_instruction_add() {
  
  vm_init(vm);
  vm_program_set(vm, program, ARRAY_LENGTH(program));
- vm_program_run(vm);
  
  TEST_BEGIN();
- 
+
+ vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
  TEST_ASSERT(vm->registers[A] == 64, "vm.registers[A] == 064");
  TEST_ASSERT(vm->registers[B] == 02, "vm.registers[B] == 002");
  TEST_ASSERT(vm->registers[C] == 66, "vm.registers[C] == 066");
  
+ vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
  TEST_ASSERT(vm->registers[A] == 64, "vm.registers[A] == 064");
  TEST_ASSERT(vm->registers[B] == -36, "vm.registers[B] == -36");
  TEST_ASSERT(vm->registers[C] == 28, "vm.registers[C] == 028");
