@@ -13,7 +13,7 @@ int main(){
 
     i32 test_result = 0;
 
-    int (*tests[])() = {
+    u32 (*tests[])() = {
             test_instruction_add,
             test_instruction_and,
             test_instruction_dec,
