@@ -8,19 +8,7 @@
 #include "../../src/instructions.h"
 #include "../../src/registers.h"
 #include "../../src/macros.h"
-
-int test_instruction_save_0();
-
-int test_instruction_save(){
-
-    i32 test_results = 0;
-
-    test_results |= test_instruction_save_0();
-
-    return test_results;
-}
-
-int test_instruction_save_0(){
+test_result_t test_instruction_save(){
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {
@@ -34,11 +22,7 @@ int test_instruction_save_0(){
             INSTRUCTION_SAVE, C,
     };
 
-    Vm* vm = vm_new();
-
-    vm_init(vm);
-    vm_program_set(vm, program, ARRAY_LENGTH(program));
-
+    VM_INIT(program);
     TEST_BEGIN();
 
     TEST_ASSERT(vm->instruction_index == 0, "vm.instruction_index == 000");
@@ -46,20 +30,20 @@ int test_instruction_save_0(){
 
     //ToDo create test for loop
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 5, "vm.instruction_index == 0005");
     TEST_ASSERT(vm->stack_index == 1, "vm.stack_index == 0001");
     TEST_ASSERT(vm->stack[vm->stack_index - 1] == -963, "vm->stack[vm->stack_index - 1] == -963");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 10, "vm.instruction_index == 0010");
     TEST_ASSERT(vm->stack_index == 2, "vm.stack_index == 0002");
     TEST_ASSERT(vm->stack[vm->stack_index - 1] == 63512, "vm->stack[vm->stack_index - 1] == 63512");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 15, "vm.instruction_index == 0015");
     TEST_ASSERT(vm->stack_index == 3, "vm.stack_index == 0003");
     TEST_ASSERT(vm->stack[vm->stack_index - 1] == 3, "vm->stack[vm->stack_index - 1] == 3");
