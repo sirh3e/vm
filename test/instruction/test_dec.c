@@ -9,18 +9,8 @@
 #include "../../src/registers.h"
 #include "../../src/macros.h"
 
-int test_instruction_dec_0();
 
-int test_instruction_dec(){
-
-    i32 test_results = 0;
-
-    test_results |= test_instruction_dec_0();
-
-    return test_results;
-}
-
-int test_instruction_dec_0(){
+test_result_t test_instruction_dec(){
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {
@@ -30,27 +20,19 @@ int test_instruction_dec_0(){
             INSTRUCTION_DEC, C, 0,
     };
 
-    Vm* vm = vm_new();
-
-    vm_init(vm);
-    vm_program_set(vm, program, ARRAY_LENGTH(program));
-
+    VM_INIT(program);
     TEST_BEGIN();
 
-    instruction = vm_instruction_fetch(vm);
-    vm_instruction_evaluate(vm, instruction);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == -2, "vm.registers[A] == -002");
 
-    instruction = vm_instruction_fetch(vm);
-    vm_instruction_evaluate(vm, instruction);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == -4, "vm.registers[A] == -004");
 
-    instruction = vm_instruction_fetch(vm);
-    vm_instruction_evaluate(vm, instruction);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[B] == -128, "vm.registers[B] == -128");
 
-    instruction = vm_instruction_fetch(vm);
-    vm_instruction_evaluate(vm, instruction);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0000");
 
     TEST_END(vm);
