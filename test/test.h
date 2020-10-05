@@ -6,16 +6,18 @@
 #define VM_TEST_H
 
 #include "../src/types.h"
+#include "../src/macros.h"
+
 typedef u32 test_result_t;
 
 #define COLOR_REST "\033[0m"
 #define COLOR_RED "\033[31m"
 #define COLOR_GREEN "\033[32m"
 
-#define TEST_INIT(program) \
+#define VM_INIT(program) \
    Vm* vm = vm_new();      \
    vm_init(vm);            \
-   vm_program_set(vm, program, ARRAY_SIZE)
+   vm_program_set(vm, program, ARRAY_LENGTH(program))
 
 #define TEST_BEGIN() \
             printf("[ BEGIN  ] %s\n", __func__)
