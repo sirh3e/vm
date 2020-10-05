@@ -13,18 +13,7 @@
 #include "../../src/registers.h"
 #include "../../src/macros.h"
 
-int test_instruction_log_0();
-
-int test_instruction_log(){
-
-    i32 test_results = 0;
-
-    test_results |= test_instruction_log_0();
-
-    return test_results;
-}
-
-int test_instruction_log_0(){
+test_result_t test_instruction_log(){
 
     i32 test_results = 0;
     i32 program[] = {
@@ -37,32 +26,28 @@ int test_instruction_log_0(){
             INSTRUCTION_LOG, A,
     };
 
-    Vm* vm = vm_new();
-
-    vm_init(vm);
-    vm_program_set(vm, program, ARRAY_LENGTH(program));
-
+    VM_INIT(program);
     TEST_BEGIN();
 
     char buffer[2048];
     char* text = "0\n";
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
     TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
     TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
     TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
 
     text = "128\n";
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
     TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '128\\n'");
 
