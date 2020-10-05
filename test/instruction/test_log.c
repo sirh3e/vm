@@ -10,7 +10,7 @@
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
 
-test_result_t test_instruction_log(){
+test_result_t test_instruction_log() {
 
     i32 test_results = 0;
     i32 program[] = {
@@ -27,7 +27,7 @@ test_result_t test_instruction_log(){
     TEST_BEGIN();
 
     char buffer[2048];
-    char* text = "0\n";
+    char *text = "0\n";
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);

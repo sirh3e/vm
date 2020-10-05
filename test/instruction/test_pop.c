@@ -7,7 +7,7 @@
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
 
-test_result_t test_instruction_pop(){
+test_result_t test_instruction_pop() {
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {

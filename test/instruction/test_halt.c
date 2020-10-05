@@ -4,6 +4,6 @@
 
 #include "../test.h"
 
-test_result_t test_instruction_halt(){
+test_result_t test_instruction_halt() {
     return 0; //ToDo
 }

@@ -7,7 +7,7 @@
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
 
-int test_instruction_inc(){
+int test_instruction_inc() {
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {
@@ -25,7 +25,7 @@ int test_instruction_inc(){
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == 2, "vm.registers[A] == 2");
-    
+
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == 4, "vm.registers[A] == 4");
 
