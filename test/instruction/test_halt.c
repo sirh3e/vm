@@ -9,18 +9,6 @@
 #include "../../src/registers.h"
 #include "../../src/macros.h"
 
-
-int test_instruction_halt_0();
-
-int test_instruction_halt(){
-
-    i32 test_results = 0;
-
-    test_results |= test_instruction_halt_0();
-
-    return test_results;
-}
-
-int test_instruction_halt_0(){
+test_result_t test_instruction_halt(){
     return 0; //ToDo
 }
