@@ -22,4 +22,4 @@ add_executable(vm main.c
 ./src/instruction/shl.c
 ./src/instruction/shr.c
 ./src/instruction/sub.c
-./src/instruction/xor.c)
+./src/instruction/xor.c src/instruction/nop.c)
