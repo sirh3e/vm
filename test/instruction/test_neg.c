@@ -9,18 +9,7 @@
 #include "../../src/registers.h"
 #include "../../src/macros.h"
 
-int test_instruction_neg_0();
-
-int test_instruction_neg(){
-
-    i32 test_results = 0;
-
-    test_results |= test_instruction_neg_0();
-
-    return test_results;
-}
-
-int test_instruction_neg_0(){
+test_result_t test_instruction_neg(){
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {
@@ -37,32 +26,28 @@ int test_instruction_neg_0(){
             INSTRUCTION_NEG, C,
     };
 
-    Vm* vm = vm_new();
-
-    vm_init(vm);
-    vm_program_set(vm, program, ARRAY_LENGTH(program));
-
+    VM_INIT(program);
     TEST_BEGIN();
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == 255, "vm.registers[A] == 0255");
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == -255, "vm.registers[A] == -255");
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == 255, "vm.registers[A] == 0255");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[B] == -48, "vm.registers[A] == -048");
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[B] == 48, "vm.registers[A] == 0048");
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[B] == -48, "vm.registers[A] == -048");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 128, "vm.registers[A] == 0128");
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == -128, "vm.registers[A] == -128");
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 128, "vm.registers[A] == 0128");
 
     TEST_END(vm);
