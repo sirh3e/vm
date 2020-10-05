@@ -6,8 +6,6 @@
 
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
-#include "../../src/registers.h"
-#include "../../src/macros.h"
 
 int test_instruction_inc(){
 

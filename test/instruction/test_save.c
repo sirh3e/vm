@@ -6,8 +6,7 @@
 
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
-#include "../../src/registers.h"
-#include "../../src/macros.h"
+
 test_result_t test_instruction_save(){
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
