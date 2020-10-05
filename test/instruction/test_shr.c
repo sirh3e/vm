@@ -9,18 +9,7 @@
 #include "../../src/registers.h"
 #include "../../src/macros.h"
 
-int test_instruction_shr_0();
-
-int test_instruction_shr(){
-
-    i32 test_results = 0;
-
-    test_results |= test_instruction_shr_0();
-
-    return test_results;
-}
-
-int test_instruction_shr_0(){
+test_result_t test_instruction_shr(){
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {
@@ -45,43 +34,39 @@ int test_instruction_shr_0(){
             INSTRUCTION_SHR, C, 1,
     };
 
-    Vm *vm = vm_new();
-
-    vm_init(vm);
-    vm_program_set(vm, program, ARRAY_LENGTH(program));
-
+    VM_INIT(program);
     TEST_BEGIN();
 
     TEST_ASSERT(vm->instruction_index == 0, "vm.instruction_index == 000");
     TEST_ASSERT(vm->stack_index == 0, "vm.stack_index == 000");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 7, "vm.instruction_index == 007");
     TEST_ASSERT(vm->registers[A] == 50, "vm->registers[A] == 050");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 14, "vm.instruction_index == 014");
     TEST_ASSERT(vm->registers[A] == 11, "vm->registers[B] == 011");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 21, "vm.instruction_index == 021");
     TEST_ASSERT(vm->registers[B] == 1, "vm->registers[A] == 001");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 28, "vm.instruction_index == 028");
     TEST_ASSERT(vm->registers[B] == 144, "vm->registers[A] == 144");
 
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
-    vm_instruction_evaluate(vm, vm_instruction_fetch(vm));
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->instruction_index == 35, "vm.instruction_index == 035");
     TEST_ASSERT(vm->registers[C] == 2, "vm->registers[A] == 002");
 
