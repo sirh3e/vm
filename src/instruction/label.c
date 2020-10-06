@@ -8,14 +8,10 @@
 #include "../registers.h"
 #include "../macros.h"
 
-int instruction_jmp(Vm* vm){
+int instruction_label(Vm* vm){
 
     assert(vm != NULL);
     VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
-    assert(VM_INSTRUCTION_GET(vm) > 0);
-    assert(VM_INSTRUCTION_GET_BY_INDEX(vm, VM_INSTRUCTION_GET(vm)) != INSTRUCTION_LABEL);
-    
-    vm->instruction_index = VM_INSTRUCTION_GET(vm);
-    
+
     return 0;
 }

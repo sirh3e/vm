@@ -11,8 +11,6 @@
 #include "vm.h"
 
 //ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
-//ToDo labels:
-//  label
 
 //ToDo simple:
 //  not,
@@ -54,6 +52,8 @@ int instruction_pop(Vm*);
 int instruction_save(Vm*);
 int instruction_load(Vm*);
 
+int instruction_label(Vm*);
+
 int instruction_log(Vm*);
 
 enum Instruction{
@@ -82,6 +82,8 @@ enum Instruction{
 
     INSTRUCTION_SAVE,
     INSTRUCTION_LOAD,
+
+    INSTRUCTION_LABEL,
 
     INSTRUCTION_LOG,
 
@@ -117,6 +119,7 @@ static int (*instructions[])(Vm*) = {
         [INSTRUCTION_SAVE] = instruction_save,
         [INSTRUCTION_LOAD] = instruction_load,
 
+        [INSTRUCTION_LABEL] = instruction_label,
 
         [INSTRUCTION_LOG] = instruction_log,
 };
