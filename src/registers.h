@@ -10,6 +10,7 @@ enum Register{
     A,
     B,
     C,
+    D,
     REGISTERS_LENGTH
 } Register;
 
