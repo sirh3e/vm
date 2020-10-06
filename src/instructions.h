@@ -48,9 +48,9 @@ int instruction_pop(Vm*);
 
 int instruction_save(Vm*);
 int instruction_load(Vm*);
-
 int instruction_label(Vm*);
 
+int instruction_je(Vm*);
 int instruction_log(Vm*);
 
 enum Instruction{
@@ -76,7 +76,8 @@ enum Instruction{
 
     INSTRUCTION_SAVE,
     INSTRUCTION_LOAD,
-
+    
+    INSTRUCTION_JE,
     INSTRUCTION_LABEL,
 
     INSTRUCTION_LOG,
@@ -109,7 +110,8 @@ static int (*instructions[])(Vm*) = {
 
         [INSTRUCTION_SAVE] = instruction_save,
         [INSTRUCTION_LOAD] = instruction_load,
-
+        
+        [INSTRUCTION_JE] = instruction_je,
         [INSTRUCTION_LABEL] = instruction_label,
 
         [INSTRUCTION_LOG] = instruction_log,
