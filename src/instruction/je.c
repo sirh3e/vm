@@ -14,6 +14,6 @@ int instruction_je(Vm* vm){
  
  if(vm->registers[C] != vm->registers[D])
   return 0;
- 
- return 0;
+
+ return instruction_jmp(vm);
 }
