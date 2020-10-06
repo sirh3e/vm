@@ -59,7 +59,9 @@ int instruction_log(Vm*);
 enum Instruction{
     INSTRUCTION_HALT,   //ToDo
     INSTRUCTION_NOP,
-
+    
+    INSTRUCTION_LABEL,
+    INSTRUCTION_JE,
     INSTRUCTION_JMP,
 
     INSTRUCTION_ADD,        //register c = register a + register b; and store it on the stack
@@ -83,9 +85,6 @@ enum Instruction{
     INSTRUCTION_SAVE,
     INSTRUCTION_LOAD,
     
-    INSTRUCTION_JE,
-    INSTRUCTION_LABEL,
-
     INSTRUCTION_LOG,
 
     INSTRUCTION_LENGTH
@@ -94,7 +93,9 @@ enum Instruction{
 static int (*instructions[])(Vm*) = {
         [INSTRUCTION_HALT] = instruction_halt, //ToDo
         [INSTRUCTION_NOP] = instruction_nop,
-
+        
+        [INSTRUCTION_LABEL] = instruction_label,
+        [INSTRUCTION_JE] = instruction_je,
         [INSTRUCTION_JMP] = instruction_jmp,
 
         [INSTRUCTION_ADD] = instruction_add,
@@ -113,16 +114,12 @@ static int (*instructions[])(Vm*) = {
         [INSTRUCTION_SHR] = instruction_shr,
         [INSTRUCTION_SHL] = instruction_shl,
 
-
         [INSTRUCTION_PUSH] = instruction_push,
         [INSTRUCTION_POP] = instruction_pop,
 
         [INSTRUCTION_SAVE] = instruction_save,
         [INSTRUCTION_LOAD] = instruction_load,
         
-        [INSTRUCTION_JE] = instruction_je,
-        [INSTRUCTION_LABEL] = instruction_label,
-
         [INSTRUCTION_LOG] = instruction_log,
 };
 
