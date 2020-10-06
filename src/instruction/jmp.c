@@ -11,7 +11,10 @@
 int instruction_jmp(Vm* vm){
 
     assert(vm != NULL);
-    VM_INSTRUCTION_INDEX_ASSERT(vm, 2);
-
+    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
+    assert(VM_INSTRUCTION_GET(vm) > 0);
+    
+    vm->instruction_index = VM_INSTRUCTION_GET(vm);
+    
     return 0;
 }
