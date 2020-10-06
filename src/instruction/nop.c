@@ -5,10 +5,9 @@
 #include <assert.h>
 
 #include "../instructions.h"
-#include "../registers.h"
 #include "../macros.h"
 
-int instruction_or(Vm* vm){
+int instruction_nop(Vm* vm){
 
     assert(vm != NULL);
     VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
