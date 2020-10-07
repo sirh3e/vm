@@ -16,14 +16,7 @@
 //  not,
 
 //ToDo flow:
-//  je <label> (jump when equal)
-//  jne <label> (jump when not equal)
 //  jz <label> (jump when last result was zero)
-//  jg <label> (jump when greater than)
-//  jge <label> (jump when greater than or equal to)
-//  jl <label> (jump when less than)
-//  jle <label> (jump when less than or equal to)
-//  cmp
 //  call, ret | functions
 
 int instruction_halt(Vm*);
