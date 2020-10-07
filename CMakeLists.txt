@@ -23,4 +23,4 @@ add_executable(vm main.c
 ./src/instruction/shr.c
 ./src/instruction/sub.c
 ./src/instruction/xor.c src/instruction/nop.c src/instruction/jmp.c
-./src/instruction/xor.c src/instruction/label.c)
+./src/instruction/xor.c src/instruction/label.c src/instruction/jle.c)
