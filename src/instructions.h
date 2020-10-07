@@ -27,8 +27,11 @@
 //  call, ret | functions
 
 int instruction_halt(Vm*);
+int instruction_nop(Vm*);
 
 int instruction_label(Vm*);
+int instruction_jmp(Vm*);
+int instruction_jl(Vm*);
 
 int instruction_add(Vm*);
 int instruction_sub(Vm*);
@@ -55,9 +58,12 @@ int instruction_log(Vm*);
 
 enum Instruction{
     INSTRUCTION_HALT,   //ToDo
+    INSTRUCTION_NOP,
     
     INSTRUCTION_LABEL,
-    
+    INSTRUCTION_JMP,
+    INSTRUCTION_JL,
+
     INSTRUCTION_ADD,        //register c = register a + register b; and store it on the stack
     INSTRUCTION_SUB,        //register c = register a - register b; and store it on the stack
     INSTRUCTION_MUL,        //register c = register a * register b; and store it on the stack
@@ -86,9 +92,12 @@ enum Instruction{
 
 static int (*instructions[])(Vm*) = {
         [INSTRUCTION_HALT] = instruction_halt, //ToDo
+        [INSTRUCTION_NOP] = instruction_nop,
         
         [INSTRUCTION_LABEL] = instruction_label,
-        
+        [INSTRUCTION_JMP] = instruction_jmp,
+        [INSTRUCTION_JL] = instruction_jl,
+
         [INSTRUCTION_ADD] = instruction_add,
         [INSTRUCTION_SUB] = instruction_sub,
         [INSTRUCTION_MUL] = instruction_mul,
