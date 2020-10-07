@@ -29,9 +29,9 @@
 int instruction_halt(Vm*);
 int instruction_nop(Vm*);
 
-int instruction_jmp(Vm*);
-
 int instruction_label(Vm*);
+int instruction_jmp(Vm*);
+int instruction_je(Vm*);
 
 int instruction_add(Vm*);
 int instruction_sub(Vm*);
@@ -54,8 +54,6 @@ int instruction_pop(Vm*);
 int instruction_save(Vm*);
 int instruction_load(Vm*);
 
-int instruction_label(Vm*);
-
 int instruction_log(Vm*);
 
 enum Instruction{
@@ -63,8 +61,9 @@ enum Instruction{
     INSTRUCTION_NOP,
     
     INSTRUCTION_LABEL,
+    INSTRUCTION_JE,
     INSTRUCTION_JMP,
-    
+
     INSTRUCTION_ADD,        //register c = register a + register b; and store it on the stack
     INSTRUCTION_SUB,        //register c = register a - register b; and store it on the stack
     INSTRUCTION_MUL,        //register c = register a * register b; and store it on the stack
@@ -96,6 +95,7 @@ static int (*instructions[])(Vm*) = {
         [INSTRUCTION_NOP] = instruction_nop,
         
         [INSTRUCTION_LABEL] = instruction_label,
+        [INSTRUCTION_JE] = instruction_je,
         [INSTRUCTION_JMP] = instruction_jmp,
 
         [INSTRUCTION_ADD] = instruction_add,
@@ -120,7 +120,7 @@ static int (*instructions[])(Vm*) = {
 
         [INSTRUCTION_SAVE] = instruction_save,
         [INSTRUCTION_LOAD] = instruction_load,
-
+        
         [INSTRUCTION_LOG] = instruction_log,
 };
 
