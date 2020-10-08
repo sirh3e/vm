@@ -17,7 +17,6 @@
 
 //ToDo flow:
 //  jz <label> (jump when last result was zero)
-//  jge <label> (jump when greater than or equal to)
 //  jl <label> (jump when less than)
 //  jle <label> (jump when less than or equal to)
 //  cmp
