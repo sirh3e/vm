@@ -25,6 +25,7 @@ add_executable(main
 ./src/instruction/save.c
 ./src/instruction/load.c
 ./src/instruction/je.c
+./src/instruction/jne.c
 ./src/instruction/nop.c
 ./src/instruction/shl.c
 ./src/instruction/shr.c

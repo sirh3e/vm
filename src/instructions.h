@@ -29,10 +29,9 @@
 int instruction_halt(Vm*);
 int instruction_nop(Vm*);
 
-int instruction_jmp(Vm*);
-
 int instruction_label(Vm*);
 int instruction_je(Vm*);
+int instruction_jne(Vm*);
 int instruction_jg(Vm*);
 int instruction_jge(Vm*);
 int instruction_jl(Vm*);
@@ -68,6 +67,7 @@ enum Instruction{
 
     INSTRUCTION_LABEL,
     INSTRUCTION_JE,
+    INSTRUCTION_JNE,
     INSTRUCTION_JG,
     INSTRUCTION_JGE,
     INSTRUCTION_JL,
@@ -106,6 +106,7 @@ static int (*instructions[])(Vm*) = {
         
         [INSTRUCTION_LABEL] = instruction_label,
         [INSTRUCTION_JE] = instruction_je,
+        [INSTRUCTION_JNE] = instruction_jne,
         [INSTRUCTION_JG] = instruction_jg,
         [INSTRUCTION_JGE] = instruction_jge,
         [INSTRUCTION_JL] = instruction_jl,
@@ -127,7 +128,6 @@ static int (*instructions[])(Vm*) = {
         [INSTRUCTION_XOR] = instruction_xor,
         [INSTRUCTION_SHR] = instruction_shr,
         [INSTRUCTION_SHL] = instruction_shl,
-
 
         [INSTRUCTION_PUSH] = instruction_push,
         [INSTRUCTION_POP] = instruction_pop,
