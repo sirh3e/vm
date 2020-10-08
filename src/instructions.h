@@ -16,7 +16,6 @@
 //  not,
 
 //ToDo flow:
-//  je <label> (jump when equal)
 //  jne <label> (jump when not equal)
 //  jz <label> (jump when last result was zero)
 //  jg <label> (jump when greater than)
