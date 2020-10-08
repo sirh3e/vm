@@ -26,4 +26,6 @@ add_executable(main
 ./src/instruction/load.c
 ./src/instruction/je.c
 ./src/instruction/nop.c
-./src/instruction/shl.c)
+./src/instruction/shl.c
+./src/instruction/xor.c src/instruction/nop.c src/instruction/jmp.c
+./src/instruction/xor.c src/instruction/label.c src/instruction/jg.c)
