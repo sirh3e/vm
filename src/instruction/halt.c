@@ -6,7 +6,7 @@
 
 #include "../instructions.h"
 
-int instruction_halt(Vm* vm){
+int vm_instruction_halt(Vm* vm){
 
     VM_ASSERT(vm);
 

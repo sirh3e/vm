@@ -20,7 +20,7 @@
 //  cmp
 //  call, ret | functions
 
-int instruction_halt(Vm*);
+int vm_instruction_halt(Vm*);
 int instruction_nop(Vm*);
 
 int instruction_label(Vm*);
@@ -95,7 +95,7 @@ enum Instruction{
 };
 
 static int (*instructions[])(Vm*) = {
-        [INSTRUCTION_HALT] = instruction_halt, //ToDo
+        [INSTRUCTION_HALT] = vm_instruction_halt, //ToDo
         [INSTRUCTION_NOP] = instruction_nop,
         
         [INSTRUCTION_LABEL] = instruction_label,
