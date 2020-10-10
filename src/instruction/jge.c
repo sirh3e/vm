@@ -7,7 +7,7 @@
 #include "../instructions.h"
 #include "../macros.h"
 
-int vm_instruction_jge(Vm *vm) {
+vm_instruction_result vm_instruction_jge(Vm *vm) {
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);

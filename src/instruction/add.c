@@ -9,7 +9,7 @@
 #include "../macros.h"
 #include "../assert.h"
 
-int vm_instruction_add(Vm* vm){
+vm_instruction_result vm_instruction_add(Vm* vm){
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 2);

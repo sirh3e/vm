@@ -8,7 +8,7 @@
 #include "../registers.h"
 #include "../macros.h"
 
-int vm_instruction_mul(Vm* vm){
+vm_instruction_result vm_instruction_mul(Vm* vm){
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 2);
