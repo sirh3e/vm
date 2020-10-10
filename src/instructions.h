@@ -33,7 +33,7 @@ int vm_instruction_jle(Vm *vm);
 int vm_instruction_jmp(Vm *vm);
 
 int vm_instruction_add(Vm *vm);
-int instruction_sub(Vm*);
+int vm_instruction_sub(Vm *vm);
 int vm_instruction_mul(Vm *vm);
 int vm_instruction_div(Vm *vm);
 
