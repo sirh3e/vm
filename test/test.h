@@ -8,8 +8,6 @@
 #include "../src/types.h"
 #include "../src/macros.h"
 
-typedef u32 test_result_t;
-
 #define COLOR_REST "\033[0m"
 #define COLOR_RED "\033[31m"
 #define COLOR_GREEN "\033[32m"
