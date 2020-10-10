@@ -6,7 +6,7 @@
 #define VM_TEST_UTIL_H
 
 #include "../src/vm.h"
-#include "../src/macros.h"
+#include "../src/util.h"
 
 #define TEST_BEGIN() \
     printf("[ BEGIN  ] %s\n", __func__)
