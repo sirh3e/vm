@@ -11,10 +11,10 @@ test_vm_instruction_result test_vm_instruction_jg(){
             INSTRUCTION_LABEL,
 
             INSTRUCTION_PUSH, 2,
-            INSTRUCTION_PUSH, 1,
+            INSTRUCTION_PUSH, 2,
             INSTRUCTION_POP, C,
             INSTRUCTION_POP, D,
-            //will not pass C = 1, D = 2
+            //will not pass C = 2, D = 2
             INSTRUCTION_JG, 0,
             INSTRUCTION_NOP,
 
@@ -34,11 +34,11 @@ test_vm_instruction_result test_vm_instruction_jg(){
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //label
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 2
-        TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 1
+        TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 2
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //pop C
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //pop D
 
-        TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 1, D = 2 false
+        TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 2, D = 2 false
 
         TEST_ASSERT(vm->instruction_index == 11, "vm->instruction_index == 11");
         TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_NOP, "vm->instructions[vm->instruction_index] == INSTRUCTION_NOP");
