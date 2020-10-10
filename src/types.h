@@ -11,4 +11,6 @@ typedef int_t i32;
 typedef unsigned int uint_t;
 typedef uint_t u32;
 
+typedef u32 vm_instruction_result;
+
 #endif //VM_TYPES_H
