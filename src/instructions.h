@@ -35,7 +35,7 @@ int instruction_jmp(Vm*);
 int vm_instruction_add(Vm *vm);
 int instruction_sub(Vm*);
 int instruction_mul(Vm*);
-int instruction_div(Vm*);
+int vm_instruction_div(Vm *vm);
 
 int vm_instruction_dec(Vm *vm);
 int instruction_inc(Vm*);
