@@ -32,7 +32,7 @@ int instruction_jl(Vm*);
 int instruction_jle(Vm*);
 int instruction_jmp(Vm*);
 
-int instruction_add(Vm*);
+int vm_instruction_add(Vm *vm);
 int instruction_sub(Vm*);
 int instruction_mul(Vm*);
 int instruction_div(Vm*);
