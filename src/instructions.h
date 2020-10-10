@@ -41,7 +41,7 @@ int instruction_dec(Vm*);
 int instruction_inc(Vm*);
 int instruction_neg(Vm*);
 
-int instruction_and(Vm*);
+int vm_instruction_and(Vm *vm);
 int instruction_or(Vm*);
 int instruction_xor(Vm*);
 int instruction_shr(Vm*);
