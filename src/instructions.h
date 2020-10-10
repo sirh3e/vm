@@ -44,7 +44,7 @@ int instruction_neg(Vm*);
 int vm_instruction_and(Vm *vm);
 int vm_instruction_or(Vm *vm);
 int instruction_xor(Vm*);
-int instruction_shr(Vm*);
+int vm_instruction_shr(Vm *vm);
 int vm_instruction_shl(Vm *vm);
 
 int instruction_push(Vm*);
