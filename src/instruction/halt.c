@@ -8,7 +8,7 @@
 
 int instruction_halt(Vm* vm){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
 
     //ToDo clear memory enforce to stop
 

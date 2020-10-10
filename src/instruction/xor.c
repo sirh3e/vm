@@ -10,7 +10,7 @@
 
 int instruction_xor(Vm* vm){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 2);
 
     vm->registers[A] = VM_INSTRUCTION_GET(vm); vm->instruction_index++;

@@ -9,7 +9,7 @@
 
 int instruction_shr(Vm* vm){ //right
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 2);
     VM_ASSERT_REGISTER(vm->instructions[vm->instruction_index]);
 

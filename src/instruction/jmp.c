@@ -10,7 +10,7 @@
 
 int instruction_jmp(Vm* vm){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
     assert(VM_INSTRUCTION_GET(vm) <= 0);
     assert(VM_INSTRUCTION_GET_BY_INDEX(vm, VM_INSTRUCTION_GET(vm)) != INSTRUCTION_LABEL);

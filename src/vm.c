@@ -23,7 +23,7 @@ Vm* vm_new(){
 
 int vm_init(Vm* vm){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
 
     vm->registers = (i32*) malloc(sizeof(i32) * REGISTERS_LENGTH);
     if(vm->registers == NULL)
@@ -57,7 +57,7 @@ void vm_free(Vm* vm){ //ToDo
 
 int vm_program_set(Vm* vm, i32* program, u32 program_length){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
 
     //ToDo check if the length is larger or smaller then the allocated size
     vm->instruction_length = program_length;
@@ -68,7 +68,7 @@ int vm_program_set(Vm* vm, i32* program, u32 program_length){
 
 int vm_program_run(Vm* vm){ //ToDo create a result handler
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
 
     int instruction = INSTRUCTION_HALT, instruction_result = 0;
 
@@ -81,7 +81,7 @@ int vm_program_run(Vm* vm){ //ToDo create a result handler
 
 int vm_instruction_evaluate(Vm* vm, int instruction){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
     assert(instruction < INSTRUCTION_LENGTH);
     assert(instruction > 0);
 
@@ -90,7 +90,7 @@ int vm_instruction_evaluate(Vm* vm, int instruction){
 
 int vm_instruction_fetch(Vm* vm){
 
-    assert(vm != NULL);
+    VM_ASSERT(vm);
     //VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
 
     return vm->instructions[vm->instruction_index++];

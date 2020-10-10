@@ -9,7 +9,7 @@
 #include "../macros.h"
 
 int instruction_je(Vm* vm){
- assert(vm != NULL);
+ VM_ASSERT(vm);
  VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
  
  if(vm->registers[C] != vm->registers[D])
