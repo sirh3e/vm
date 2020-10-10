@@ -8,7 +8,7 @@
 #include "../registers.h"
 #include "../macros.h"
 
-int instruction_xor(Vm* vm){
+int vm_instruction_xor(Vm* vm){
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 2);
