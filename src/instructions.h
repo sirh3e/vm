@@ -23,7 +23,7 @@
 int vm_instruction_halt(Vm*);
 int instruction_nop(Vm*);
 
-int instruction_label(Vm*);
+int vm_instruction_label(Vm *vm);
 int vm_instruction_je(Vm *vm);
 int vm_instruction_jne(Vm *vm);
 int vm_instruction_jg(Vm *vm);
