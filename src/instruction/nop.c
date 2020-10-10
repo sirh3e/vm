@@ -10,7 +10,7 @@
 int instruction_nop(Vm* vm){
 
     assert(vm != NULL);
-    VM_INSTRUCTION_INDEX_ASSERT(vm, 1);
+    VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
 
     return 0;
 }
