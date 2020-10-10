@@ -16,7 +16,7 @@
 //      jne
 //      label
 
-#include "types.h"
+#include "test_types.h"
 
 test_vm_instruction_result test_vm_instruction_add();
 test_vm_instruction_result test_vm_instruction_and();

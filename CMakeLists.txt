@@ -48,4 +48,4 @@ add_executable(tests ./test/test.c
 ./test/instruction/test_shl.c
 ./test/instruction/test_shr.c
 ./test/instruction/test_sub.c
-./test/instruction/test_xor.c test/types.h)
+./test/instruction/test_xor.c test/test_types.h test/test_color.h test/test_assert.h test/test_util.h)

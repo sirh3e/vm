@@ -5,9 +5,6 @@
 #include <stdio.h>
 
 #include "test.h"
-#include "test_instructions.h"
-#include "types.h"
-#include "../src/macros.h"
 
 int main(){
 
@@ -24,10 +21,10 @@ int test_assert(int expression, const char* message){
     char* color;
     char* status;
 
-    color = expression ? COLOR_GREEN : COLOR_RED;
+    color = expression ?  VM_TEST_COLOR_GREEN :  VM_TEST_COLOR_RED;
     status = expression ? "PASSED" : "FAILED";
 
-    printf("[ %s%s%s ] %s\n", color, status, COLOR_REST, message);
+    printf("[ %s%s%s ] %s\n", color, status, VM_TEST_COLOR_REST, message);
 
     return expression == 1 ? 0 : 1;
 }
