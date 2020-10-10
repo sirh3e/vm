@@ -24,6 +24,7 @@ test_vm_instruction_result test_vm_instruction_dec();
 test_vm_instruction_result test_vm_instruction_div();
 test_vm_instruction_result test_vm_instruction_halt();
 test_vm_instruction_result test_vm_instruction_inc();
+test_vm_instruction_result test_vm_instruction_jmp();
 test_vm_instruction_result test_vm_instruction_load();
 test_vm_instruction_result test_vm_instruction_log();
 test_vm_instruction_result test_vm_instruction_mul();
@@ -39,11 +40,15 @@ test_vm_instruction_result test_vm_instruction_xor();
 
 static test_vm_instruction_result (*tests[])() = {
         //all instructions:
+        /*
         test_vm_instruction_and,
         test_vm_instruction_dec,
         test_vm_instruction_div,
         test_vm_instruction_halt,
         test_vm_instruction_inc,
+         */
+        test_vm_instruction_jmp,
+        /*
         test_vm_instruction_load,
         test_vm_instruction_log,
         test_vm_instruction_mul,
@@ -56,6 +61,7 @@ static test_vm_instruction_result (*tests[])() = {
         test_vm_instruction_shr,
         test_vm_instruction_sub,
         test_vm_instruction_xor,
+         */
 };
 
 #endif //VM_TEST_INSTRUCTIONS_H
