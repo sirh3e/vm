@@ -1,5 +1,5 @@
 //
-// Created by Marvin Henke on 08.10.20.
+// Created by sirh3e on 08.10.20.
 //
 
 #ifndef VM_ASSERT_H
