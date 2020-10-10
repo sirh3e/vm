@@ -3,7 +3,7 @@
 //
 
 #include "../assert.h"
-
+#include "../vm.h"
 #include "../instructions.h"
 
 vm_instruction_result vm_instruction_halt(Vm* vm){

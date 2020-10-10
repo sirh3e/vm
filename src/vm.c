@@ -6,10 +6,9 @@
 #include <string.h>
 
 #include "assert.h"
+#include "defaults.h"
 #include "vm.h"
 #include "instructions.h"
-#include "registers.h"
-#include "macros.h"
 
 Vm* vm_new(){
 
@@ -29,14 +28,14 @@ int vm_init(Vm* vm){
     if(vm->registers == NULL)
         exit(0); //ToDo find the right error message
 
-    vm->stack_allocated = STACK_DEFAULT_ALLOCATED_SIZE;
+    vm->stack_allocated = VM_DEFAULT_STACK_ALLOCATED_SIZE;
     vm->stack_index = 0;
     vm->stack_length = 0;
     vm->stack = (i32*) malloc(sizeof(i32) * vm->stack_allocated);
     if(vm->stack == NULL)
         exit(0); //ToDo find the right error message
 
-    vm->instruction_allocated = INSTRUCTION_DEFAULT_ALLOCATED_SIZE;
+    vm->instruction_allocated = VM_DEFAULT_INSTRUCTIONS_ALLOCATED_SIZE;
     vm->instruction_index = 0;
     vm->instruction_length = 0;
     vm->instructions = (i32*) malloc(sizeof(i32) * vm->instruction_allocated);

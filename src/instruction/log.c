@@ -2,11 +2,12 @@
 // Created by sirh3e on 9/20/2020.
 //
 
-#include "../assert.h"
 #include <stdio.h>
 
+#include "../assert.h"
+#include "../vm.h"
 #include "../instructions.h"
-#include "../macros.h"
+#include "../util.h"
 
 vm_instruction_result vm_instruction_log(Vm* vm){
 

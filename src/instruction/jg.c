@@ -3,10 +3,10 @@
 //
 
 #include "../assert.h"
-
-#include "../instructions.h"
+#include "../vm.h"
 #include "../registers.h"
-#include "../macros.h"
+#include "../instructions.h"
+#include "../util.h"
 
 vm_instruction_result vm_instruction_jg(Vm *vm) {
 

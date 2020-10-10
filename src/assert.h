@@ -6,6 +6,9 @@
 #define VM_ASSERT_H
 
 #include <assert.h>
+#include <stdio.h>
+
+#include "registers.h"
 
 #define VM_ASSERT(vm) assert(vm != NULL)
 #define VM_ASSERT_STACK_INDEX(vm, amount) assert(vm->stack_index + amount >= 0 && vm->stack_index + amount >= vm->stack_length)

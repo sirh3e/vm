@@ -3,9 +3,9 @@
 //
 
 #include "../assert.h"
-
+#include "../vm.h"
 #include "../instructions.h"
-#include "../macros.h"
+#include "../util.h"
 
 vm_instruction_result vm_instruction_shr(Vm* vm){ //right
 
