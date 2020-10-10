@@ -38,7 +38,7 @@ int instruction_mul(Vm*);
 int vm_instruction_div(Vm *vm);
 
 int vm_instruction_dec(Vm *vm);
-int instruction_inc(Vm*);
+int vm_instruction_inc(Vm *vm);
 int instruction_neg(Vm*);
 
 int vm_instruction_and(Vm *vm);
