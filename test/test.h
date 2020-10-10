@@ -6,6 +6,8 @@
 #define VM_TEST_H
 
 #include "types.h"
+
+#include "../src/vm.h"
 #include "../src/macros.h"
 
 #define COLOR_REST "\033[0m"
@@ -26,7 +28,7 @@
     
 #define TEST_ASSERT(expression, message) \
             printf("[ %s%s%s ] %s file: [%s] function: [%s] line: [%d] \n", expression ? COLOR_GREEN : COLOR_RED, expression ? "PASSED" : "FAILED", COLOR_REST, message, __FILE__, __func__, __LINE__); \
-            test_results |= expression ? (test_result_t)0 : (test_result_t)1
+            test_results |= expression ? (test_vm_instruction_result)0 : (test_vm_instruction_result)1
 
 #define TEST_INSTRUCTION_EXECUTE_NEXT(vm) \
         vm_instruction_evaluate(vm, vm_instruction_fetch(vm))
