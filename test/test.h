@@ -5,7 +5,7 @@
 #ifndef VM_TEST_H
 #define VM_TEST_H
 
-#include "../src/types.h"
+#include "types.h"
 #include "../src/macros.h"
 
 #define COLOR_REST "\033[0m"

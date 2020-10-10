@@ -7,7 +7,7 @@
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
 
-test_result_t test_vm_instruction_push() {
+test_vm_instruction_result test_vm_instruction_push() {
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {

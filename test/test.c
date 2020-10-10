@@ -6,12 +6,12 @@
 
 #include "test.h"
 #include "test_instructions.h"
-#include "../src/types.h"
+#include "types.h"
 #include "../src/macros.h"
 
 int main(){
 
-    test_result_t test_result = 0;
+    test_vm_instruction_result test_result = 0;
     for(int i = 0; i < ARRAY_LENGTH(tests); i++){
         test_result |= tests[i]();
     }
