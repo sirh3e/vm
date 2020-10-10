@@ -2,10 +2,10 @@
 // Created by sirh3e on 9/21/2020.
 //
 
-#include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "assert.h"
 #include "vm.h"
 #include "instructions.h"
 #include "registers.h"

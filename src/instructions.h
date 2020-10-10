@@ -95,7 +95,7 @@ enum Instruction{
     INSTRUCTION_LENGTH
 };
 
-const static vm_instruction_result (*instructions[])(Vm*) = {
+static vm_instruction_result (*instructions[])(Vm*) = {
         [INSTRUCTION_HALT] = vm_instruction_halt, //ToDo
         [INSTRUCTION_NOP] = vm_instruction_nop,
         
@@ -134,4 +134,3 @@ const static vm_instruction_result (*instructions[])(Vm*) = {
 };
 
 #endif //VM_INSTRUCTIONS_H
-u
