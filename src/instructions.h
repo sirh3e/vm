@@ -39,7 +39,7 @@ int vm_instruction_div(Vm *vm);
 
 int vm_instruction_dec(Vm *vm);
 int vm_instruction_inc(Vm *vm);
-int instruction_neg(Vm*);
+int vm_instruction_neg(Vm*);
 
 int vm_instruction_and(Vm *vm);
 int vm_instruction_or(Vm *vm);
@@ -47,7 +47,7 @@ int vm_instruction_xor(Vm *vm);
 int vm_instruction_shr(Vm *vm);
 int vm_instruction_shl(Vm *vm);
 
-int instruction_push(Vm*);
+int vm_instruction_push(Vm*);
 int vm_instruction_pop(Vm *vm);
 
 int vm_instruction_save(Vm *vm);
@@ -96,40 +96,40 @@ enum Instruction{
 
 const static int (*instructions[])(Vm*) = {
         [INSTRUCTION_HALT] = vm_instruction_halt, //ToDo
-        [INSTRUCTION_NOP] = instruction_nop,
+        [INSTRUCTION_NOP] = vm_instruction_nop,
         
-        [INSTRUCTION_LABEL] = instruction_label,
-        [INSTRUCTION_JE] = instruction_je,
-        [INSTRUCTION_JNE] = instruction_jne,
-        [INSTRUCTION_JG] = instruction_jg,
-        [INSTRUCTION_JGE] = instruction_jge,
-        [INSTRUCTION_JL] = instruction_jl,
-        [INSTRUCTION_JLE] = instruction_jle,
-        [INSTRUCTION_JMP] = instruction_jmp,
+        [INSTRUCTION_LABEL] = vm_instruction_label,
+        [INSTRUCTION_JE] = vm_instruction_je,
+        [INSTRUCTION_JNE] = vm_instruction_jne,
+        [INSTRUCTION_JG] = vm_instruction_jg,
+        [INSTRUCTION_JGE] = vm_instruction_jge,
+        [INSTRUCTION_JL] = vm_instruction_jl,
+        [INSTRUCTION_JLE] = vm_instruction_jle,
+        [INSTRUCTION_JMP] = vm_instruction_jmp,
 
-        [INSTRUCTION_ADD] = instruction_add,
-        [INSTRUCTION_SUB] = instruction_sub,
-        [INSTRUCTION_MUL] = instruction_mul,
-        [INSTRUCTION_DIV] = instruction_div,
+        [INSTRUCTION_ADD] = vm_instruction_add,
+        [INSTRUCTION_SUB] = vm_instruction_sub,
+        [INSTRUCTION_MUL] = vm_instruction_mul,
+        [INSTRUCTION_DIV] = vm_instruction_div,
 
-        [INSTRUCTION_DEC] = instruction_dec,
-        [INSTRUCTION_INC] = instruction_inc,
-        [INSTRUCTION_NEG] = instruction_neg,
+        [INSTRUCTION_DEC] = vm_instruction_dec,
+        [INSTRUCTION_INC] = vm_instruction_inc,
+        [INSTRUCTION_NEG] = vm_instruction_neg,
 
 
-        [INSTRUCTION_AND] = instruction_and,
-        [INSTRUCTION_OR] = instruction_or,
-        [INSTRUCTION_XOR] = instruction_xor,
-        [INSTRUCTION_SHR] = instruction_shr,
-        [INSTRUCTION_SHL] = instruction_shl,
+        [INSTRUCTION_AND] = vm_instruction_and,
+        [INSTRUCTION_OR] = vm_instruction_or,
+        [INSTRUCTION_XOR] = vm_instruction_xor,
+        [INSTRUCTION_SHR] = vm_instruction_shr,
+        [INSTRUCTION_SHL] = vm_instruction_shl,
 
-        [INSTRUCTION_PUSH] = instruction_push,
-        [INSTRUCTION_POP] = instruction_pop,
+        [INSTRUCTION_PUSH] = vm_instruction_push,
+        [INSTRUCTION_POP] = vm_instruction_pop,
 
-        [INSTRUCTION_SAVE] = instruction_save,
-        [INSTRUCTION_LOAD] = instruction_load,
+        [INSTRUCTION_SAVE] = vm_instruction_save,
+        [INSTRUCTION_LOAD] = vm_instruction_load,
 
-        [INSTRUCTION_LOG] = instruction_log,
+        [INSTRUCTION_LOG] = vm_instruction_log,
 };
 
 #endif //VM_INSTRUCTIONS_H
