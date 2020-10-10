@@ -12,7 +12,7 @@ int instruction_log(Vm* vm){
 
     assert(vm != NULL);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
-    VM_REGISTER_ASSERT(vm->instructions[vm->instruction_index]);
+    VM_ASSERT_REGISTER(vm->instructions[vm->instruction_index]);
 
     printf("%d\n", vm->registers[vm->instructions[vm->instruction_index]]);
     vm->instruction_index += 1;

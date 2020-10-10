@@ -11,7 +11,7 @@ int instruction_shl(Vm* vm){
 
     assert(vm != NULL);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 2);
-    VM_REGISTER_ASSERT(vm->instructions[vm->instruction_index]);
+    VM_ASSERT_REGISTER(vm->instructions[vm->instruction_index]);
 
     vm->registers[vm->instructions[vm->instruction_index]] <<= vm->instructions[vm->instruction_index + 1];
     vm->instruction_index += 2;
