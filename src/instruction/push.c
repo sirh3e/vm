@@ -11,7 +11,7 @@ int instruction_push(Vm* vm){
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
-    VM_STACK_INDEX_ASSERT(vm, 1);
+    VM_ASSERT_STACK_INDEX(vm, 1);
 
     VM_STACK_SET_BY_INDEX(vm, vm->stack_index++, VM_INSTRUCTION_GET_BY_INDEX(vm, vm->instruction_index++));
 
