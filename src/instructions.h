@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 #include "vm.h"
+#include "types.h"
 
 //ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
 
@@ -20,40 +21,40 @@
 //  cmp
 //  call, ret | functions
 
-int vm_instruction_halt(Vm*);
-int vm_instruction_nop(Vm *vm);
+vm_instruction_result vm_instruction_halt(Vm*);
+vm_instruction_result vm_instruction_nop(Vm *vm);
 
-int vm_instruction_label(Vm *vm);
-int vm_instruction_je(Vm *vm);
-int vm_instruction_jne(Vm *vm);
-int vm_instruction_jg(Vm *vm);
-int vm_instruction_jge(Vm *vm);
-int vm_instruction_jl(Vm *vm);
-int vm_instruction_jle(Vm *vm);
-int vm_instruction_jmp(Vm *vm);
+vm_instruction_result vm_instruction_label(Vm *vm);
+vm_instruction_result vm_instruction_je(Vm *vm);
+vm_instruction_result vm_instruction_jne(Vm *vm);
+vm_instruction_result vm_instruction_jg(Vm *vm);
+vm_instruction_result vm_instruction_jge(Vm *vm);
+vm_instruction_result vm_instruction_jl(Vm *vm);
+vm_instruction_result vm_instruction_jle(Vm *vm);
+vm_instruction_result vm_instruction_jmp(Vm *vm);
 
-int vm_instruction_add(Vm *vm);
-int vm_instruction_sub(Vm *vm);
-int vm_instruction_mul(Vm *vm);
-int vm_instruction_div(Vm *vm);
+vm_instruction_result vm_instruction_add(Vm *vm);
+vm_instruction_result vm_instruction_sub(Vm *vm);
+vm_instruction_result vm_instruction_mul(Vm *vm);
+vm_instruction_result vm_instruction_div(Vm *vm);
 
-int vm_instruction_dec(Vm *vm);
-int vm_instruction_inc(Vm *vm);
-int vm_instruction_neg(Vm*);
+vm_instruction_result vm_instruction_dec(Vm *vm);
+vm_instruction_result vm_instruction_inc(Vm *vm);
+vm_instruction_result vm_instruction_neg(Vm*);
 
-int vm_instruction_and(Vm *vm);
-int vm_instruction_or(Vm *vm);
-int vm_instruction_xor(Vm *vm);
-int vm_instruction_shr(Vm *vm);
-int vm_instruction_shl(Vm *vm);
+vm_instruction_result vm_instruction_and(Vm *vm);
+vm_instruction_result vm_instruction_or(Vm *vm);
+vm_instruction_result vm_instruction_xor(Vm *vm);
+vm_instruction_result vm_instruction_shr(Vm *vm);
+vm_instruction_result vm_instruction_shl(Vm *vm);
 
-int vm_instruction_push(Vm*);
-int vm_instruction_pop(Vm *vm);
+vm_instruction_result vm_instruction_push(Vm*);
+vm_instruction_result vm_instruction_pop(Vm *vm);
 
-int vm_instruction_save(Vm *vm);
-int vm_instruction_load(Vm *vm);
+vm_instruction_result vm_instruction_save(Vm *vm);
+vm_instruction_result vm_instruction_load(Vm *vm);
 
-int vm_instruction_log(Vm *vm);
+vm_instruction_result vm_instruction_log(Vm *vm);
 
 enum Instruction{
     INSTRUCTION_HALT,   //ToDo
@@ -94,7 +95,7 @@ enum Instruction{
     INSTRUCTION_LENGTH
 };
 
-const static int (*instructions[])(Vm*) = {
+const static vm_instruction_result (*instructions[])(Vm*) = {
         [INSTRUCTION_HALT] = vm_instruction_halt, //ToDo
         [INSTRUCTION_NOP] = vm_instruction_nop,
         
