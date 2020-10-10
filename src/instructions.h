@@ -51,7 +51,7 @@ int instruction_push(Vm*);
 int instruction_pop(Vm*);
 
 int instruction_save(Vm*);
-int instruction_load(Vm*);
+int vm_instruction_load(Vm *vm);
 
 int instruction_log(Vm*);
 

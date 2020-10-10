@@ -8,7 +8,7 @@
 #include "../registers.h"
 #include "../macros.h"
 
-int instruction_load(Vm* vm){
+int vm_instruction_load(Vm* vm){
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
