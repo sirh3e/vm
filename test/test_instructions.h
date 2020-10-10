@@ -27,6 +27,7 @@ test_result_t test_instruction_sub();
 test_result_t test_instruction_xor();
 
 static test_result_t (*tests[])() = {
+        //all instructions:
         test_instruction_and,
         test_instruction_dec,
         test_instruction_div,
