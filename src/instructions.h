@@ -53,7 +53,7 @@ int instruction_pop(Vm*);
 int instruction_save(Vm*);
 int vm_instruction_load(Vm *vm);
 
-int instruction_log(Vm*);
+int vm_instruction_log(Vm *vm);
 
 enum Instruction{
     INSTRUCTION_HALT,   //ToDo
