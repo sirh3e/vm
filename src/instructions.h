@@ -5,9 +5,6 @@
 #ifndef VM_INSTRUCTIONS_H
 #define VM_INSTRUCTIONS_H
 
-#include <assert.h>
-#include <stdio.h>
-
 #include "vm.h"
 #include "types.h"
 
