@@ -21,7 +21,7 @@
 //  call, ret | functions
 
 int vm_instruction_halt(Vm*);
-int instruction_nop(Vm*);
+int vm_instruction_nop(Vm *vm);
 
 int vm_instruction_label(Vm *vm);
 int vm_instruction_je(Vm *vm);
