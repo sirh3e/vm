@@ -2,7 +2,7 @@
 // Created by sirh3e on 9/20/2020.
 //
 
-#include <assert.h>
+#include "../assert.h"
 
 #include "../instructions.h"
 #include "../macros.h"

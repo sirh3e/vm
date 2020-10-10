@@ -2,7 +2,7 @@
 // Created by sirh3e on 06.10.20.
 //
 
-#include <assert.h>
+#include "../assert.h"
 
 #include "../instructions.h"
 #include "../registers.h"
