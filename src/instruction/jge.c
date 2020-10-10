@@ -15,5 +15,5 @@ int vm_instruction_jge(Vm *vm) {
     if (vm->registers[C] < vm->registers[D])
         return 0;
 
-    return instruction_jmp(vm);
+    return vm_instruction_jmp(vm);
 }
