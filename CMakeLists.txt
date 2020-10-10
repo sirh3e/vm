@@ -31,4 +31,5 @@ add_executable(main
 ./src/instruction/load.c
 ./src/instruction/je.c
 ./src/instruction/nop.c
-./src/instruction/shl.c src/assert.h)
+./src/instruction/shl.c src/assert.h
+./src/instruction/shl.c src/limits.h)
