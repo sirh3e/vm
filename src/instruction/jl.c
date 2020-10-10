@@ -7,13 +7,13 @@
 #include "../instructions.h"
 #include "../macros.h"
 
-int instruction_jl(Vm* vm){
- 
- VM_ASSERT(vm);
- VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
- 
- if (vm->registers[C] >= vm->registers[D])
-  return 0;
- 
- return instruction_jmp(vm);
+int instruction_jl(Vm *vm) {
+
+    VM_ASSERT(vm);
+    VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
+
+    if (vm->registers[C] >= vm->registers[D])
+        return 0;
+
+    return instruction_jmp(vm);
 }
