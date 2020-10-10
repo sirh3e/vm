@@ -28,7 +28,7 @@ int vm_instruction_je(Vm *vm);
 int instruction_jne(Vm*);
 int vm_instruction_jg(Vm *vm);
 int vm_instruction_jge(Vm *vm);
-int instruction_jl(Vm*);
+int vm_instruction_jl(Vm *vm);
 int instruction_jle(Vm*);
 int instruction_jmp(Vm*);
 
