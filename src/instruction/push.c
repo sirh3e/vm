@@ -7,7 +7,7 @@
 #include "../instructions.h"
 #include "../macros.h"
 
-int instruction_push(Vm* vm){
+int vm_instruction_push(Vm* vm){
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
