@@ -3,6 +3,7 @@
 //
 
 #include "../test.h"
+#include "../test_instructions.h"
 
 #include "../../src/vm.h"
 #include "../../src/instructions.h"

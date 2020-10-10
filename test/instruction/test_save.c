@@ -2,7 +2,7 @@
 // Created by sirh3e on 9/27/2020.
 //
 
-#include "../test.h"
+#include "../test_instructions.h"
 
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
@@ -28,9 +28,11 @@ test_result_t test_instruction_save() {
     TEST_ASSERT(vm->stack_index == 0, "vm.stack_index == 000");
 
     //ToDo create test for loop
-
+    printf("1 passed\n");
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    printf("2 passed\n");
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    printf("3 passed\n");
     TEST_ASSERT(vm->instruction_index == 5, "vm.instruction_index == 0005");
     TEST_ASSERT(vm->stack_index == 1, "vm.stack_index == 0001");
     TEST_ASSERT(vm->stack[vm->stack_index - 1] == -963, "vm->stack[vm->stack_index - 1] == -963");

@@ -2,7 +2,7 @@
 // Created by sirh3e on 30.09.20.
 //
 
-#include "../test.h"
+#include "../test_instructions.h"
 
 #include "../../src/vm.h"
 #include "../../src/instructions.h"

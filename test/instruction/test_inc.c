@@ -2,12 +2,12 @@
 // Created by sirh3e on 9/27/2020.
 //
 
-#include "../test.h"
+#include "../test_instructions.h"
 
 #include "../../src/vm.h"
 #include "../../src/instructions.h"
 
-int test_instruction_inc() {
+test_result_t test_instruction_inc() {
 
     i32 test_results = 0, instruction = INSTRUCTION_HALT;
     i32 program[] = {
