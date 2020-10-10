@@ -134,3 +134,4 @@ const static vm_instruction_result (*instructions[])(Vm*) = {
 };
 
 #endif //VM_INSTRUCTIONS_H
+u
