@@ -17,7 +17,7 @@
 #define VM_ASSERT_STACK_INDEX(vm, amount) VM_ASSERT_STACK(vm, vm->stack_index + amount)
 
 #define VM_ASSERT_INSTRUCTION(instruction) ASSERT(instruction < INSTRUCTION_LENGTH && instruction >= 0)
-#define VM_ASSERT_INSTRUCTION_INDEX(vm, amount) VM_ASSERT_INSTRUCTION(vm->instructions[vm->instruction_index + amount])
+#define VM_ASSERT_INSTRUCTION_INDEX(vm, amount) ASSERT(vm->instruction_index + amount <= vm->instruction_length && vm->instruction_index + amount >= 0)
 
 #define VM_ASSERT_REGISTER(register_index) ASSERT(register_index < REGISTERS_LENGTH && register_index >= 0)
 
