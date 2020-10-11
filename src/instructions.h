@@ -18,21 +18,63 @@
 //  cmp
 //  call, ret | functions
 
+// instruction: halt
+//  will stop the vm
 vm_instruction_result vm_instruction_halt(Vm*);
+
+// instruction: nop
+//  this instruction does nothing
 vm_instruction_result vm_instruction_nop(Vm *vm);
 
+// instruction: label
+//  defines a label
+//  where you can jump to later with the
+//      instructions:
+//          je, jne, jg, jge, jl, jmp
 vm_instruction_result vm_instruction_label(Vm *vm);
+
+// instruction: je
+//  jumps to a label if the value in register C and D are equal
 vm_instruction_result vm_instruction_je(Vm *vm);
+
+// instruction: jne
+//  jumps to a label if the value in register C and D are not equal
 vm_instruction_result vm_instruction_jne(Vm *vm);
+
+// instruction: jg
+//  jumps to a label if the value in register C is greater the value in D
 vm_instruction_result vm_instruction_jg(Vm *vm);
+
+// instruction: jge
+//  jumps to a label if the value in register C is greater or equal the value in D
 vm_instruction_result vm_instruction_jge(Vm *vm);
+
+// instruction: jl
+//  jumps to a label if the value in register C is less the value in D
 vm_instruction_result vm_instruction_jl(Vm *vm);
+
+// instruction: jge
+//  jumps to a label if the value in register C is less or equal the value in D
 vm_instruction_result vm_instruction_jle(Vm *vm);
+
+// instruction: jmp
+//  jumps to a label
 vm_instruction_result vm_instruction_jmp(Vm *vm);
 
+// instruction: add
+//  adds the value in register a and b together into register c
 vm_instruction_result vm_instruction_add(Vm *vm);
+
+// instruction: sub
+//  subtracts the value in register a and b together into register c
 vm_instruction_result vm_instruction_sub(Vm *vm);
+
+// instruction: mul
+//  multiples the value in register a and b together into register c
 vm_instruction_result vm_instruction_mul(Vm *vm);
+
+// instruction: div
+//   the value in register a and b together into register c
 vm_instruction_result vm_instruction_div(Vm *vm);
 
 vm_instruction_result vm_instruction_dec(Vm *vm);
@@ -66,10 +108,10 @@ enum Instruction{
     INSTRUCTION_JLE,
     INSTRUCTION_JMP,
 
-    INSTRUCTION_ADD,        //register c = register a + register b; and store it on the stack
-    INSTRUCTION_SUB,        //register c = register a - register b; and store it on the stack
-    INSTRUCTION_MUL,        //register c = register a * register b; and store it on the stack
-    INSTRUCTION_DIV,        //register c = register a / register b; and store it on the stack
+    INSTRUCTION_ADD,
+    INSTRUCTION_SUB,
+    INSTRUCTION_MUL,
+    INSTRUCTION_DIV,
 
     INSTRUCTION_DEC,
     INSTRUCTION_INC,
