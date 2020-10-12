@@ -20,10 +20,16 @@
 
 // instruction: halt
 //  will stop the vm
+//
+//  example code:
+//   INSTRUCTION_HALT
 vm_instruction_result vm_instruction_halt(Vm*);
 
 // instruction: nop
 //  this instruction does nothing
+//
+//  example code:
+//   INSTRUCTION_NOP
 vm_instruction_result vm_instruction_nop(Vm *vm);
 
 // instruction: label
@@ -31,57 +37,216 @@ vm_instruction_result vm_instruction_nop(Vm *vm);
 //  where you can jump to later with the
 //      instructions:
 //          je, jne, jg, jge, jl, jmp
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_JMP  , 0
+//  LABEL got the index of 0
 vm_instruction_result vm_instruction_label(Vm *vm);
 
 // instruction: je
 //  jumps to a label if the value in register C and D are equal
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_PUSH, 2,
+//   INSTRUCTION_PUSH, 2,
+//   INSTRUCTION_POP,  C,
+//   INSTRUCTION_POP,  D,
+//   INSTRUCTION_JE ,  0,
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 2, D = 2
 vm_instruction_result vm_instruction_je(Vm *vm);
 
 // instruction: jne
 //  jumps to a label if the value in register C and D are not equal
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_PUSH, 1,
+//   INSTRUCTION_PUSH, 2,
+//   INSTRUCTION_POP , C,
+//   INSTRUCTION_POP , D,
+//   INSTRUCTION_JNE , 0,
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 1, D = 2
 vm_instruction_result vm_instruction_jne(Vm *vm);
 
 // instruction: jg
 //  jumps to a label if the value in register C is greater the value in D
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_PUSH, 12345678,
+//   INSTRUCTION_PUSH, 1,
+//   INSTRUCTION_POP,  C,
+//   INSTRUCTION_POP,  D,
+//   INSTRUCTION_JG ,  0,
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 12345678, D = 1
 vm_instruction_result vm_instruction_jg(Vm *vm);
 
 // instruction: jge
 //  jumps to a label if the value in register C is greater or equal the value in D
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_PUSH, 12345678,
+//   INSTRUCTION_PUSH, 12345678,
+//   INSTRUCTION_POP , C,
+//   INSTRUCTION_POP , D,
+//   INSTRUCTION_JGE , 0,
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 12345678, D = 12345678
 vm_instruction_result vm_instruction_jge(Vm *vm);
 
 // instruction: jl
 //  jumps to a label if the value in register C is less the value in D
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_PUSH, 1,
+//   INSTRUCTION_PUSH, 12345678,
+//   INSTRUCTION_POP,  C,
+//   INSTRUCTION_POP,  D,
+//   INSTRUCTION_JL ,  0,
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 1, D = 12345678
 vm_instruction_result vm_instruction_jl(Vm *vm);
 
 // instruction: jge
 //  jumps to a label if the value in register C is less or equal the value in D
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_PUSH, 12345678,
+//   INSTRUCTION_PUSH, 12345678,
+//   INSTRUCTION_POP,  C,
+//   INSTRUCTION_POP,  D,
+//   INSTRUCTION_JLE,  0,
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 12345678, D = 12345678
 vm_instruction_result vm_instruction_jle(Vm *vm);
 
 // instruction: jmp
 //  jumps to a label
+//
+//  example code:
+//   INSTRUCTION_LABEL,
+//   INSTRUCTION_JMP  , 0
+//  LABEL got the index of 0
+//   registers:
+//    A = 0, B = 0, C = 0, D = 0
 vm_instruction_result vm_instruction_jmp(Vm *vm);
 
 // instruction: add
 //  adds the value in register a and b together into register c
+//
+//  example code:
+//   INSTRUCTION_PUSH, 123,
+//   INSTRUCTION_PUSH, 321,
+//   INSTRUCTION_ADD ,
+//   registers:
+//    A = 123, B = 321, C = 444, D = 0
 vm_instruction_result vm_instruction_add(Vm *vm);
 
 // instruction: sub
 //  subtracts the value in register a and b together into register c
+//
+//  example code:
+//   INSTRUCTION_PUSH, 123,
+//   INSTRUCTION_PUSH, 321,
+//   INSTRUCTION_SUB ,
+//   registers:
+//    A = 123, B = 321, C = -202, D = 0
 vm_instruction_result vm_instruction_sub(Vm *vm);
 
 // instruction: mul
 //  multiples the value in register a and b together into register c
+//
+//  example code:
+//   INSTRUCTION_PUSH, 123,
+//   INSTRUCTION_PUSH, 321,
+//   INSTRUCTION_MUL ,
+//   registers:
+//    A = 123, B = 321, C = 39483, D = 0
 vm_instruction_result vm_instruction_mul(Vm *vm);
 
 // instruction: div
 //   the value in register a and b together into register c
+//   note div is integer / integer = integer
+//
+//  example code:
+//   INSTRUCTION_PUSH, 303,
+//   INSTRUCTION_PUSH, 321,
+//   INSTRUCTION_MUL ,
+//   registers:
+//    A = 123, B = 321, C = 0, D = 0
 vm_instruction_result vm_instruction_div(Vm *vm);
 
+// instruction: dec
+//   the value in register <register> <integer> will be in decreased
+//
+//  example code:
+//   INSTRUCTION_PUSH, 303,
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_DEC , A, 303
+//   registers:
+//    A = 0, B = 0, C = 0, D = 0
 vm_instruction_result vm_instruction_dec(Vm *vm);
+
+// instruction: inc
+//   the value in register <register> <integer> will be in increased
+//
+//  example code:
+//   INSTRUCTION_PUSH, 303,
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_INC , A, 303
+//   registers:
+//    A = 606, B = 0, C = 0, D = 0
 vm_instruction_result vm_instruction_inc(Vm *vm);
+
+// instruction: neg
+//   the value in register <register> will be in negate
+//
+//  example code:
+//   INSTRUCTION_PUSH, 303,
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_NEG , A
+//   registers:
+//    A = -303, B = 0, C = 0, D = 0
 vm_instruction_result vm_instruction_neg(Vm*);
 
+// instruction: and
+//   the value in register A and register B operate a bitwise and result in register c
+//
+//  example code:
+//   INSTRUCTION_PUSH, 1281141, /* 00000000000100111000110001110101 */
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_PUSH, 3472199, /* 00000000001101001111101101000111 */
+//   INSTRUCTION_POP , B,
+//   INSTRUCTION_AND ,          /* 00000000000100001000100001000101 */
+//   registers:
+//    A = 1281141, B = 3472199, C = 1083461, D = 0
 vm_instruction_result vm_instruction_and(Vm *vm);
+
+// instruction: or
+//   the value in register A and register B operate a bitwise and result in register c
+//
+//  example code:
+//   INSTRUCTION_PUSH, 1281141, /* 00000000000100111000110001110101 */
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_PUSH, 3472199, /* 00000000001101001111101101000111 */
+//   INSTRUCTION_POP , B,
+//   INSTRUCTION_OR  ,          /* */
+//   registers:
+//    A = 1281141, B = 3472199, C = , D = 0
 vm_instruction_result vm_instruction_or(Vm *vm);
 vm_instruction_result vm_instruction_xor(Vm *vm);
 vm_instruction_result vm_instruction_shr(Vm *vm);
