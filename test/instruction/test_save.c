@@ -21,30 +21,26 @@ test_vm_instruction_result test_vm_instruction_save() {
     VM_INIT(program);
     TEST_BEGIN();
 
-    TEST_ASSERT(vm->instruction_index == 0, "vm.instruction_index == 000");
-    TEST_ASSERT(vm->stack_index == 0, "vm.stack_index == 000");
-
-    //ToDo create test for loop
-    printf("1 passed\n");
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    printf("2 passed\n");
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    printf("3 passed\n");
-    TEST_ASSERT(vm->instruction_index == 5, "vm.instruction_index == 0005");
-    TEST_ASSERT(vm->stack_index == 1, "vm.stack_index == 0001");
-    TEST_ASSERT(vm->stack[vm->stack_index - 1] == -963, "vm->stack[vm->stack_index - 1] == -963");
+    TEST_ASSERT(vm->instruction_index == 0);
+    TEST_ASSERT(vm->stack_index == 0);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 10, "vm.instruction_index == 0010");
-    TEST_ASSERT(vm->stack_index == 2, "vm.stack_index == 0002");
-    TEST_ASSERT(vm->stack[vm->stack_index - 1] == 63512, "vm->stack[vm->stack_index - 1] == 63512");
+    TEST_ASSERT(vm->instruction_index == 5);
+    TEST_ASSERT(vm->stack_index == 1);
+    TEST_ASSERT(vm->stack[vm->stack_index - 1] == -963);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 15, "vm.instruction_index == 0015");
-    TEST_ASSERT(vm->stack_index == 3, "vm.stack_index == 0003");
-    TEST_ASSERT(vm->stack[vm->stack_index - 1] == 3, "vm->stack[vm->stack_index - 1] == 3");
+    TEST_ASSERT(vm->instruction_index == 10);
+    TEST_ASSERT(vm->stack_index == 2);
+    TEST_ASSERT(vm->stack[vm->stack_index - 1] == 63512);
+
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_ASSERT(vm->instruction_index == 15);
+    TEST_ASSERT(vm->stack_index == 3);
+    TEST_ASSERT(vm->stack[vm->stack_index - 1] == 3);
 
     TEST_END(vm);
 
