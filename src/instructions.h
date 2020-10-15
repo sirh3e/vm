@@ -361,81 +361,86 @@ vm_instruction_result vm_instruction_load(Vm *vm);
 
 vm_instruction_result vm_instruction_log(Vm *vm);
 
+#define INSTRUCTION(instruction) \
+        INSTRUCTION_ ## instruction
+
+#define INSTRUCTION_MAP(instruction_enum, instruction_func) \
+    [INSTRUCTION(instruction_enum)] = vm_instruction_ ## instruction_func
+
 enum Instruction{
-    INSTRUCTION_HALT,   //ToDo
-    INSTRUCTION_NOP,
+    INSTRUCTION(HALT),   //ToDo
+    INSTRUCTION(NOP),
 
-    INSTRUCTION_LABEL,
-    INSTRUCTION_JE,
-    INSTRUCTION_JNE,
-    INSTRUCTION_JG,
-    INSTRUCTION_JGE,
-    INSTRUCTION_JL,
-    INSTRUCTION_JLE,
-    INSTRUCTION_JMP,
+    INSTRUCTION(LABEL),
+    INSTRUCTION(JE),
+    INSTRUCTION(JNE),
+    INSTRUCTION(JG),
+    INSTRUCTION(JGE),
+    INSTRUCTION(JL),
+    INSTRUCTION(JLE),
+    INSTRUCTION(JMP),
 
-    INSTRUCTION_ADD,
-    INSTRUCTION_SUB,
-    INSTRUCTION_MUL,
-    INSTRUCTION_DIV,
+    INSTRUCTION(ADD),
+    INSTRUCTION(SUB),
+    INSTRUCTION(MUL),
+    INSTRUCTION(DIV),
 
-    INSTRUCTION_DEC,
-    INSTRUCTION_INC,
-    INSTRUCTION_NEG,
+    INSTRUCTION(DEC),
+    INSTRUCTION(INC),
+    INSTRUCTION(NEG),
 
-    INSTRUCTION_AND,
-    INSTRUCTION_OR,
-    INSTRUCTION_XOR,
-    INSTRUCTION_SHR,
-    INSTRUCTION_SHL,
+    INSTRUCTION(AND),
+    INSTRUCTION(OR),
+    INSTRUCTION(XOR),
+    INSTRUCTION(SHR),
+    INSTRUCTION(SHL),
 
-    INSTRUCTION_PUSH,
-    INSTRUCTION_POP,
+    INSTRUCTION(PUSH),
+    INSTRUCTION(POP),
 
-    INSTRUCTION_SAVE,
-    INSTRUCTION_LOAD,
+    INSTRUCTION(SAVE),
+    INSTRUCTION(LOAD),
 
-    INSTRUCTION_LOG,
+    INSTRUCTION(LOG),
 
-    INSTRUCTION_LENGTH
+    INSTRUCTION(LENGTH)
 };
 
 static vm_instruction_result (*instructions[])(Vm*) = {
-        [INSTRUCTION_HALT] = vm_instruction_halt, //ToDo
-        [INSTRUCTION_NOP] = vm_instruction_nop,
-        
-        [INSTRUCTION_LABEL] = vm_instruction_label,
-        [INSTRUCTION_JE] = vm_instruction_je,
-        [INSTRUCTION_JNE] = vm_instruction_jne,
-        [INSTRUCTION_JG] = vm_instruction_jg,
-        [INSTRUCTION_JGE] = vm_instruction_jge,
-        [INSTRUCTION_JL] = vm_instruction_jl,
-        [INSTRUCTION_JLE] = vm_instruction_jle,
-        [INSTRUCTION_JMP] = vm_instruction_jmp,
+        INSTRUCTION_MAP(HALT, halt),
+        INSTRUCTION_MAP(NOP, nop),
 
-        [INSTRUCTION_ADD] = vm_instruction_add,
-        [INSTRUCTION_SUB] = vm_instruction_sub,
-        [INSTRUCTION_MUL] = vm_instruction_mul,
-        [INSTRUCTION_DIV] = vm_instruction_div,
+        INSTRUCTION_MAP(LABEL, label),
+        INSTRUCTION_MAP(JE, je),
+        INSTRUCTION_MAP(JNE, jne),
+        INSTRUCTION_MAP(JG, jg),
+        INSTRUCTION_MAP(JGE, jge),
+        INSTRUCTION_MAP(JL, jl),
+        INSTRUCTION_MAP(JLE, jle),
+        INSTRUCTION_MAP(JMP, jmp),
 
-        [INSTRUCTION_DEC] = vm_instruction_dec,
-        [INSTRUCTION_INC] = vm_instruction_inc,
-        [INSTRUCTION_NEG] = vm_instruction_neg,
+        INSTRUCTION_MAP(ADD, add),
+        INSTRUCTION_MAP(SUB, sub),
+        INSTRUCTION_MAP(MUL, mul),
+        INSTRUCTION_MAP(DIV, div),
 
+        INSTRUCTION_MAP(DEC, dec),
+        INSTRUCTION_MAP(INC, inc),
+        INSTRUCTION_MAP(NEG, neg),
 
-        [INSTRUCTION_AND] = vm_instruction_and,
-        [INSTRUCTION_OR] = vm_instruction_or,
-        [INSTRUCTION_XOR] = vm_instruction_xor,
-        [INSTRUCTION_SHR] = vm_instruction_shr,
-        [INSTRUCTION_SHL] = vm_instruction_shl,
+        INSTRUCTION_MAP(AND, and),
+        INSTRUCTION_MAP(OR, or),
+        INSTRUCTION_MAP(XOR, xor),
+        INSTRUCTION_MAP(SHR, shr),
+        INSTRUCTION_MAP(SHL, shl),
 
-        [INSTRUCTION_PUSH] = vm_instruction_push,
-        [INSTRUCTION_POP] = vm_instruction_pop,
+        INSTRUCTION_MAP(PUSH, push),
+        INSTRUCTION_MAP(POP, pop),
 
-        [INSTRUCTION_SAVE] = vm_instruction_save,
-        [INSTRUCTION_LOAD] = vm_instruction_load,
+        INSTRUCTION_MAP(SAVE, save),
+        INSTRUCTION_MAP(LOAD, load),
 
-        [INSTRUCTION_LOG] = vm_instruction_log,
+        INSTRUCTION_MAP(LOG, log),
 };
 
 #endif //VM_INSTRUCTIONS_H
