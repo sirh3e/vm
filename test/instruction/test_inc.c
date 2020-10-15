@@ -21,16 +21,16 @@ test_vm_instruction_result test_vm_instruction_inc() {
     TEST_BEGIN();
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 2, "vm.registers[A] == 2");
+    TEST_ASSERT(vm->registers[A] == 2);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 4, "vm.registers[A] == 4");
+    TEST_ASSERT(vm->registers[A] == 4);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == 128, "vm.registers[B] == 128");
+    TEST_ASSERT(vm->registers[B] == 128);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0");
+    TEST_ASSERT(vm->registers[C] == 0);
 
     TEST_END(vm);
 
