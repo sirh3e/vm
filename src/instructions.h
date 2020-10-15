@@ -244,9 +244,9 @@ vm_instruction_result vm_instruction_and(Vm *vm);
 //   INSTRUCTION_POP , A,
 //   INSTRUCTION_PUSH, 3472199, /* 00000000001101001111101101000111 */
 //   INSTRUCTION_POP , B,
-//   INSTRUCTION_OR  ,          /* */
+//   INSTRUCTION_OR  ,          /* ToDo insert binary number here */
 //   registers:
-//    A = 1281141, B = 3472199, C = , D = 0
+//    A = 1281141, B = 3472199, C = 4753340, D = 0
 vm_instruction_result vm_instruction_or(Vm *vm);
 vm_instruction_result vm_instruction_xor(Vm *vm);
 vm_instruction_result vm_instruction_shr(Vm *vm);
