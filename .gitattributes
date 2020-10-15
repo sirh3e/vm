@@ -1,4 +1,4 @@
-src/assert.h linguist-language=C
-src/instructions.h linguist-language=C
-src/registers.h linguist-language=C
-src/vm.h linguist-language=C
+src/assert.h linguist-language=c
+src/instructions.h linguist-language=c
+src/registers.h linguist-language=c
+src/vm.h linguist-language=c
