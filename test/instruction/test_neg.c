@@ -25,25 +25,25 @@ test_vm_instruction_result test_vm_instruction_neg() {
     TEST_BEGIN();
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 255, "vm.registers[A] == 0255");
+    TEST_ASSERT(vm->registers[A] == 255);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == -255, "vm.registers[A] == -255");
+    TEST_ASSERT(vm->registers[A] == -255);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 255, "vm.registers[A] == 0255");
+    TEST_ASSERT(vm->registers[A] == 255);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == -48, "vm.registers[A] == -048");
+    TEST_ASSERT(vm->registers[B] == -48);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == 48, "vm.registers[A] == 0048");
+    TEST_ASSERT(vm->registers[B] == 48);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == -48, "vm.registers[A] == -048");
+    TEST_ASSERT(vm->registers[B] == -48);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 128, "vm.registers[A] == 0128");
+    TEST_ASSERT(vm->registers[C] == 128);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == -128, "vm.registers[A] == -128");
+    TEST_ASSERT(vm->registers[C] == -128);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 128, "vm.registers[A] == 0128");
+    TEST_ASSERT(vm->registers[C] == 128);
 
     TEST_END(vm);
 
