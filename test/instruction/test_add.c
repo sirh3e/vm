@@ -20,14 +20,14 @@ test_vm_instruction_result test_vm_instruction_add() {
     TEST_BEGIN();
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 64, "vm.registers[A] == 064");
-    TEST_ASSERT(vm->registers[B] == 02, "vm.registers[B] == 002");
-    TEST_ASSERT(vm->registers[C] == 66, "vm.registers[C] == 066");
+    TEST_ASSERT(vm->registers[A] == 64);
+    TEST_ASSERT(vm->registers[B] == 02);
+    TEST_ASSERT(vm->registers[C] == 66);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 64, "vm.registers[A] == 064");
-    TEST_ASSERT(vm->registers[B] == -36, "vm.registers[B] == -36");
-    TEST_ASSERT(vm->registers[C] == 28, "vm.registers[C] == 028");
+    TEST_ASSERT(vm->registers[A] == 64);
+    TEST_ASSERT(vm->registers[B] == -36);
+    TEST_ASSERT(vm->registers[C] == 28);
 
     TEST_END(vm);
 
