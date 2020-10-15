@@ -316,6 +316,19 @@ vm_instruction_result vm_instruction_shl(Vm *vm);
 //   registers:
 //    A = 0, B = 0, C = 0, D = 0
 vm_instruction_result vm_instruction_push(Vm*);
+
+// instruction: pop
+//  removes a value from stack into the register A .. D
+//
+//  example code:
+//   INSTRUCTION_PUSH, 2497368, /* 00000000001001100001101101011000 */
+//   INSTRUCTION_POP , A,
+//
+//   stack:
+//      [0 .. 4095] = 0
+//
+//   registers:
+//    A = 2497368, B = 0, C = 0, D = 0
 vm_instruction_result vm_instruction_pop(Vm *vm);
 
 vm_instruction_result vm_instruction_save(Vm *vm);
