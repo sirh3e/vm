@@ -32,38 +32,38 @@ test_vm_instruction_result test_vm_instruction_shr() {
     VM_INIT(program);
     TEST_BEGIN();
 
-    TEST_ASSERT(vm->instruction_index == 0, "vm.instruction_index == 000");
-    TEST_ASSERT(vm->stack_index == 0, "vm.stack_index == 000");
+    TEST_ASSERT(vm->instruction_index == 0);
+    TEST_ASSERT(vm->stack_index == 0);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 7, "vm.instruction_index == 007");
-    TEST_ASSERT(vm->registers[A] == 50, "vm->registers[A] == 050");
+    TEST_ASSERT(vm->instruction_index == 7);
+    TEST_ASSERT(vm->registers[A] == 50);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 14, "vm.instruction_index == 014");
-    TEST_ASSERT(vm->registers[A] == 11, "vm->registers[B] == 011");
+    TEST_ASSERT(vm->instruction_index == 14);
+    TEST_ASSERT(vm->registers[A] == 11);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 21, "vm.instruction_index == 021");
-    TEST_ASSERT(vm->registers[B] == 1, "vm->registers[A] == 001");
+    TEST_ASSERT(vm->instruction_index == 21);
+    TEST_ASSERT(vm->registers[B] == 1);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 28, "vm.instruction_index == 028");
-    TEST_ASSERT(vm->registers[B] == 144, "vm->registers[A] == 144");
+    TEST_ASSERT(vm->instruction_index == 28);
+    TEST_ASSERT(vm->registers[B] == 144);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->instruction_index == 35, "vm.instruction_index == 035");
-    TEST_ASSERT(vm->registers[C] == 2, "vm->registers[A] == 002");
+    TEST_ASSERT(vm->instruction_index == 35);
+    TEST_ASSERT(vm->registers[C] == 2);
 
     TEST_END(vm);
 
