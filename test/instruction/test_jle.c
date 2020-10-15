@@ -41,7 +41,7 @@ test_vm_instruction_result test_vm_instruction_jle_equals(){
 
     for (int i = 0; i < 5; ++i) {
         TEST_ASSERT(vm->instruction_index == 0);
-        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABELLABEL);
+        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL);
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //label
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 1
@@ -51,7 +51,7 @@ test_vm_instruction_result test_vm_instruction_jle_equals(){
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 2, D = 1 false
 
-        TEST_ASSERT(vm->instruction_index == 11, "vm->instruction_index == 11");
+        TEST_ASSERT(vm->instruction_index == 11);
         TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_NOP);
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //nop
