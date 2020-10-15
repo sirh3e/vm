@@ -30,7 +30,7 @@ test_vm_instruction_result test_vm_instruction_jg(){
 
     for (int i = 0; i < 5; ++i) {
         TEST_ASSERT(vm->instruction_index == 0);
-        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABELL);
+        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL);
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //label
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 2
