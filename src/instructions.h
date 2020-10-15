@@ -244,10 +244,22 @@ vm_instruction_result vm_instruction_and(Vm *vm);
 //   INSTRUCTION_POP , A,
 //   INSTRUCTION_PUSH, 3472199, /* 00000000001101001111101101000111 */
 //   INSTRUCTION_POP , B,
-//   INSTRUCTION_OR  ,          /* ToDo insert binary number here */
+//   INSTRUCTION_OR  ,          /* 00000000000011011111111111011101 */
 //   registers:
 //    A = 1281141, B = 3472199, C = 4753340, D = 0
 vm_instruction_result vm_instruction_or(Vm *vm);
+
+// instruction: xor
+//   the value in register A and register B operate a xor operation and result in register c
+//
+//  example code:
+//   INSTRUCTION_PUSH, 1281141, /* 00000000000100111000110001110101 */
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_PUSH, 3472199, /* 00000000001101001111101101000111 */
+//   INSTRUCTION_POP , B,
+//   INSTRUCTION_XOR ,          /* 00000000001001110111011100110010 */
+//   registers:
+//    A = 1281141, B = 3472199, C = 2586418, D = 0
 vm_instruction_result vm_instruction_xor(Vm *vm);
 vm_instruction_result vm_instruction_shr(Vm *vm);
 vm_instruction_result vm_instruction_shl(Vm *vm);
