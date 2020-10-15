@@ -261,6 +261,16 @@ vm_instruction_result vm_instruction_or(Vm *vm);
 //   registers:
 //    A = 1281141, B = 3472199, C = 2586418, D = 0
 vm_instruction_result vm_instruction_xor(Vm *vm);
+
+// instruction: shr
+//   the value in register A operate a shr bitwise and result in register A
+//
+//  example code:
+//   INSTRUCTION_PUSH, 2497368, /* 00000000001001100001101101011000 */
+//   INSTRUCTION_POP , A,
+//   INSTRUCTION_SHR , A, 21,   /* 00000000000000000000000000000001 */
+//   registers:
+//    A = 1281141, B = 3472199, C = 2586418, D = 0
 vm_instruction_result vm_instruction_shr(Vm *vm);
 vm_instruction_result vm_instruction_shl(Vm *vm);
 
