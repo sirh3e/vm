@@ -15,6 +15,7 @@ vm_instruction_result vm_instruction_xor(Vm *vm) {
 
     vm->registers[A] = VM_INSTRUCTION_GET(vm);
     vm->instruction_index++;
+
     vm->registers[B] = VM_INSTRUCTION_GET(vm);
     vm->instruction_index++;
 
