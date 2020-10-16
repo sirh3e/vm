@@ -2,3 +2,4 @@ src/assert.h linguist-language=C
 src/instructions.h linguist-language=C
 src/registers.h linguist-language=C
 src/vm.h linguist-language=C
+test/test_instructions.h linguist-language=C
