@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_div() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_DIV, 2, 1,
             INSTRUCTION_DIV, 2, 2,
