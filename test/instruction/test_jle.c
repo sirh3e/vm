@@ -5,9 +5,10 @@
 #include "../test.h"
 
 test_vm_instruction_result test_vm_instruction_jle_equals();
+
 test_vm_instruction_result test_vm_instruction_jle_less();
 
-test_vm_instruction_result test_vm_instruction_jle(){
+test_vm_instruction_result test_vm_instruction_jle() {
     test_vm_instruction_result test_results = 0;
 
     test_results |= test_vm_instruction_jle_equals();
@@ -16,7 +17,7 @@ test_vm_instruction_result test_vm_instruction_jle(){
     return test_results;
 }
 
-test_vm_instruction_result test_vm_instruction_jle_equals(){
+test_vm_instruction_result test_vm_instruction_jle_equals() {
     test_vm_instruction_result test_results = 0;
     i32 program[] = {
             INSTRUCTION_LABEL,
@@ -66,7 +67,7 @@ test_vm_instruction_result test_vm_instruction_jle_equals(){
     return test_results;
 }
 
-test_vm_instruction_result test_vm_instruction_jle_less(){
+test_vm_instruction_result test_vm_instruction_jle_less() {
     test_vm_instruction_result test_results = 0;
     i32 program[] = {
             INSTRUCTION_LABEL,
