@@ -7,29 +7,28 @@
 
 #include "types.h"
 
-typedef struct{
-    i32* registers;
+typedef struct {
+    i32 *registers;
 
-    i32* stack;
+    i32 *stack;
     u32 stack_allocated;
     u32 stack_length;
     u32 stack_index;
 
-    i32* instructions; // program
+    i32 *instructions; // program
     u32 instruction_allocated;
     u32 instruction_length;
     u32 instruction_index;
-}Vm;
+} Vm;
 
-Vm* vm_new();
-u32 vm_init(Vm*);
-void vm_free(Vm*);
+Vm *vm_new();
+u32 vm_init(Vm *);
+void vm_free(Vm *);
 
-u32 vm_program_set(Vm*, i32*, u32);
-u32 vm_program_run(Vm*);
+u32 vm_program_set(Vm *, i32 *, u32);
+u32 vm_instruction_fetch(Vm *);
 
-u32 vm_instruction_fetch(Vm*);
-vm_instruction_result vm_instruction_evaluate(Vm*, int instruction);
+vm_instruction_result vm_instruction_evaluate(Vm *, int instruction);
 u32 vm_instruction_result_handler(vm_instruction_result);
 
 #endif //VM_VM_H

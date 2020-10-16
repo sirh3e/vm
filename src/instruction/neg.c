@@ -5,7 +5,7 @@
 #include "../assert.h"
 #include "../vm.h"
 
-vm_instruction_result vm_instruction_neg(Vm* vm){
+vm_instruction_result vm_instruction_neg(Vm *vm) {
 
     VM_ASSERT(vm);
     VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
