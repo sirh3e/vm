@@ -5,17 +5,6 @@
 #ifndef VM_TEST_INSTRUCTIONS_H
 #define VM_TEST_INSTRUCTIONS_H
 
-// ToDo list:
-//  add tests:
-//      je
-//      jg
-//      jge
-//      jl
-//      jle
-//      jmp
-//      jne
-//      label
-
 #include "test_types.h"
 
 test_vm_instruction_result test_vm_instruction_add();
