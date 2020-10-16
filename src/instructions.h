@@ -23,7 +23,7 @@
 //
 //  example code:
 //   INSTRUCTION_HALT
-vm_instruction_result vm_instruction_halt(Vm*);
+vm_instruction_result vm_instruction_halt(Vm *);
 
 // instruction: nop
 //  this instruction does nothing
@@ -235,7 +235,7 @@ vm_instruction_result vm_instruction_inc(Vm *vm);
 //
 //   registers:
 //    A = -303, B = 0, C = 0, D = 0
-vm_instruction_result vm_instruction_neg(Vm*);
+vm_instruction_result vm_instruction_neg(Vm *);
 
 // instruction: and
 //   the value in register A and register B operate a bitwise and result in register c
@@ -315,7 +315,7 @@ vm_instruction_result vm_instruction_shl(Vm *vm);
 //
 //   registers:
 //    A = 0, B = 0, C = 0, D = 0
-vm_instruction_result vm_instruction_push(Vm*);
+vm_instruction_result vm_instruction_push(Vm *);
 
 // instruction: pop
 //  removes a value from stack into the register A .. D
@@ -367,7 +367,7 @@ vm_instruction_result vm_instruction_log(Vm *vm);
 #define INSTRUCTION_MAP(instruction_enum, instruction_func) \
     [INSTRUCTION(instruction_enum)] = vm_instruction_ ## instruction_func
 
-enum Instruction{
+enum Instruction {
     INSTRUCTION(HALT),   //ToDo
     INSTRUCTION(NOP),
 
@@ -406,7 +406,7 @@ enum Instruction{
     INSTRUCTION(LENGTH)
 };
 
-static vm_instruction_result (*instructions[])(Vm*) = {
+static vm_instruction_result (*instructions[])(Vm *) = {
         INSTRUCTION_MAP(HALT, halt),
         INSTRUCTION_MAP(NOP, nop),
 

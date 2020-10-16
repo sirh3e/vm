@@ -6,7 +6,7 @@
 #ifndef VM_REGISTERS_H
 #define VM_REGISTERS_H
 
-enum Register{
+enum Register {
     A,
     B,
     C,
