@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_or() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_OR, 255, 2,
             INSTRUCTION_OR, 255, 4,

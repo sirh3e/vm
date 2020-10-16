@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_neg() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_INC, A, 255,
             INSTRUCTION_NEG, A,

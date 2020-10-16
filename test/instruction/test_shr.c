@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_shr() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_PUSH, 100,
             INSTRUCTION_LOAD, A,
