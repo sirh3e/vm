@@ -4,13 +4,13 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_jmp(){
+test_vm_instruction_result test_vm_instruction_jmp() {
 
     test_vm_instruction_result test_results = 0;
     i32 program[] = {
-           INSTRUCTION_LABEL,
-           INSTRUCTION_NOP,
-           INSTRUCTION_JMP, 0
+            INSTRUCTION_LABEL,
+            INSTRUCTION_NOP,
+            INSTRUCTION_JMP, 0
     };
 
     VM_INIT(program);
