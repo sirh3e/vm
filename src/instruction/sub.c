@@ -3,10 +3,10 @@
 //
 
 #include "../assert.h"
-#include "../vm.h"
-#include "../registers.h"
 #include "../instructions.h"
+#include "../registers.h"
 #include "../util.h"
+#include "../vm.h"
 
 vm_instruction_result vm_instruction_sub(Vm* vm){
 

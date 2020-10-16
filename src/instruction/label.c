@@ -4,8 +4,6 @@
 
 #include "../assert.h"
 #include "../vm.h"
-#include "../instructions.h"
-#include "../util.h"
 
 vm_instruction_result vm_instruction_label(Vm* vm){
 
