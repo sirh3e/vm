@@ -20,6 +20,7 @@ test_vm_instruction_result test_vm_instruction_jl();
 test_vm_instruction_result test_vm_instruction_jle();
 test_vm_instruction_result test_vm_instruction_jmp();
 test_vm_instruction_result test_vm_instruction_jne();
+test_vm_instruction_result test_vm_instruction_label();
 test_vm_instruction_result test_vm_instruction_load();
 test_vm_instruction_result test_vm_instruction_log();
 test_vm_instruction_result test_vm_instruction_mul();
@@ -49,6 +50,7 @@ static test_vm_instruction_result (*tests[])() = {
         TEST_INSTRUCTION_MAP(jle),
         TEST_INSTRUCTION_MAP(jmp),
         TEST_INSTRUCTION_MAP(jne),
+        TEST_INSTRUCTION_MAP(label),
         TEST_INSTRUCTION_MAP(load),
         TEST_INSTRUCTION_MAP(log),
         TEST_INSTRUCTION_MAP(mul),
