@@ -8,10 +8,10 @@ test_vm_instruction_result test_vm_instruction_nop() {
 
     i32 test_results = 0;
     i32 program[] = {
-           INSTRUCTION_NOP,
-           INSTRUCTION_NOP,
-           INSTRUCTION_NOP,
-           INSTRUCTION_HALT
+            INSTRUCTION_NOP,
+            INSTRUCTION_NOP,
+            INSTRUCTION_NOP,
+            INSTRUCTION_HALT
     };
 
     VM_INIT(program);
