@@ -10,11 +10,11 @@
 #include "../statuscode.h"
 #include "../stats.h"
 
-vm_instruction_result status_code_handler_successful(Vm* vm, vm_instruction_result result){
+vm_instruction_result status_code_handler_successful(Vm *vm, vm_instruction_result result) {
 
     VM_ASSERT(vm);
 
-    if(VM_DEFAULT_DEBUG)
+    if (VM_DEFAULT_DEBUG)
         vm_stats(vm);
 
     return result;

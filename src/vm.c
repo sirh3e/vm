@@ -48,7 +48,7 @@ u32 vm_init(Vm *vm) {
 
 void vm_free(Vm *vm) {
 
-    if(vm == NULL)
+    if (vm == NULL)
         return;
 
     free(vm->registers);
@@ -96,7 +96,7 @@ vm_instruction_result vm_instruction_evaluate(Vm *vm, int instruction) {
     return instructions[instruction](vm);
 }
 
-vm_instruction_result vm_instruction_result_handler(Vm* vm, vm_instruction_result instruction_result) {
+vm_instruction_result vm_instruction_result_handler(Vm *vm, vm_instruction_result instruction_result) {
 
     VM_ASSERT(vm);
 

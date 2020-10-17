@@ -7,6 +7,6 @@
 
 #include "vm.h"
 
-void vm_stats(Vm*);
+void vm_stats(Vm *);
 
 #endif //VM_STATS_H
