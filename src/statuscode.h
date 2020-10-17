@@ -7,6 +7,7 @@
 
 enum StatusCode{
     STATUS_CODE_SUCCESSFUL,
+    STATUS_CODE_FAILED,
 };
 
 #endif //VM_STATUS_CODES_H
