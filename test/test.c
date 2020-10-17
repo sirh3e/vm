@@ -8,10 +8,12 @@
 
 int main() {
 
+    u32 test_length = ARRAY_LENGTH(tests);
     test_vm_instruction_result test_result = 0;
-    for (int i = 0; i < ARRAY_LENGTH(tests); i++) {
+    for (u32 i = 0; i < test_length; i++) {
         test_result |= tests[i]();
     }
+    TEST_ASSERT_MESSAGE(test_length == INSTRUCTION_LENGTH, "checks if all instructions got a test function");
 
     return test_result;
 }
