@@ -55,4 +55,4 @@ add_executable(tests ./test/test.c
 ./test/instruction/test_shl.c
 ./test/instruction/test_shr.c
 ./test/instruction/test_sub.c
-./test/instruction/test_xor.c)
+./test/instruction/test_xor.c test/instruction/test_label.c test/instruction/test_nop.c)

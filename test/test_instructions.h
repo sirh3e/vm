@@ -25,6 +25,7 @@ test_vm_instruction_result test_vm_instruction_load();
 test_vm_instruction_result test_vm_instruction_log();
 test_vm_instruction_result test_vm_instruction_mul();
 test_vm_instruction_result test_vm_instruction_neg();
+test_vm_instruction_result test_vm_instruction_nop();
 test_vm_instruction_result test_vm_instruction_or();
 test_vm_instruction_result test_vm_instruction_pop();
 test_vm_instruction_result test_vm_instruction_push();
@@ -55,6 +56,7 @@ static test_vm_instruction_result (*tests[])() = {
         TEST_INSTRUCTION_MAP(log),
         TEST_INSTRUCTION_MAP(mul),
         TEST_INSTRUCTION_MAP(neg),
+        TEST_INSTRUCTION_MAP(nop),
         TEST_INSTRUCTION_MAP(or),
         TEST_INSTRUCTION_MAP(pop),
         TEST_INSTRUCTION_MAP(push),
