@@ -46,6 +46,7 @@ static test_vm_instruction_result (*tests[])() = {
         TEST_INSTRUCTION_MAP(halt),
         TEST_INSTRUCTION_MAP(inc),
         TEST_INSTRUCTION_MAP(je),
+        TEST_INSTRUCTION_MAP(jg),
         TEST_INSTRUCTION_MAP(jge),
         TEST_INSTRUCTION_MAP(jl),
         TEST_INSTRUCTION_MAP(jle),
