@@ -16,8 +16,12 @@ int main() {
         test_results |= tests[i]();
     }
 
+    TEST_BEGIN();
+
     TEST_ASSERT_MESSAGE(instruction_length == INSTRUCTION_LENGTH, "checks if all instruction are in instructions");
     TEST_ASSERT_MESSAGE(test_length == INSTRUCTION_LENGTH, "checks if all instructions got a test function");
+
+    TEST_END(NULL);
 
     return test_results;
 }

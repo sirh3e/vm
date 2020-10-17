@@ -47,6 +47,9 @@ u32 vm_init(Vm *vm) {
 
 void vm_free(Vm *vm) {
 
+    if(vm == NULL)
+        return;
+
     free(vm->registers);
     free(vm->stack);
     free(vm->instructions);
