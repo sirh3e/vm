@@ -11,6 +11,7 @@ test_vm_instruction_result test_vm_instruction_nop() {
            INSTRUCTION_NOP,
            INSTRUCTION_NOP,
            INSTRUCTION_NOP,
+           INSTRUCTION_HALT
     };
 
     VM_INIT(program);
