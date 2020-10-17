@@ -3,6 +3,7 @@
 //
 
 #include "../assert.h"
+#include "../statuscode.h"
 #include "../vm.h"
 
 vm_instruction_result vm_instruction_halt(Vm *vm) {
@@ -11,5 +12,5 @@ vm_instruction_result vm_instruction_halt(Vm *vm) {
 
     //ToDo clear memory enforce to stop
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }

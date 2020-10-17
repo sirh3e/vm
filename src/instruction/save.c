@@ -3,6 +3,7 @@
 //
 
 #include "../assert.h"
+#include "../statuscode.h"
 #include "../vm.h"
 
 vm_instruction_result vm_instruction_save(Vm *vm) {
@@ -16,5 +17,5 @@ vm_instruction_result vm_instruction_save(Vm *vm) {
     vm->instruction_index += 1;
     vm->stack_index += 1;
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }

@@ -5,6 +5,7 @@
 #include "../assert.h"
 #include "../instructions.h"
 #include "../registers.h"
+#include "../statuscode.h"
 #include "../vm.h"
 
 vm_instruction_result vm_instruction_jl(Vm *vm) {
@@ -14,7 +15,7 @@ vm_instruction_result vm_instruction_jl(Vm *vm) {
 
     if (vm->registers[C] >= vm->registers[D]) {
         vm->instruction_index += 1;
-        return 0;
+        return STATUS_CODE_SUCCESSFUL;
     }
 
     return vm_instruction_jmp(vm);

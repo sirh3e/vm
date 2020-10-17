@@ -3,6 +3,7 @@
 //
 
 #include "../assert.h"
+#include "../statuscode.h"
 #include "../vm.h"
 
 vm_instruction_result vm_instruction_neg(Vm *vm) {
@@ -14,5 +15,5 @@ vm_instruction_result vm_instruction_neg(Vm *vm) {
     vm->registers[vm->instructions[vm->instruction_index]] *= -1;
     vm->instruction_index += 1;
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }

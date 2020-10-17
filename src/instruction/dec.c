@@ -4,6 +4,7 @@
 
 #include "../assert.h"
 #include "../vm.h"
+#include "../statuscode.h"
 
 vm_instruction_result vm_instruction_dec(Vm *vm) {
 
@@ -14,5 +15,5 @@ vm_instruction_result vm_instruction_dec(Vm *vm) {
     vm->registers[vm->instructions[vm->instruction_index]] -= vm->instructions[vm->instruction_index + 1];
     vm->instruction_index += 2;
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }

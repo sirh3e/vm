@@ -5,6 +5,7 @@
 #include "../assert.h"
 #include "../instructions.h"
 #include "../registers.h"
+#include "../statuscode.h"
 #include "../util.h"
 #include "../vm.h"
 
@@ -21,5 +22,5 @@ vm_instruction_result vm_instruction_sub(Vm *vm) {
 
     vm->registers[C] = vm->registers[A] - vm->registers[B];
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }

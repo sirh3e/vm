@@ -3,6 +3,7 @@
 //
 
 #include "../assert.h"
+#include "../statuscode.h"
 #include "../util.h"
 #include "../vm.h"
 
@@ -14,5 +15,5 @@ vm_instruction_result vm_instruction_push(Vm *vm) {
 
     VM_STACK_SET_BY_INDEX(vm, vm->stack_index++, VM_INSTRUCTION_GET_BY_INDEX(vm, vm->instruction_index++));
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }

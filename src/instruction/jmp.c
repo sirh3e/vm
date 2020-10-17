@@ -4,6 +4,7 @@
 
 #include "../assert.h"
 #include "../instructions.h"
+#include "../statuscode.h"
 #include "../util.h"
 #include "../vm.h"
 
@@ -16,5 +17,5 @@ vm_instruction_result vm_instruction_jmp(Vm *vm) {
 
     vm->instruction_index = VM_INSTRUCTION_GET(vm);
 
-    return 0;
+    return STATUS_CODE_SUCCESSFUL;
 }
