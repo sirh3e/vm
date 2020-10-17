@@ -7,6 +7,7 @@
 
 #include "assert.h"
 #include "defaults.h"
+#include "statuscode.h"
 #include "vm.h"
 #include "instructions.h"
 
@@ -74,7 +75,7 @@ u32 vm_program_run(Vm *vm) { //ToDo create a result handler
 
     int instruction;
     while ((instruction = vm_instruction_fetch(vm)) != INSTRUCTION_HALT) {
-        vm_instruction_result_handler(vm_instruction_evaluate(vm, instruction));
+        vm_instruction_result_handler(vm, vm_instruction_evaluate(vm, instruction));
     }
 
     return 0;
@@ -95,7 +96,9 @@ vm_instruction_result vm_instruction_evaluate(Vm *vm, int instruction) {
     return instructions[instruction](vm);
 }
 
-vm_instruction_result vm_instruction_result_handler(vm_instruction_result instruction_result) {
+vm_instruction_result vm_instruction_result_handler(Vm* vm, vm_instruction_result instruction_result) {
 
-    return instruction_result;
+    VM_ASSERT(vm);
+
+    return status_code_handlers[instruction_result](vm, instruction_result);
 }

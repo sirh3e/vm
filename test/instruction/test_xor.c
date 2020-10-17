@@ -2,6 +2,7 @@
 // Created by sirh3e on 30.09.20.
 //
 
+#include "../../src/stats.h"
 #include "../test.h"
 
 test_vm_instruction_result test_vm_instruction_xor() {
