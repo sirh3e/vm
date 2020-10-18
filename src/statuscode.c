@@ -4,11 +4,19 @@
 
 #include <stdio.h>
 
-#include "../assert.h"
-#include "../defaults.h"
-#include "../registers.h"
-#include "../statuscode.h"
-#include "../stats.h"
+#include "assert.h"
+#include "defaults.h"
+#include "statuscode.h"
+#include "stats.h"
+
+vm_instruction_result status_code_handler_failed(Vm *vm, vm_instruction_result result) {
+
+    if (VM_DEFAULT_DEBUG)
+        vm_stats(vm);
+
+    return result;
+}
+
 
 vm_instruction_result status_code_handler_successful(Vm *vm, vm_instruction_result result) {
 

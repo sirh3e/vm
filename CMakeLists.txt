@@ -55,4 +55,4 @@ add_executable(tests ./test/test.c
 ./test/instruction/test_shl.c
 ./test/instruction/test_shr.c
 ./test/instruction/test_sub.c
-./test/instruction/test_xor.c test/instruction/test_label.c test/instruction/test_nop.c src/statuscode.h src/status_code_handler/successful.c src/status_code_handler/failed.c src/stats.c src/stats.h)
+./test/instruction/test_xor.c test/instruction/test_label.c test/instruction/test_nop.c src/statuscode.h src/status_code_handler/successful.c src/status_code_handler/failed.c src/stats.c src/stats.h src/statuscode.c)
