@@ -20,28 +20,35 @@ test_vm_instruction_result test_vm_instruction_inc() {
     VM_INIT(program);
     TEST_BEGIN();
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == 2);
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[A] == 4);
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[B] == 128);
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[B] == 256);
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 0);
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 369);
 
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 738);
 
-    printf("[debug] vm->registers[C]: %d", vm->registers[C]);
+    printf("[debug] register-c: '%d' vm->registers[C]: '%d'\n", C, vm->registers[C]);
 
     TEST_END(vm);
 
