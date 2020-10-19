@@ -32,6 +32,8 @@ test_vm_instruction_result test_vm_instruction_inc() {
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 0);
 
+    printf("[debug] vm->registers[C]: %d", vm->registers[C]);
+
     TEST_END(vm);
 
     return test_results;
