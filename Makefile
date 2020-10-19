@@ -22,6 +22,10 @@ $(TARGET): build-subdirs $(OBJS) find-all-objs
 	@echo -e "\t" CC $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 	@$(CC) $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 
+.PHONY: check
+check: all
+	./$(TARGET)
+
 # phony targets
 .PHONY: all
 all: $(TARGET)
