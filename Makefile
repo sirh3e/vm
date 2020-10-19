@@ -46,6 +46,10 @@ find-all-objs:
 show-info:
 	@echo Building Project
 
+.PHONY: shellcheck
+shellcheck:
+	shellcheck -a ./scripts/*.sh
+
 # need to be placed at the end of the file
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 export PROJECT_PATH := $(patsubst %/,%,$(dir $(mkfile_path)))
