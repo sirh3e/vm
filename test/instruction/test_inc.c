@@ -30,7 +30,16 @@ test_vm_instruction_result test_vm_instruction_inc() {
     TEST_ASSERT(vm->registers[B] == 128);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_ASSERT(vm->registers[B] == 256);
+
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_ASSERT(vm->registers[C] == 0);
+
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_ASSERT(vm->registers[C] == 369);
+
+    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+    TEST_ASSERT(vm->registers[C] == 738);
 
     printf("[debug] vm->registers[C]: %d", vm->registers[C]);
 
