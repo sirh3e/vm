@@ -5,9 +5,10 @@
 #include "../test.h"
 
 test_vm_instruction_result test_vm_instruction_jle_equals();
+
 test_vm_instruction_result test_vm_instruction_jle_less();
 
-test_vm_instruction_result test_vm_instruction_jle(){
+test_vm_instruction_result test_vm_instruction_jle() {
     test_vm_instruction_result test_results = 0;
 
     test_results |= test_vm_instruction_jle_equals();
@@ -16,7 +17,7 @@ test_vm_instruction_result test_vm_instruction_jle(){
     return test_results;
 }
 
-test_vm_instruction_result test_vm_instruction_jle_equals(){
+test_vm_instruction_result test_vm_instruction_jle_equals() {
     test_vm_instruction_result test_results = 0;
     i32 program[] = {
             INSTRUCTION_LABEL,
@@ -40,8 +41,8 @@ test_vm_instruction_result test_vm_instruction_jle_equals(){
     TEST_BEGIN();
 
     for (int i = 0; i < 5; ++i) {
-        TEST_ASSERT(vm->instruction_index == 0, "vm->instruction_index == 0");
-        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL, "vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL");
+        TEST_ASSERT(vm->instruction_index == 0);
+        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL);
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //label
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 1
@@ -51,8 +52,8 @@ test_vm_instruction_result test_vm_instruction_jle_equals(){
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 2, D = 1 false
 
-        TEST_ASSERT(vm->instruction_index == 11, "vm->instruction_index == 11");
-        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_NOP, "vm->instructions[vm->instruction_index] == INSTRUCTION_NOP");
+        TEST_ASSERT(vm->instruction_index == 11);
+        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_NOP);
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //nop
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 1
@@ -66,7 +67,7 @@ test_vm_instruction_result test_vm_instruction_jle_equals(){
     return test_results;
 }
 
-test_vm_instruction_result test_vm_instruction_jle_less(){
+test_vm_instruction_result test_vm_instruction_jle_less() {
     test_vm_instruction_result test_results = 0;
     i32 program[] = {
             INSTRUCTION_LABEL,
@@ -90,8 +91,8 @@ test_vm_instruction_result test_vm_instruction_jle_less(){
     TEST_BEGIN();
 
     for (int i = 0; i < 5; ++i) {
-        TEST_ASSERT(vm->instruction_index == 0, "vm->instruction_index == 0");
-        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL, "vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL");
+        TEST_ASSERT(vm->instruction_index == 0);
+        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_LABEL);
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //label
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 1
@@ -101,8 +102,8 @@ test_vm_instruction_result test_vm_instruction_jle_less(){
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 2, D = 1 false
 
-        TEST_ASSERT(vm->instruction_index == 11, "vm->instruction_index == 11");
-        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_NOP, "vm->instructions[vm->instruction_index] == INSTRUCTION_NOP");
+        TEST_ASSERT(vm->instruction_index == 11);
+        TEST_ASSERT(vm->instructions[vm->instruction_index] == INSTRUCTION_NOP);
 
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //nop
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //push 0

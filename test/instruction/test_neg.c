@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_neg() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_INC, A, 255,
             INSTRUCTION_NEG, A,
@@ -25,25 +25,25 @@ test_vm_instruction_result test_vm_instruction_neg() {
     TEST_BEGIN();
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 255, "vm.registers[A] == 0255");
+    TEST_ASSERT(vm->registers[A] == 255);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == -255, "vm.registers[A] == -255");
+    TEST_ASSERT(vm->registers[A] == -255);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 255, "vm.registers[A] == 0255");
+    TEST_ASSERT(vm->registers[A] == 255);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == -48, "vm.registers[A] == -048");
+    TEST_ASSERT(vm->registers[B] == -48);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == 48, "vm.registers[A] == 0048");
+    TEST_ASSERT(vm->registers[B] == 48);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == -48, "vm.registers[A] == -048");
+    TEST_ASSERT(vm->registers[B] == -48);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 128, "vm.registers[A] == 0128");
+    TEST_ASSERT(vm->registers[C] == 128);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == -128, "vm.registers[A] == -128");
+    TEST_ASSERT(vm->registers[C] == -128);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 128, "vm.registers[A] == 0128");
+    TEST_ASSERT(vm->registers[C] == 128);
 
     TEST_END(vm);
 

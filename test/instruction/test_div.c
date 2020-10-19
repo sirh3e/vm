@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_div() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_DIV, 2, 1,
             INSTRUCTION_DIV, 2, 2,
@@ -20,29 +20,29 @@ test_vm_instruction_result test_vm_instruction_div() {
     TEST_BEGIN();
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 2, "vm->registers[A] == 2");
-    TEST_ASSERT(vm->registers[B] == 1, "vm->registers[B] == 1");
-    TEST_ASSERT(vm->registers[C] == 2, "vm->registers[C] == 2");
+    TEST_ASSERT(vm->registers[A] == 2);
+    TEST_ASSERT(vm->registers[B] == 1);
+    TEST_ASSERT(vm->registers[C] == 2);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 2, "vm->registers[A] == 2");
-    TEST_ASSERT(vm->registers[B] == 2, "vm->registers[B] == 1");
-    TEST_ASSERT(vm->registers[C] == 1, "vm->registers[C] == 2");
+    TEST_ASSERT(vm->registers[A] == 2);
+    TEST_ASSERT(vm->registers[B] == 2);
+    TEST_ASSERT(vm->registers[C] == 1);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 4, "vm->registers[A] == 4");
-    TEST_ASSERT(vm->registers[B] == 2, "vm->registers[B] == 2");
-    TEST_ASSERT(vm->registers[C] == 2, "vm->registers[C] == 2");
+    TEST_ASSERT(vm->registers[A] == 4);
+    TEST_ASSERT(vm->registers[B] == 2);
+    TEST_ASSERT(vm->registers[C] == 2);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 58364, "vm->registers[A] == 58364");
-    TEST_ASSERT(vm->registers[B] == 2, "vm->registers[B] == 00002");
-    TEST_ASSERT(vm->registers[C] == 29182, "vm->registers[C] == 29182");
+    TEST_ASSERT(vm->registers[A] == 58364);
+    TEST_ASSERT(vm->registers[B] == 2);
+    TEST_ASSERT(vm->registers[C] == 29182);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 15, "vm->registers[A] == 15");
-    TEST_ASSERT(vm->registers[B] == 3, "vm->registers[B] == 03");
-    TEST_ASSERT(vm->registers[C] == 5, "vm->registers[C] == 05");
+    TEST_ASSERT(vm->registers[A] == 15);
+    TEST_ASSERT(vm->registers[B] == 3);
+    TEST_ASSERT(vm->registers[C] == 5);
 
     TEST_END(vm);
 

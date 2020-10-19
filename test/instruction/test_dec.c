@@ -6,7 +6,7 @@
 
 test_vm_instruction_result test_vm_instruction_dec() {
 
-    i32 test_results = 0, instruction = INSTRUCTION_HALT;
+    i32 test_results = 0;
     i32 program[] = {
             INSTRUCTION_DEC, A, 2,
             INSTRUCTION_DEC, A, 2,
@@ -18,16 +18,16 @@ test_vm_instruction_result test_vm_instruction_dec() {
     TEST_BEGIN();
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == -2, "vm.registers[A] == -002");
+    TEST_ASSERT(vm->registers[A] == -2);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == -4, "vm.registers[A] == -004");
+    TEST_ASSERT(vm->registers[A] == -4);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == -128, "vm.registers[B] == -128");
+    TEST_ASSERT(vm->registers[B] == -128);
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 0, "vm.registers[C] == 0000");
+    TEST_ASSERT(vm->registers[C] == 0);
 
     TEST_END(vm);
 

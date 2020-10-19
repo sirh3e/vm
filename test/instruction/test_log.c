@@ -28,22 +28,22 @@ test_vm_instruction_result test_vm_instruction_log() {
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
+    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
+    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
 
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
+    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
 
     text = "128\n";
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     TEST_INSTRUCTION_EXECUTE_NEXT(vm);
     fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT(strcmp(text, buffer), "stdout should be equal to: '128\\n'");
+    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '128\\n'");
 
     TEST_END(vm);
 
