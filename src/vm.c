@@ -25,9 +25,13 @@ u32 vm_init(Vm *vm) {
 
     VM_ASSERT(vm);
 
-    vm->registers = (i32 *) malloc(sizeof(vm->registers) * REGISTERS_LENGTH);
+    vm->registers = (i32*) malloc(sizeof(vm->registers) * REGISTERS_LENGTH);
     if (vm->registers == NULL)
         exit(1); //ToDo find the right error message
+
+    for(int i = 0; i < REGISTERS_LENGTH; ++i){
+        vm->registers[i] = 0;
+    }
 
     vm->stack_allocated = VM_DEFAULT_STACK_ALLOCATED_SIZE;
     vm->stack_index = 0;
