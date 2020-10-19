@@ -2,12 +2,10 @@
 cmake-build-debug/
 CMakeFiles/
 
-*.c.o
+*.o
 
 cmake_install.cmake
 CMakeCache.txt
-
-Makefile
 
 vm
 tests
