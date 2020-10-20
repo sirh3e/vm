@@ -19,7 +19,7 @@ default: show-info all
 
 # non-phony targets
 $(TARGET): build-subdirs $(OBJS) find-all-objs
-	@echo -e "\t" CC $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
+	@echo -e "\t" CC $(CFLAGS) $(AL_OBJS) $(MAIN_SRC) -o $@
 	@$(CC) $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 
 .PHONY: container-build
@@ -32,7 +32,7 @@ container-prepare:
 	echo '.github' >> .dockerignore
 
 .PHONY: check
-check: build
+check: all
 	./$(TARGET)
 
 # phony targets
