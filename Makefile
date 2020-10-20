@@ -22,6 +22,15 @@ $(TARGET): build-subdirs $(OBJS) find-all-objs
 	@echo -e "\t" CC $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 	@$(CC) $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 
+.PHONY: container-build
+container-build: container-prepare
+		$(CONTAINER) build -f $(CONTAINER_FILE) .
+
+.PHONY: container-prepare
+container-prepare:
+	cp .gitignore .dockerignore
+	echo '.github' >> .dockerignore
+
 .PHONY: check
 check: build
 	./$(TARGET)

@@ -10,5 +10,5 @@ RUN apt update \
 WORKDIR /var/src/vm
 COPY . .
 
-RUN make -j clean 
-RUN make
+RUN make -j clean \
+    && make
