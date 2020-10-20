@@ -26,9 +26,6 @@ $(TARGET): build-subdirs $(OBJS) find-all-objs
 check: build
 	./$(TARGET)
 
-.PHONY: build
-build: all
-
 # phony targets
 .PHONY: all
 all: $(TARGET)
