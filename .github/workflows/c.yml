@@ -9,7 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make
-      run: make
+    
+    - name: make clean
+      run: make -j clean
+    
+    - name: make all
+      run: make -j all
+
     - name: make check
-      run: make check
+      run: make -j check
