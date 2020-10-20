@@ -5,7 +5,7 @@ MAKEFLAG := -s --no-print-directory
 CC := gcc
 
 # compile flags
-CFLAGS := -Wall -Wextra
+CFLAGS := -std=c99 -Wall -Wextra
 OBJCFLAGS := $(CFLAGS) -c
 
 # recursive make and clean
