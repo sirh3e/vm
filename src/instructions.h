@@ -406,7 +406,7 @@ enum Instruction {
     INSTRUCTION(LENGTH)
 };
 
-static vm_instruction_result (*instructions[])(Vm *) = {
+static vm_instruction_result (*const instructions[])(Vm *) = {
         INSTRUCTION_MAP(HALT, halt),
         INSTRUCTION_MAP(NOP, nop),
 
