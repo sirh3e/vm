@@ -19,7 +19,7 @@ void vm_stats(Vm *vm) {
     printf("vm->instruction_index     : %-32d\n", vm->instruction_index);
     printf("vm->instruction_length    : %-32d\n", vm->instruction_length);
 
-    for (int i = 0; i < vm->instruction_length; i += 4) {
+    for (u32 i = 0; i < vm->instruction_length; i += 4) {
         printf("[%8d - %8d]: %-32d %-32d %-32d %-32d\n", i, i + 3, vm->instructions[i], vm->instructions[i + 1],
                vm->instructions[i + 2], vm->instructions[i + 3]);
     }
@@ -28,7 +28,7 @@ void vm_stats(Vm *vm) {
     printf("vm->stack_index     : %-32d\n", vm->stack_index);
     printf("vm->stack_length    : %-32d\n", vm->stack_length);
 
-    for (int i = 0; i < vm->stack_length; i += 4) {
+    for (u32 i = 0; i < vm->stack_length; i += 4) {
         printf("[%8d - %8d]: %-32d %-32d %-32d %-32d\n", i, i + 3, vm->stack[i], vm->stack[i + 1], vm->stack[i + 2],
                vm->stack[i + 3]);
     }
