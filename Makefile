@@ -23,8 +23,11 @@ $(TARGET): build-subdirs $(OBJS) find-all-objs
 	@$(CC) $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 
 .PHONY: check
-check: all
+check: build
 	./$(TARGET)
+
+.PHONY: build
+build: all
 
 # phony targets
 .PHONY: all
