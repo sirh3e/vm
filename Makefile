@@ -32,7 +32,7 @@ container-prepare:
 	echo '.github' >> .dockerignore
 
 .PHONY: check
-check: all
+check: 
 	./$(TARGET)
 
 # phony targets
