@@ -4,9 +4,9 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_mul() {
+test_vm_result test_vm_instruction_mul() {
 
-    i32 test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_MUL, -2, 2,
             INSTRUCTION_MUL, 2, -2,
@@ -69,7 +69,7 @@ test_vm_instruction_result test_vm_instruction_mul() {
     TEST_ASSERT(vm->registers[B] == 1000);
     TEST_ASSERT(vm->registers[C] == 1000000);
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }

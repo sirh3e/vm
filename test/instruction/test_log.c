@@ -7,9 +7,9 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_log() {
+test_vm_result test_vm_instruction_log() {
 
-    i32 test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_LOG, A,
             INSTRUCTION_LOG, B,
@@ -45,7 +45,7 @@ test_vm_instruction_result test_vm_instruction_log() {
     fread(buffer, strlen(text) + 1, 0, stdout);
     TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '128\\n'");
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }

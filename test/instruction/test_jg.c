@@ -4,9 +4,9 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_jg() {
+test_vm_result test_vm_instruction_jg() {
 
-    test_vm_instruction_result test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_LABEL,
 
@@ -50,7 +50,7 @@ test_vm_instruction_result test_vm_instruction_jg() {
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 5, D = 1 true
     }
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }

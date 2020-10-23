@@ -4,9 +4,9 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_and() {
+test_vm_result test_vm_instruction_and() {
 
-    i32 test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_AND, 2, 2,
             INSTRUCTION_AND, 255, 2,
@@ -67,7 +67,7 @@ test_vm_instruction_result test_vm_instruction_and() {
     TEST_ASSERT(vm->registers[B] == 256);
     TEST_ASSERT(vm->registers[C] == 0);
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }

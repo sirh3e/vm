@@ -4,21 +4,28 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_jle_equals();
+test_vm_result test_vm_instruction_jle_equals();
+test_vm_result test_vm_instruction_jle_less();
 
-test_vm_instruction_result test_vm_instruction_jle_less();
+test_vm_result test_vm_instruction_jle() {
 
-test_vm_instruction_result test_vm_instruction_jle() {
-    test_vm_instruction_result test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_result);
+    test_vm_result TEST_RESULTS_INIT(test_results);
 
-    test_results |= test_vm_instruction_jle_equals();
-    test_results |= test_vm_instruction_jle_less();
+    test_result = test_vm_instruction_jle_equals();
+    test_results.failed += test_result.failed;
+    test_results.passed += test_result.passed;
+
+    test_result = test_vm_instruction_jle_less();
+    test_results.failed += test_result.failed;
+    test_results.passed += test_result.passed;
 
     return test_results;
 }
 
-test_vm_instruction_result test_vm_instruction_jle_equals() {
-    test_vm_instruction_result test_results = 0;
+test_vm_result test_vm_instruction_jle_equals() {
+
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_LABEL,
 
@@ -62,13 +69,14 @@ test_vm_instruction_result test_vm_instruction_jle_equals() {
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 1, D = 1 true
     }
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }
 
-test_vm_instruction_result test_vm_instruction_jle_less() {
-    test_vm_instruction_result test_results = 0;
+test_vm_result test_vm_instruction_jle_less() {
+
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_LABEL,
 
@@ -112,7 +120,7 @@ test_vm_instruction_result test_vm_instruction_jle_less() {
         TEST_INSTRUCTION_EXECUTE_NEXT(vm); //je C = 0, D = 1 true
     }
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }

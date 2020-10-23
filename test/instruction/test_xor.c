@@ -5,9 +5,9 @@
 #include "../../src/stats.h"
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_xor() {
+test_vm_result test_vm_instruction_xor() {
 
-    i32 test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_XOR, 1, 1,
             INSTRUCTION_XOR, 1, 2,
@@ -35,7 +35,7 @@ test_vm_instruction_result test_vm_instruction_xor() {
     TEST_ASSERT(vm->registers[B] == 9);
     TEST_ASSERT(vm->registers[C] == 13);
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }

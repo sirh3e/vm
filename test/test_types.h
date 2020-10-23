@@ -7,7 +7,9 @@
 
 #include "../src/types.h"
 
-typedef vm_instruction_result_t test_vm_instruction_result_t;
-typedef test_vm_instruction_result_t test_vm_instruction_result;
+typedef struct {
+    u32 failed;
+    u32 passed;
+} test_vm_result;
 
 #endif //VM_TEST_TYPES_H

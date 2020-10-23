@@ -7,38 +7,38 @@
 
 #include "test_types.h"
 
-test_vm_instruction_result test_vm_instruction_add();
-test_vm_instruction_result test_vm_instruction_and();
-test_vm_instruction_result test_vm_instruction_dec();
-test_vm_instruction_result test_vm_instruction_div();
-test_vm_instruction_result test_vm_instruction_halt();
-test_vm_instruction_result test_vm_instruction_inc();
-test_vm_instruction_result test_vm_instruction_je();
-test_vm_instruction_result test_vm_instruction_jg();
-test_vm_instruction_result test_vm_instruction_jge();
-test_vm_instruction_result test_vm_instruction_jl();
-test_vm_instruction_result test_vm_instruction_jle();
-test_vm_instruction_result test_vm_instruction_jmp();
-test_vm_instruction_result test_vm_instruction_jne();
-test_vm_instruction_result test_vm_instruction_label();
-test_vm_instruction_result test_vm_instruction_load();
-test_vm_instruction_result test_vm_instruction_log();
-test_vm_instruction_result test_vm_instruction_mul();
-test_vm_instruction_result test_vm_instruction_neg();
-test_vm_instruction_result test_vm_instruction_nop();
-test_vm_instruction_result test_vm_instruction_or();
-test_vm_instruction_result test_vm_instruction_pop();
-test_vm_instruction_result test_vm_instruction_push();
-test_vm_instruction_result test_vm_instruction_save();
-test_vm_instruction_result test_vm_instruction_shl();
-test_vm_instruction_result test_vm_instruction_shr();
-test_vm_instruction_result test_vm_instruction_sub();
-test_vm_instruction_result test_vm_instruction_xor();
+test_vm_result test_vm_instruction_add();
+test_vm_result test_vm_instruction_and();
+test_vm_result test_vm_instruction_dec();
+test_vm_result test_vm_instruction_div();
+test_vm_result test_vm_instruction_halt();
+test_vm_result test_vm_instruction_inc();
+test_vm_result test_vm_instruction_je();
+test_vm_result test_vm_instruction_jg();
+test_vm_result test_vm_instruction_jge();
+test_vm_result test_vm_instruction_jl();
+test_vm_result test_vm_instruction_jle();
+test_vm_result test_vm_instruction_jmp();
+test_vm_result test_vm_instruction_jne();
+test_vm_result test_vm_instruction_label();
+test_vm_result test_vm_instruction_load();
+test_vm_result test_vm_instruction_log();
+test_vm_result test_vm_instruction_mul();
+test_vm_result test_vm_instruction_neg();
+test_vm_result test_vm_instruction_nop();
+test_vm_result test_vm_instruction_or();
+test_vm_result test_vm_instruction_pop();
+test_vm_result test_vm_instruction_push();
+test_vm_result test_vm_instruction_save();
+test_vm_result test_vm_instruction_shl();
+test_vm_result test_vm_instruction_shr();
+test_vm_result test_vm_instruction_sub();
+test_vm_result test_vm_instruction_xor();
 
 #define TEST_INSTRUCTION_MAP(test_instruction_func) \
         test_vm_instruction_  ## test_instruction_func
 
-static test_vm_instruction_result (*const tests[])() = {
+static test_vm_result (*const tests[])() = {
         TEST_INSTRUCTION_MAP(add),
         TEST_INSTRUCTION_MAP(and),
         TEST_INSTRUCTION_MAP(dec),

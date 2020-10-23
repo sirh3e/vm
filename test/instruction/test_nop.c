@@ -4,9 +4,9 @@
 
 #include "../test.h"
 
-test_vm_instruction_result test_vm_instruction_nop() {
+test_vm_result test_vm_instruction_nop() {
 
-    i32 test_results = 0;
+    test_vm_result TEST_RESULTS_INIT(test_results);
     i32 program[] = {
             INSTRUCTION_NOP,
             INSTRUCTION_NOP,
@@ -27,7 +27,7 @@ test_vm_instruction_result test_vm_instruction_nop() {
     TEST_INSTRUCTION_EXECUTE_NEXT(vm); //nop
     TEST_ASSERT(vm->instruction_index == 3);
 
-    TEST_END(vm);
+    TEST_END(vm, test_results);
 
     return test_results;
 }
