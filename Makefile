@@ -1,3 +1,17 @@
+#project
+VM_NAME := VM
+
+#version:
+VM_VERSION_GIT_HASH ?= $(shell git describe --tags 2>/dev/null || git rev-parse --short HEAD)
+VM_VERSION_MAJOR ?= 0
+VM_VERSION_MINOR ?= 0
+VM_VERSION_PATCH ?= 0
+VM_VERSION_RELEASE_CANDIDATE ?= 0
+
+# container marco
+CONTAINER := docker
+CONTAINER_FILE := Dockerfile.ubuntu.20.04
+
 # target macros
 TARGET := tests
 MAIN_SRC := test/test.c
@@ -22,9 +36,19 @@ $(TARGET): build-subdirs $(OBJS) find-all-objs
 	@echo -e "\t" CC $(CFLAGS) $(AL_OBJS) $(MAIN_SRC) -o $@
 	@$(CC) $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 
+.PHONY: container-build-release
+container-build-release: container-prepare
+		$(CONTAINER) build -f $(CONTAINER_FILE) \
+			-t "$(VM_NAME):$(VM_VERSION_MAJOR).$(VM_VERSION_MINOR).$(VM_VERSION_PATCH)-focal" \
+			-t "$(VM_NAME):latest" \
+			.
+
 .PHONY: container-build
 container-build: container-prepare
-		$(CONTAINER) build -f $(CONTAINER_FILE) .
+		$(CONTAINER) build -f $(CONTAINER_FILE) \
+			-t "$(VM_NAME):$(VM_VERSION_GIT_HASH)-focal" \
+			-t "$(VM_NAME):latest" \
+			.
 
 .PHONY: container-prepare
 container-prepare:
@@ -37,7 +61,7 @@ check:
 
 # phony targets
 .PHONY: all
-all: $(TARGET)
+all: configure-version $(TARGET)
 	@echo Target $(TARGET) build finished.
 
 .PHONY: clean
@@ -58,6 +82,9 @@ find-all-objs:
 .PHONY: show-info
 show-info:
 	@echo Building Project
+
+configure-version:
+	./scripts/configure_version.sh $(VM_NAME) $(VM_VERSION_GIT_HASH) $(VM_VERSION_MAJOR) $(VM_VERSION_MINOR) $(VM_VERSION_PATCH) $(VM_VERSION_RELEASE_CANDIDATE)
 
 .PHONY: shellcheck
 shellcheck:

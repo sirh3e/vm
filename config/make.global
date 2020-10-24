@@ -1,10 +1,6 @@
 # make flag
 MAKEFLAG := -s --no-print-directory
 
-# container marco
-CONTAINER := docker
-CONTAINER_FILE := Dockerfile.ubuntu.20.04
-
 # compile macro
 CC := gcc
 
