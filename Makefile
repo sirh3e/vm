@@ -34,6 +34,14 @@ rwildcard=$(foreach d,$(wildcard $(addsuffix *,$(1))),$(call rwildcard,$(d)/,$(2
 # default target
 default: show-info all
 
+.PHONY: cicd-clean
+cicd-clean: clean
+
+cicd-all: $(TARGET)
+	@echo Target $(TARGET) build finished.
+
+cicd-check: check
+
 # non-phony targets
 $(TARGET): build-subdirs $(OBJS) find-all-objs
 	@echo -e "\t" CC $(CFLAGS) $(AL_OBJS) $(MAIN_SRC) -o $@

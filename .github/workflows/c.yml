@@ -10,11 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: make clean
-      run: make clean
+    - name: make cicd-clean
+      run: make cicd-clean
     
-    - name: make all
-      run: make all
+    - name: make cicd-all
+      run: make cicd-all
 
-    - name: make check
-      run: make check
+    - name: make cicd-check
+      run: make cicd-check
