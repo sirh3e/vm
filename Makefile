@@ -1,10 +1,11 @@
 #project
 VM_NAME := VM
 
-#version:
+#git hash:
 VM_VERSION_GIT_HASH ?= $(shell git describe --tags 2>/dev/null || git rev-parse HEAD)
 VM_VERSION_GIT_HASH_SHORT ?= $(shell git describe --tags 2>/dev/null || git rev-parse --short HEAD)
 
+#version:
 VM_VERSION_MAJOR ?= 0
 VM_VERSION_MINOR ?= 0
 VM_VERSION_PATCH ?= 0
