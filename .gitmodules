@@ -1,0 +1,3 @@
+[submodule "submodule/version"]
+	path = submodule/version
+	url = https://github.com/sirh3e/version.git
