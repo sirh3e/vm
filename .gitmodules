@@ -1,3 +1,6 @@
 [submodule "submodule/version"]
 	path = submodule/version
 	url = https://github.com/sirh3e/version.git
+[submodule "submodule/clang-format"]
+	path = submodule/clang-format
+	url = https://github.com/sirh3e/clang-format.git
