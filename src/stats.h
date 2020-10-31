@@ -9,4 +9,4 @@
 
 void vm_stats(Vm *);
 
-#endif //VM_STATS_H
+#endif // VM_STATS_H

@@ -67,7 +67,7 @@ container-prepare:
 	echo '.github' >> .dockerignore
 
 .PHONY: check
-check: 
+check: format 
 	./$(TARGET)
 
 # phony targets
@@ -103,6 +103,14 @@ configure-version:
 		$(VM_VERSION_MINOR) \
 		$(VM_VERSION_PATCH) \
 		$(VM_VERSION_RELEASE_CANDIDATE)
+
+.PHONY: format
+format: format-load
+	find src/ test/ -type f -iname '*.c' -o -iname '*.h' | xargs clang-format -i
+
+.PHONY: format-load
+format-load:
+	./scripts/clang-format.sh
 
 .PHONY: shellcheck
 shellcheck:

@@ -11,4 +11,4 @@
 #define UINT32_TYPE_MIN 0
 #define UINT32_TYPE_MAX 4294967295
 
-#endif //VM_LIMITS_H
+#endif // VM_LIMITS_H

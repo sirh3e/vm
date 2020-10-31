@@ -2,50 +2,50 @@
 // Created by sirh3e on 9/27/2020.
 //
 
+#include "../test.h"
+
 #include <stdio.h>
 #include <string.h>
 
-#include "../test.h"
+test_vm_result test_vm_instruction_log()
+{
+	test_vm_result TEST_RESULTS_INIT(test_results);
+	i32 program[] = {
+		INSTRUCTION_LOG,  A,   INSTRUCTION_LOG,	 B, INSTRUCTION_LOG, C,
 
-test_vm_result test_vm_instruction_log() {
+		INSTRUCTION_PUSH, 128, INSTRUCTION_LOAD, A, INSTRUCTION_LOG, A,
+	};
 
-    test_vm_result TEST_RESULTS_INIT(test_results);
-    i32 program[] = {
-            INSTRUCTION_LOG, A,
-            INSTRUCTION_LOG, B,
-            INSTRUCTION_LOG, C,
+	VM_INIT(program);
+	TEST_BEGIN();
 
-            INSTRUCTION_PUSH, 128,
-            INSTRUCTION_LOAD, A,
-            INSTRUCTION_LOG, A,
-    };
+	char buffer[2048];
+	char *text = "0\n";
 
-    VM_INIT(program);
-    TEST_BEGIN();
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	fread(buffer, strlen(text) + 1, 0, stdout);
+	TEST_ASSERT_MESSAGE(strcmp(text, buffer),
+			    "stdout should be equal to: '0\\n'");
 
-    char buffer[2048];
-    char *text = "0\n";
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	fread(buffer, strlen(text) + 1, 0, stdout);
+	TEST_ASSERT_MESSAGE(strcmp(text, buffer),
+			    "stdout should be equal to: '0\\n'");
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	fread(buffer, strlen(text) + 1, 0, stdout);
+	TEST_ASSERT_MESSAGE(strcmp(text, buffer),
+			    "stdout should be equal to: '0\\n'");
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
+	text = "128\n";
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	fread(buffer, strlen(text) + 1, 0, stdout);
+	TEST_ASSERT_MESSAGE(strcmp(text, buffer),
+			    "stdout should be equal to: '128\\n'");
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '0\\n'");
+	TEST_END(vm, test_results);
 
-    text = "128\n";
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    fread(buffer, strlen(text) + 1, 0, stdout);
-    TEST_ASSERT_MESSAGE(strcmp(text, buffer), "stdout should be equal to: '128\\n'");
-
-    TEST_END(vm, test_results);
-
-    return test_results;
+	return test_results;
 }

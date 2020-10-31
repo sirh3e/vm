@@ -6,12 +6,13 @@
 #ifndef VM_REGISTERS_H
 #define VM_REGISTERS_H
 
-enum Register {
-    A,
-    B,
-    C,
-    D,
-    REGISTERS_LENGTH
+enum Register
+{
+	A,
+	B,
+	C,
+	D,
+	REGISTERS_LENGTH
 } Register;
 
-#endif //VM_REGISTERS_H
+#endif // VM_REGISTERS_H

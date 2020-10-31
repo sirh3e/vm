@@ -7,9 +7,10 @@
 
 #include "../src/types.h"
 
-typedef struct {
-    u32 failed;
-    u32 passed;
+typedef struct
+{
+	u32 failed;
+	u32 passed;
 } test_vm_result;
 
-#endif //VM_TEST_TYPES_H
+#endif // VM_TEST_TYPES_H

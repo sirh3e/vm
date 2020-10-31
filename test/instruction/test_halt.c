@@ -4,11 +4,11 @@
 
 #include "../test.h"
 
-test_vm_result test_vm_instruction_halt() {
+test_vm_result test_vm_instruction_halt()
+{
+	test_vm_result TEST_RESULTS_INIT(test_results);
 
-    test_vm_result TEST_RESULTS_INIT(test_results);
+	// ToDo implement
 
-    //ToDo implement
-
-    return test_results;
+	return test_results;
 }

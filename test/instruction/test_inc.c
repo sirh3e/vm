@@ -4,44 +4,41 @@
 
 #include "../test.h"
 
-test_vm_result test_vm_instruction_inc() {
+test_vm_result test_vm_instruction_inc()
+{
+	test_vm_result TEST_RESULTS_INIT(test_results);
+	i32 program[] = {
+		INSTRUCTION_INC, A, 2,	 INSTRUCTION_INC, A, 2,
+		INSTRUCTION_INC, B, 128, INSTRUCTION_INC, B, 128,
+		INSTRUCTION_INC, C, 0,	 INSTRUCTION_INC, C, 369,
+		INSTRUCTION_INC, C, 369,
+	};
 
-    test_vm_result TEST_RESULTS_INIT(test_results);
-    i32 program[] = {
-            INSTRUCTION_INC, A, 2,
-            INSTRUCTION_INC, A, 2,
-            INSTRUCTION_INC, B, 128,
-            INSTRUCTION_INC, B, 128,
-            INSTRUCTION_INC, C, 0,
-            INSTRUCTION_INC, C, 369,
-            INSTRUCTION_INC, C, 369,
-    };
+	VM_INIT(program);
+	TEST_BEGIN();
 
-    VM_INIT(program);
-    TEST_BEGIN();
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[A] == 2);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 2);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[A] == 4);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[A] == 4);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[B] == 128);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == 128);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[B] == 256);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[B] == 256);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[C] == 0);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 0);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[C] == 369);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 369);
+	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
+	TEST_ASSERT(vm->registers[C] == 738);
 
-    TEST_INSTRUCTION_EXECUTE_NEXT(vm);
-    TEST_ASSERT(vm->registers[C] == 738);
+	TEST_END(vm, test_results);
 
-    TEST_END(vm, test_results);
-
-    return test_results;
+	return test_results;
 }

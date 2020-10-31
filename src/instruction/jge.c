@@ -8,15 +8,16 @@
 #include "../statuscode.h"
 #include "../vm.h"
 
-vm_instruction_result vm_instruction_jge(Vm *vm) {
+vm_instruction_result vm_instruction_jge(Vm *vm)
+{
+	VM_ASSERT(vm);
+	VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
 
-    VM_ASSERT(vm);
-    VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
+	if (vm->registers[C] < vm->registers[D])
+	{
+		vm->instruction_index += 1;
+		return STATUS_CODE_SUCCESSFUL;
+	}
 
-    if (vm->registers[C] < vm->registers[D]) {
-        vm->instruction_index += 1;
-        return STATUS_CODE_SUCCESSFUL;
-    }
-
-    return vm_instruction_jmp(vm);
+	return vm_instruction_jmp(vm);
 }

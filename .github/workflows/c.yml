@@ -1,6 +1,6 @@
 name: C CI
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   build:
@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: make cicd-clean
-      run: make cicd-clean
-    
-    - name: make cicd-all
-      run: make cicd-all
+      - uses: actions/checkout@v2
 
-    - name: make cicd-check
-      run: make cicd-check
+      - name: make cicd-clean
+        run: make cicd-clean
+
+      - name: make cicd-all
+        run: make cicd-all
+
+      - name: make cicd-check
+        run: make cicd-check

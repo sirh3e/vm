@@ -5,15 +5,15 @@
 #ifndef VM_INSTRUCTIONS_H
 #define VM_INSTRUCTIONS_H
 
-#include "vm.h"
 #include "types.h"
+#include "vm.h"
 
-//ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
+// ToDo https://www.cs.yale.edu/flint/cs421/papers/x86-asm/asm.html
 
-//ToDo simple:
+// ToDo simple:
 //  not,
 
-//ToDo flow:
+// ToDo flow:
 //  jz <label> (jump when last result was zero)
 //  cmp
 //  call, ret | functions
@@ -93,7 +93,9 @@ vm_instruction_result vm_instruction_jne(Vm *vm);
 vm_instruction_result vm_instruction_jg(Vm *vm);
 
 // instruction: jge
-//  jumps to a label if the value in register C is greater or equal the value in D
+//  jumps to a label if the value in register C is greater or equal the value
+//  in
+//  D
 //
 //  example code:
 //   INSTRUCTION_LABEL,
@@ -238,7 +240,8 @@ vm_instruction_result vm_instruction_inc(Vm *vm);
 vm_instruction_result vm_instruction_neg(Vm *);
 
 // instruction: and
-//   the value in register A and register B operate a bitwise and result in register c
+//   the value in register A and register B operate a bitwise and result in
+//   register c
 //
 //  example code:
 //   INSTRUCTION_PUSH, 1281141, /* 00000000000100111000110001110101 */
@@ -252,7 +255,8 @@ vm_instruction_result vm_instruction_neg(Vm *);
 vm_instruction_result vm_instruction_and(Vm *vm);
 
 // instruction: or
-//   the value in register A and register B operate a bitwise and result in register c
+//   the value in register A and register B operate a bitwise and result in
+//   register c
 //
 //  example code:
 //   INSTRUCTION_PUSH, 1281141, /* 00000000000100111000110001110101 */
@@ -266,7 +270,8 @@ vm_instruction_result vm_instruction_and(Vm *vm);
 vm_instruction_result vm_instruction_or(Vm *vm);
 
 // instruction: xor
-//   the value in register A and register B operate a xor operation and result in register c
+//   the value in register A and register B operate a xor operation and result
+//   in register c
 //
 //  example code:
 //   INSTRUCTION_PUSH, 1281141, /* 00000000000100111000110001110101 */
@@ -361,86 +366,74 @@ vm_instruction_result vm_instruction_load(Vm *vm);
 
 vm_instruction_result vm_instruction_log(Vm *vm);
 
-#define INSTRUCTION(instruction) \
-        INSTRUCTION_ ## instruction
+#define INSTRUCTION(instruction) INSTRUCTION_##instruction
 
-#define INSTRUCTION_MAP(instruction_enum, instruction_func) \
-    [INSTRUCTION(instruction_enum)] = vm_instruction_ ## instruction_func
+#define INSTRUCTION_MAP(instruction_enum, instruction_func)                    \
+	[INSTRUCTION(instruction_enum)] = vm_instruction_##instruction_func
 
-enum Instruction {
-    INSTRUCTION(HALT),   //ToDo
-    INSTRUCTION(NOP),
+enum Instruction
+{
+	INSTRUCTION(HALT), // ToDo
+	INSTRUCTION(NOP),
 
-    INSTRUCTION(LABEL),
-    INSTRUCTION(JE),
-    INSTRUCTION(JNE),
-    INSTRUCTION(JG),
-    INSTRUCTION(JGE),
-    INSTRUCTION(JL),
-    INSTRUCTION(JLE),
-    INSTRUCTION(JMP),
+	INSTRUCTION(LABEL),
+	INSTRUCTION(JE),
+	INSTRUCTION(JNE),
+	INSTRUCTION(JG),
+	INSTRUCTION(JGE),
+	INSTRUCTION(JL),
+	INSTRUCTION(JLE),
+	INSTRUCTION(JMP),
 
-    INSTRUCTION(ADD),
-    INSTRUCTION(SUB),
-    INSTRUCTION(MUL),
-    INSTRUCTION(DIV),
+	INSTRUCTION(ADD),
+	INSTRUCTION(SUB),
+	INSTRUCTION(MUL),
+	INSTRUCTION(DIV),
 
-    INSTRUCTION(DEC),
-    INSTRUCTION(INC),
-    INSTRUCTION(NEG),
+	INSTRUCTION(DEC),
+	INSTRUCTION(INC),
+	INSTRUCTION(NEG),
 
-    INSTRUCTION(AND),
-    INSTRUCTION(OR),
-    INSTRUCTION(XOR),
-    INSTRUCTION(SHR),
-    INSTRUCTION(SHL),
+	INSTRUCTION(AND),
+	INSTRUCTION(OR),
+	INSTRUCTION(XOR),
+	INSTRUCTION(SHR),
+	INSTRUCTION(SHL),
 
-    INSTRUCTION(PUSH),
-    INSTRUCTION(POP),
+	INSTRUCTION(PUSH),
+	INSTRUCTION(POP),
 
-    INSTRUCTION(SAVE),
-    INSTRUCTION(LOAD),
+	INSTRUCTION(SAVE),
+	INSTRUCTION(LOAD),
 
-    INSTRUCTION(LOG),
+	INSTRUCTION(LOG),
 
-    INSTRUCTION(LENGTH)
+	INSTRUCTION(LENGTH)
 };
 
 static vm_instruction_result (*const instructions[])(Vm *) = {
-        INSTRUCTION_MAP(HALT, halt),
-        INSTRUCTION_MAP(NOP, nop),
+	INSTRUCTION_MAP(HALT, halt),   INSTRUCTION_MAP(NOP, nop),
 
-        INSTRUCTION_MAP(LABEL, label),
-        INSTRUCTION_MAP(JE, je),
-        INSTRUCTION_MAP(JNE, jne),
-        INSTRUCTION_MAP(JG, jg),
-        INSTRUCTION_MAP(JGE, jge),
-        INSTRUCTION_MAP(JL, jl),
-        INSTRUCTION_MAP(JLE, jle),
-        INSTRUCTION_MAP(JMP, jmp),
+	INSTRUCTION_MAP(LABEL, label), INSTRUCTION_MAP(JE, je),
+	INSTRUCTION_MAP(JNE, jne),     INSTRUCTION_MAP(JG, jg),
+	INSTRUCTION_MAP(JGE, jge),     INSTRUCTION_MAP(JL, jl),
+	INSTRUCTION_MAP(JLE, jle),     INSTRUCTION_MAP(JMP, jmp),
 
-        INSTRUCTION_MAP(ADD, add),
-        INSTRUCTION_MAP(SUB, sub),
-        INSTRUCTION_MAP(MUL, mul),
-        INSTRUCTION_MAP(DIV, div),
+	INSTRUCTION_MAP(ADD, add),     INSTRUCTION_MAP(SUB, sub),
+	INSTRUCTION_MAP(MUL, mul),     INSTRUCTION_MAP(DIV, div),
 
-        INSTRUCTION_MAP(DEC, dec),
-        INSTRUCTION_MAP(INC, inc),
-        INSTRUCTION_MAP(NEG, neg),
+	INSTRUCTION_MAP(DEC, dec),     INSTRUCTION_MAP(INC, inc),
+	INSTRUCTION_MAP(NEG, neg),
 
-        INSTRUCTION_MAP(AND, and),
-        INSTRUCTION_MAP(OR, or),
-        INSTRUCTION_MAP(XOR, xor),
-        INSTRUCTION_MAP(SHR, shr),
-        INSTRUCTION_MAP(SHL, shl),
+	INSTRUCTION_MAP(AND, and),     INSTRUCTION_MAP(OR, or),
+	INSTRUCTION_MAP(XOR, xor),     INSTRUCTION_MAP(SHR, shr),
+	INSTRUCTION_MAP(SHL, shl),
 
-        INSTRUCTION_MAP(PUSH, push),
-        INSTRUCTION_MAP(POP, pop),
+	INSTRUCTION_MAP(PUSH, push),   INSTRUCTION_MAP(POP, pop),
 
-        INSTRUCTION_MAP(SAVE, save),
-        INSTRUCTION_MAP(LOAD, load),
+	INSTRUCTION_MAP(SAVE, save),   INSTRUCTION_MAP(LOAD, load),
 
-        INSTRUCTION_MAP(LOG, log),
+	INSTRUCTION_MAP(LOG, log),
 };
 
-#endif //VM_INSTRUCTIONS_H
+#endif // VM_INSTRUCTIONS_H

@@ -8,11 +8,13 @@
 #include "../util.h"
 #include "../vm.h"
 
-vm_instruction_result vm_instruction_halt(Vm *vm) {
+vm_instruction_result vm_instruction_halt(Vm *vm)
+{
+	VM_ASSERT(vm);
 
-    VM_ASSERT(vm);
+	VM_INSTRUCTION_SET_BY_INDEX(vm,
+				    --vm->instruction_index,
+				    VM_INSTRUCTION_GET(vm));
 
-    VM_INSTRUCTION_SET_BY_INDEX(vm, --vm->instruction_index, VM_INSTRUCTION_GET(vm));
-
-    return STATUS_CODE_SUCCESSFUL;
+	return STATUS_CODE_SUCCESSFUL;
 }

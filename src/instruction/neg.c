@@ -6,14 +6,14 @@
 #include "../statuscode.h"
 #include "../vm.h"
 
-vm_instruction_result vm_instruction_neg(Vm *vm) {
+vm_instruction_result vm_instruction_neg(Vm *vm)
+{
+	VM_ASSERT(vm);
+	VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
+	VM_ASSERT_REGISTER(vm->instructions[vm->instruction_index]);
 
-    VM_ASSERT(vm);
-    VM_ASSERT_INSTRUCTION_INDEX(vm, 1);
-    VM_ASSERT_REGISTER(vm->instructions[vm->instruction_index]);
+	vm->registers[vm->instructions[vm->instruction_index]] *= -1;
+	vm->instruction_index += 1;
 
-    vm->registers[vm->instructions[vm->instruction_index]] *= -1;
-    vm->instruction_index += 1;
-
-    return STATUS_CODE_SUCCESSFUL;
+	return STATUS_CODE_SUCCESSFUL;
 }
