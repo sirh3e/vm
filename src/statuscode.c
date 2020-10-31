@@ -5,7 +5,7 @@
 #include "statuscode.h"
 
 #include "assert.h"
-#include "defaults.h"
+#include "config.h"
 #include "stats.h"
 
 #include <stdio.h>
@@ -13,7 +13,7 @@
 vm_instruction_result status_code_handler_failed(Vm *vm,
 						 vm_instruction_result result)
 {
-	if (VM_DEFAULT_DEBUG)
+	if (VM_CONFIG_DEBUG_ENABLE)
 		vm_stats(vm);
 
 	return result;
@@ -24,7 +24,7 @@ status_code_handler_successful(Vm *vm, vm_instruction_result result)
 {
 	VM_ASSERT(vm);
 
-	if (VM_DEFAULT_DEBUG)
+	if (VM_CONFIG_DEBUG_ENABLE)
 		vm_stats(vm);
 
 	return result;

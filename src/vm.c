@@ -5,7 +5,7 @@
 #include "vm.h"
 
 #include "assert.h"
-#include "defaults.h"
+#include "config.h"
 #include "instructions.h"
 #include "statuscode.h"
 
@@ -35,14 +35,14 @@ u32 vm_init(Vm *vm)
 		vm->registers[i] = 0;
 	}
 
-	vm->stack_allocated = VM_DEFAULT_STACK_ALLOCATED_SIZE;
+	vm->stack_allocated = VM_CONFIG_STACK_ALLOCATED_SIZE;
 	vm->stack_index	    = 0;
 	vm->stack_length    = vm->stack_allocated;
 	vm->stack = (i32 *)malloc(sizeof(vm->stack) * vm->stack_allocated);
 	if (vm->stack == NULL)
 		exit(1); // ToDo find the right error message
 
-	vm->instruction_allocated = VM_DEFAULT_INSTRUCTIONS_ALLOCATED_SIZE;
+	vm->instruction_allocated = VM_CONFIG_INSTRUCTIONS_ALLOCATED_SIZE;
 	vm->instruction_index	  = 0;
 	vm->instruction_length	  = vm->instruction_allocated;
 	vm->instructions	  = (i32 *)malloc(sizeof(vm->instructions) *

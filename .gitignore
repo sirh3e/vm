@@ -1,12 +1,9 @@
-.idea/
-cmake-build-debug/
-CMakeFiles/
-
 *.o
-
-cmake_install.cmake
+.idea/
 CMakeCache.txt
-
-vm
+CMakeFiles/
+cmake-build-debug/
+cmake_install.cmake
 tests
+vm
 vm.cbp
