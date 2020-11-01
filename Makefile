@@ -54,7 +54,7 @@ show-info:
 	@echo Building Project
 
 .PHONY: configure
-configure: configure-config configure-format configure-version configure-prepare format
+configure: configure-config configure-format configure-version format
 
 .PHONY: configure-config
 configure-config:
