@@ -33,8 +33,8 @@
 #ifndef VM_VERSION_H
 #define VM_VERSION_H
 
-#define VM_VERSION_GIT_HASH	  "c6b3514f69b6b2ec9ddca39ee0c51befda388a78"
-#define VM_VERSION_GIT_HASH_SHORT "c6b3514"
+#define VM_VERSION_GIT_HASH	  "57f2deeac567e16e6e82c31d2eae22d2fd3c9963"
+#define VM_VERSION_GIT_HASH_SHORT "57f2dee"
 
 #define VM_VERSION_MAJOR	     0
 #define VM_VERSION_MINOR	     0

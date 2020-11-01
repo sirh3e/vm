@@ -33,6 +33,12 @@
 #ifndef VM_TYPES_H
 #define VM_TYPES_H
 
+typedef char char_t;
+typedef char_t i8;
+
+typedef unsigned char unsigned_char_t;
+typedef unsigned_char_t u8;
+
 typedef int int_t;
 typedef int_t i32;
 
