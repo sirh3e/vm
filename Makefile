@@ -26,7 +26,14 @@ $(TARGET): build-subdirs $(OBJS) find-all-objs
 	@$(CC) $(CFLAGS) $(ALL_OBJS) $(MAIN_SRC) -o $@
 
 .PHONY: check
-check: configure
+check: test
+
+.PHONY: test-run
+test-run: test
+	./tests
+
+.PHONY: test
+test: all
 	./$(TARGET)
 
 # phony targets
