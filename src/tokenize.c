@@ -34,7 +34,6 @@
 
 #include "assert.h"
 #include "config.h"
-#include "tokenstream.h"
 #include "types.h"
 
 #include <stdlib.h>
@@ -93,6 +92,31 @@
                                                                                \
 	index_start = current - start;                                         \
 	token	    = _token
+
+TokenStream *tokenstream_new(String *program_string_text,
+			     u32 token_items_allocate)
+{
+	TokenStream *tokenstream = (TokenStream *)malloc(sizeof(TokenStream));
+	tokenstream->token_items_allocated = token_items_allocate;
+	tokenstream->token_items_length	   = 0;
+	tokenstream->token_items_index	   = 0;
+	tokenstream->token_items	   = (TokenItem *)malloc(
+		  sizeof(TokenItem) * tokenstream->token_items_allocated);
+
+	tokenstream->program_string_text = program_string_text;
+
+	return tokenstream;
+}
+
+void tokenstream_free(TokenStream *tokenstream)
+{
+	if (tokenstream == NULL)
+		return;
+
+	free(tokenstream->token_items);
+	string_free(tokenstream->program_string_text);
+	free(tokenstream);
+}
 
 TokenStream *tokenize_program_code(String *program_string_text)
 {

@@ -34,8 +34,49 @@
 #define VM_TOKENIZE_H
 
 #include "string.h"
-#include "tokenstream.h"
+#include "types.h"
 
+enum Token
+{
+	TOKEN_INSTRUCTION,
+	TOKEN_INVALID,
+	TOKEN_NEWLINE,
+	TOKEN_WHITESPACE,
+	TOKEN_COMMA,
+	TOKEN_LABEL,
+	TOKEN_CONST,
+	TOKEN_REGISTER,
+	TOKEN_LENGTH
+};
+
+static const char *token_text[] = { [TOKEN_INSTRUCTION] = "instruction",
+				    [TOKEN_INVALID]	= "invalid",
+				    [TOKEN_NEWLINE]	= "newline",
+				    [TOKEN_WHITESPACE]	= "whitespace",
+				    [TOKEN_COMMA]	= "comma",
+				    [TOKEN_LABEL]	= "label",
+				    [TOKEN_CONST]	= "const",
+				    [TOKEN_REGISTER]	= "register" };
+
+typedef struct
+{
+	u32 index_start;
+	u32 index_end;
+	enum Token token;
+} TokenItem;
+
+typedef struct
+{
+	u32 token_items_allocated;
+	u32 token_items_length;
+	u32 token_items_index;
+
+	TokenItem *token_items;
+	String *program_string_text;
+} TokenStream;
+
+TokenStream *tokenstream_new(String *, u32);
+void tokenstream_free(TokenStream *);
 TokenStream *tokenize_program_code(String *);
 
 #endif //VM_TOKENIZE_H
