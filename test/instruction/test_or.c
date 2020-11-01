@@ -43,7 +43,7 @@ test_vm_result test_vm_instruction_or()
 	};
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	TEST_ASSERT(vm->registers[A] == 0);
 	TEST_ASSERT(vm->registers[B] == 0);
@@ -89,7 +89,7 @@ test_vm_result test_vm_instruction_or()
 	TEST_ASSERT(vm->registers[B] == 256);
 	TEST_ASSERT(vm->registers[C] == 511);
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

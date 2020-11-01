@@ -44,7 +44,7 @@ test_vm_result test_vm_instruction_sub()
 	};
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
 	TEST_ASSERT(vm->instruction_index == 3);
@@ -76,7 +76,7 @@ test_vm_result test_vm_instruction_sub()
 	TEST_ASSERT(vm->registers[B] == 826156);
 	TEST_ASSERT(vm->registers[C] == -675955);
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

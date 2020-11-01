@@ -92,7 +92,7 @@ test_vm_result test_vm_instruction_xor();
 #define TEST_INSTRUCTION_MAP(test_instruction_func)                            \
 	test_vm_instruction_##test_instruction_func
 
-static test_vm_result (*const tests[])() = {
+static test_vm_result (*const test_instructions[])() = {
 	TEST_INSTRUCTION_MAP(add),  TEST_INSTRUCTION_MAP(and),
 	TEST_INSTRUCTION_MAP(dec),  TEST_INSTRUCTION_MAP(div),
 	TEST_INSTRUCTION_MAP(halt), TEST_INSTRUCTION_MAP(inc),

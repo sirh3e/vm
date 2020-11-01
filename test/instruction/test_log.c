@@ -45,7 +45,7 @@ test_vm_result test_vm_instruction_log()
 	};
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	char buffer[2048];
 	char *text = "0\n";
@@ -73,7 +73,7 @@ test_vm_result test_vm_instruction_log()
 	TEST_ASSERT_MESSAGE(strcmp(text, buffer),
 			    "stdout should be equal to: '128\\n'");
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

@@ -41,7 +41,7 @@ test_vm_result test_vm_instruction_nop()
 			  INSTRUCTION_HALT };
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	TEST_ASSERT(vm->instruction_index == 0);
 
@@ -53,7 +53,7 @@ test_vm_result test_vm_instruction_nop()
 	TEST_INSTRUCTION_EXECUTE_NEXT(vm); // nop
 	TEST_ASSERT(vm->instruction_index == 3);
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

@@ -121,8 +121,8 @@ void tokenstream_free(TokenStream *tokenstream)
 TokenStream *tokenize_program_code(String *program_string_text)
 {
 
-	ASSERT(program_string_text == NULL);
-	ASSERT(program_string_text->length == 0);
+	ASSERT(program_string_text != NULL);
+	ASSERT(program_string_text->length != 0);
 
 	TokenStream *stream =
 		tokenstream_new(program_string_text,
@@ -223,9 +223,6 @@ TokenStream *tokenize_program_code(String *program_string_text)
 	{
 		goto *go[(u8)*current];
 label_loop:;
-		printf("[%04lld] token: character: '%c'\n",
-		       current - start,
-		       *current);
 	}
 
 	index_end = current - start - 1;

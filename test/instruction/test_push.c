@@ -40,7 +40,7 @@ test_vm_result test_vm_instruction_push()
 	};
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	TEST_ASSERT(vm->instruction_index == 0);
 	TEST_ASSERT(vm->stack_index == 0);
@@ -62,7 +62,7 @@ test_vm_result test_vm_instruction_push()
 	TEST_ASSERT(vm->stack_index == 3);
 	TEST_ASSERT(vm->stack[vm->stack_index - 1] == 3);
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

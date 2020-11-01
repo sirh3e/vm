@@ -37,6 +37,10 @@
 #include "../src/vm.h"
 #include "test_color.h"
 
+#define RESULTS_ADD_RESULT(test_results, test_result)                          \
+	test_results.failed += test_result.failed;                             \
+	test_results.passed += test_result.passed
+
 #define TEST_RESULTS_INIT(test_result)                                         \
 	test_result = {                                                        \
 		.failed = 0,                                                   \
@@ -50,7 +54,9 @@
 
 #define TEST_BEGIN() printf("[ BEGIN  ] %s\n", __func__)
 
-#define TEST_END(vm, test_results)                                             \
+#define TEST_VM_BEGIN() TEST_BEGIN()
+
+#define TEST_END(test_results)                                                 \
 	printf("[ END    ] %s tests: %s%u%s passed: %s%u%s failed: %s%u%s\n",  \
 	       __func__,                                                       \
 	       test_results.failed ? VM_TEST_COLOR_RED : VM_TEST_COLOR_GREEN,  \
@@ -61,7 +67,10 @@
 	       VM_TEST_COLOR_REST,                                             \
 	       test_results.failed ? VM_TEST_COLOR_RED : VM_TEST_COLOR_GREEN,  \
 	       test_results.failed,                                            \
-	       VM_TEST_COLOR_REST);                                            \
+	       VM_TEST_COLOR_REST)
+
+#define TEST_VM_END(vm, test_results)                                          \
+	TEST_END(test_results);                                                \
 	vm_free(vm)
 
 #define TEST_INSTRUCTION_EXECUTE_NEXT(vm)                                      \

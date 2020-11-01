@@ -33,6 +33,7 @@
 #include "string.h"
 
 #include "assert.h"
+#include "config.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -47,15 +48,24 @@ String *string_new()
 		exit(1);
 	}
 
+	string->allocated = 0;
+	string->length	  = 0;
+
 	return string;
 }
 
-u32 string_init(String *string, char *data)
+u32 string_init(String *string, char *data) //ToDo to char* to const
 {
-	ASSERT(string == NULL);
+	ASSERT(string != NULL);
 
-	string->data   = data;
-	string->length = strlen(data);
+	u32 string_length = strlen(data) + 1;
+
+	//ToDo check if string_length is larger then 8192
+	string->data =
+		(char *)malloc(sizeof(char) * VM_CONFIG_STRING_ALLOCATED_SIZE);
+	string->length = string_length;
+
+	memcpy(string->data, data, string_length);
 	//ToDo
 
 	return 0; //ToDo refactor
@@ -63,6 +73,9 @@ u32 string_init(String *string, char *data)
 
 void string_free(String *string)
 {
-	free(string->data);
+	if (string == NULL)
+		return;
+
+	//free(string->data); //ToDo check if this is nessary
 	free(string);
 }

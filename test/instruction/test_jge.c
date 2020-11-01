@@ -42,12 +42,10 @@ test_vm_result test_vm_instruction_jge()
 	test_vm_result TEST_RESULTS_INIT(test_results);
 
 	test_result = test_vm_instruction_jge_equals();
-	test_results.passed += test_result.passed;
-	test_results.failed += test_result.failed;
+	RESULTS_ADD_RESULT(test_results, test_result);
 
 	test_result = test_vm_instruction_jge_greater();
-	test_results.passed += test_result.passed;
-	test_results.failed += test_result.failed;
+	RESULTS_ADD_RESULT(test_results, test_result);
 
 	return test_results;
 }
@@ -80,7 +78,7 @@ test_vm_result test_vm_instruction_jge_equals()
 			  INSTRUCTION_NOP };
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	for (int i = 0; i < 5; ++i)
 	{
@@ -107,7 +105,7 @@ test_vm_result test_vm_instruction_jge_equals()
 		TEST_INSTRUCTION_EXECUTE_NEXT(vm); // je C = 2, D = 2 true
 	}
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }
@@ -140,7 +138,7 @@ test_vm_result test_vm_instruction_jge_greater()
 			  INSTRUCTION_NOP };
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	for (int i = 0; i < 5; ++i)
 	{
@@ -167,7 +165,7 @@ test_vm_result test_vm_instruction_jge_greater()
 		TEST_INSTRUCTION_EXECUTE_NEXT(vm); // je C = 5, D = 2 true
 	}
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

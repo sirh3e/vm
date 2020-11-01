@@ -40,14 +40,12 @@ int main()
 	test_vm_result TEST_RESULTS_INIT(test_results);
 
 	u32 instruction_length = ARRAY_LENGTH(instructions);
-	u32 tests_length       = ARRAY_LENGTH(tests);
+	u32 tests_length       = ARRAY_LENGTH(test_instructions);
 
 	for (u32 i = 0; i < tests_length; i++)
 	{
-		test_result = tests[i]();
-
-		test_results.failed += test_result.failed;
-		test_results.passed += test_result.passed;
+		test_result = test_instructions[i]();
+		RESULTS_ADD_RESULT(test_results, test_result);
 	}
 
 	TEST_BEGIN();
@@ -57,7 +55,13 @@ int main()
 	TEST_ASSERT_MESSAGE(tests_length == INSTRUCTION_LENGTH,
 			    "checks if all instructions got a test function");
 
-	TEST_END(NULL, test_results);
+	test_result = test_string();
+	RESULTS_ADD_RESULT(test_results, test_result);
+
+	test_result = test_tokenstream();
+	RESULTS_ADD_RESULT(test_results, test_result);
+
+	TEST_END(test_results);
 
 	return test_results.failed;
 }

@@ -41,7 +41,7 @@ test_vm_result test_vm_instruction_jmp()
 			  0 };
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	for (int i = 0; i < 2; ++i)
 	{
@@ -54,7 +54,7 @@ test_vm_result test_vm_instruction_jmp()
 		TEST_ASSERT(vm->instructions[vm->instruction_index] == 2);
 	}
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

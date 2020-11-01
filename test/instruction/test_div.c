@@ -43,7 +43,7 @@ test_vm_result test_vm_instruction_div()
 	};
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	TEST_INSTRUCTION_EXECUTE_NEXT(vm);
 	TEST_ASSERT(vm->registers[A] == 2);
@@ -70,7 +70,7 @@ test_vm_result test_vm_instruction_div()
 	TEST_ASSERT(vm->registers[B] == 3);
 	TEST_ASSERT(vm->registers[C] == 5);
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

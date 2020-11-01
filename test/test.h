@@ -36,12 +36,17 @@
 // ToDo refactor TEST_ASSERT
 // ToDo write error message to stderr
 
+#include "../src/config.h"
 #include "../src/instructions.h"
 #include "../src/registers.h"
+#include "../src/tokenize.h"
 #include "../src/vm.h"
 #include "test_assert.h"
 #include "test_instructions.h"
 #include "test_types.h"
 #include "test_util.h"
+
+test_vm_result test_string();
+test_vm_result test_tokenstream();
 
 #endif // VM_TEST_H

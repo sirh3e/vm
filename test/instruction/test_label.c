@@ -38,7 +38,7 @@ test_vm_result test_vm_instruction_label()
 	i32 program[] = { INSTRUCTION_LABEL, INSTRUCTION_JMP, 0 };
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	for (int i = 0; i < 5; ++i)
 	{
@@ -50,7 +50,7 @@ test_vm_result test_vm_instruction_label()
 		TEST_INSTRUCTION_EXECUTE_NEXT(vm); // jmp, 0
 	}
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }

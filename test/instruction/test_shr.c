@@ -78,7 +78,7 @@ test_vm_result test_vm_instruction_shr()
 	};
 
 	VM_INIT(program);
-	TEST_BEGIN();
+	TEST_VM_BEGIN();
 
 	TEST_ASSERT(vm->instruction_index == 0);
 	TEST_ASSERT(vm->stack_index == 0);
@@ -113,7 +113,7 @@ test_vm_result test_vm_instruction_shr()
 	TEST_ASSERT(vm->instruction_index == 35);
 	TEST_ASSERT(vm->registers[C] == 2);
 
-	TEST_END(vm, test_results);
+	TEST_VM_END(vm, test_results);
 
 	return test_results;
 }
