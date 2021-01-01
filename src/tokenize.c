@@ -43,9 +43,12 @@
 #pragma GCC diagnostic ignored "-Winitializer-overrides"
 #pragma GCC diagnostic ignored "-Woverride-init"
 
+#define STRING_DATA_ALLOCATED 4096
+
 #define TOKEN_STREAM_TOKEN_ITEM_GET_NEXT(stream, token_item)                   \
-	token_item = stream->token_items + stream->token_items_index++;        \
-	++stream->token_items_length
+	token_item = tokenstream_get_token(stream);                            \
+	stream->token_items_index++;                                           \
+	stream->token_items_length++;
 
 #define TOKEN_STREAM_TOKEN_ITEM_PUSH(token_item)                               \
 	token_item->index_start = index_start;                                 \
@@ -116,24 +119,12 @@ void tokenstream_free(TokenStream *tokenstream)
 	free(tokenstream->token_items);
 	string_free(tokenstream->program_string_text);
 	free(tokenstream);
+	tokenstream = NULL;
 }
 
 TokenStream *tokenize_program_code(String *program_string_text)
 {
-
-	ASSERT(program_string_text != NULL);
-	ASSERT(program_string_text->length != 0);
-
-	TokenStream *stream =
-		tokenstream_new(program_string_text,
-				VM_CONFIG_TOKENSTREAM_ALLOCATED_SIZE);
-	if (stream == NULL)
-	{
-		//ToDo
-		exit(1);
-	}
-
-	enum Token token;
+	enum Token token = TOKEN_INSTRUCTION;
 	TokenItem *token_item;
 
 	static void *state_instruction[] = {
@@ -214,6 +205,18 @@ TokenStream *tokenize_program_code(String *program_string_text)
 
 	void **go = state_instruction;
 
+	TokenStream *stream =
+		tokenstream_new(program_string_text, TOKEN_ITEMS_ALLOCATED);
+	if (stream == NULL)
+	{
+		exit(1);
+	}
+
+	if (stream->token_items == NULL)
+	{
+		exit(1);
+	}
+
 	u32 index_start = 0, index_end = 0;
 	char *current, *start, *end;
 	for (current = start = program_string_text->data,
@@ -229,6 +232,7 @@ label_loop:;
 	TOKEN_STREAM_TOKEN_ITEM_GET_NEXT(stream, token_item);
 	TOKEN_STREAM_TOKEN_ITEM_PUSH(token_item);
 
+	stream->token_items_index = 0; //ToDo remove this attribute
 	return stream;
 
 label_const:
@@ -261,7 +265,7 @@ label_whitespace:
 
 label_colon:
 
-	LABEL_STATEMENT(stream, token_item, TOKEN_LABEL);
+	token = TOKEN_LABEL;
 
 	go = state_label;
 	goto label_loop;

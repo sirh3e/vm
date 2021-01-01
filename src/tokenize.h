@@ -36,6 +36,10 @@
 #include "string.h"
 #include "types.h"
 
+#include <stdlib.h>
+
+#define TOKEN_ITEMS_ALLOCATED 4096
+
 enum Token
 {
 	TOKEN_INSTRUCTION,
@@ -69,11 +73,29 @@ typedef struct
 {
 	u32 token_items_allocated;
 	u32 token_items_length;
-	u32 token_items_index;
+	u32 token_items_index; //ToDo remove this create a iter
 
 	TokenItem *token_items;
 	String *program_string_text;
 } TokenStream;
+
+static inline TokenItem *tokenstream_get_token_by_index(TokenStream *stream,
+							u32 index)
+{
+	if (stream == NULL)
+		exit(1); //ToDo handle it better
+
+	//ToDo apply checks for index
+	return &stream->token_items[index];
+}
+
+static inline TokenItem *tokenstream_get_token(TokenStream *stream)
+{
+	if (stream == NULL)
+		exit(1); //ToDo handle it better
+	return tokenstream_get_token_by_index(stream,
+					      stream->token_items_index);
+}
 
 TokenStream *tokenstream_new(String *, u32);
 void tokenstream_free(TokenStream *);
